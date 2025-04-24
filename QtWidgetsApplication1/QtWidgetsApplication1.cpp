@@ -6,5 +6,7 @@ QtWidgetsApplication1::QtWidgetsApplication1(QWidget *parent)
     ui.setupUi(this);
 }
 
+
+
 QtWidgetsApplication1::~QtWidgetsApplication1()
 {}
