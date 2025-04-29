@@ -13,4 +13,9 @@ public:
 
 private:
     Ui::QtWidgetsApplication1Class ui;
+
+
+private slots:
+    void on_registerButton_clicked();
+
 };

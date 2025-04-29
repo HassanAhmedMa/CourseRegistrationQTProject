@@ -1,4 +1,8 @@
 <RCC>
-    <qresource prefix="QtWidgetsApplication1">
+    <qresource prefix="/QtWidgetsApplication1">
+        <file>myImages/LoginBackGround.jpg</file>
+        <file>myImages/loginBox.png</file>
+        <file>myImages/passwordpng.png</file>
+        <file>myImages/username.png</file>
     </qresource>
 </RCC>

@@ -1,6 +1,6 @@
 #include "QtWidgetsApplication1.h"
 #include <QtWidgets/QApplication>
-
+#include <RegisterPage.h>
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
