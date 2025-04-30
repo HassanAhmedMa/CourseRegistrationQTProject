@@ -46,6 +46,9 @@
     <ClCompile Include="StudentMainMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CourseRegisterStudentPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="RegisterPage.h">
@@ -54,12 +57,18 @@
     <QtMoc Include="StudentMainMenu.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="CourseRegisterStudentPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="RegisterPage.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="StudentMainMenu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="CourseRegisterStudentPage.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

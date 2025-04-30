@@ -92,9 +92,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CourseRegisterStudentPage.cpp" />
     <ClCompile Include="RegisterPage.cpp" />
     <ClCompile Include="StudentMainMenu.cpp" />
     <QtRcc Include="QtWidgetsApplication1.qrc" />
+    <QtUic Include="CourseRegisterStudentPage.ui" />
     <QtUic Include="QtWidgetsApplication1.ui" />
     <QtMoc Include="QtWidgetsApplication1.h" />
     <ClCompile Include="QtWidgetsApplication1.cpp" />
@@ -107,6 +109,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="StudentMainMenu.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="CourseRegisterStudentPage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
