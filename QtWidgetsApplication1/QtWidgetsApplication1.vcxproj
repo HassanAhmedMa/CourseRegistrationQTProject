@@ -36,12 +36,12 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>6.9.0_msvc2022_64</QtInstall>
+    <QtInstall>6.7.3_msvc2022_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
-    <QtInstall>6.9.0_msvc2022_64</QtInstall>
+    <QtInstall>6.7.3_msvc2022_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
@@ -92,12 +92,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdminMenu.cpp" />
+    <ClCompile Include="AdminProfileInfoPage.cpp" />
     <ClCompile Include="CourseRegisterStudentPage.cpp" />
     <ClCompile Include="RegisterPage.cpp" />
     <ClCompile Include="reportStudent.cpp" />
+    <ClCompile Include="setPrerequisitesPage.cpp" />
     <ClCompile Include="StudentMainMenu.cpp" />
+    <ClCompile Include="UploadEditStudentGradesPage.cpp" />
     <ClCompile Include="viewGradesStudent.cpp" />
+    <ClCompile Include="ViewStudentGradeAdminPage.cpp" />
     <QtRcc Include="QtWidgetsApplication1.qrc" />
+    <QtUic Include="AdminMenu.ui" />
+    <QtUic Include="AdminProfileInfoPage.ui" />
     <QtUic Include="CourseRegisterStudentPage.ui" />
     <QtUic Include="QtWidgetsApplication1.ui" />
     <QtMoc Include="QtWidgetsApplication1.h" />
@@ -105,8 +112,11 @@
     <ClCompile Include="main.cpp" />
     <QtUic Include="RegisterPage.ui" />
     <QtUic Include="reportStudent.ui" />
+    <QtUic Include="setPrerequisitesPage.ui" />
     <QtUic Include="StudentMainMenu.ui" />
+    <QtUic Include="UploadEditStudentGradesPage.ui" />
     <QtUic Include="viewGradesStudent.ui" />
+    <QtUic Include="ViewStudentGradeAdminPage.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="RegisterPage.h" />
@@ -122,6 +132,21 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="viewGradesStudent.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="AdminMenu.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="AdminProfileInfoPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="UploadEditStudentGradesPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="setPrerequisitesPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="ViewStudentGradeAdminPage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
