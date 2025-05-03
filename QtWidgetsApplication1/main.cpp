@@ -8,12 +8,12 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QtWidgetsApplication1 w;
-    StudentMainMenu M;
-    AdminMenu m;
-    m.show();
     
-    M.show();
+    AdminMenu m;
+    StudentMainMenu n;
+    n.show();
+    
+    m.show();
    
     return a.exec();
 

@@ -36,7 +36,7 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>6.7.3_msvc2022_64</QtInstall>
+    <QtInstall>6.9.0_msvc2022_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
@@ -92,9 +92,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Admin.cpp" />
     <ClCompile Include="AdminMenu.cpp" />
     <ClCompile Include="AdminProfileInfoPage.cpp" />
+    <ClCompile Include="course.cpp" />
     <ClCompile Include="CourseRegisterStudentPage.cpp" />
+    <ClCompile Include="person.cpp" />
     <ClCompile Include="RegisterPage.cpp" />
     <ClCompile Include="reportStudent.cpp" />
     <ClCompile Include="setPrerequisitesPage.cpp" />
@@ -147,6 +150,11 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ViewStudentGradeAdminPage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Admin.h" />
+    <ClInclude Include="course.h" />
+    <ClInclude Include="person.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
