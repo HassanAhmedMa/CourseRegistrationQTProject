@@ -2,15 +2,15 @@
 #include<iostream>
 #include <unordered_map>
 using namespace std;
-//course::course() {
-//    courseTitle = "";
-//    courseID = "";
-//    syllabus = "";
-//    creditHours = 0;
-//    instructorName = "";
-//    unordered_map<string, course> courseCatalog;
-//
-//}
+course::course() {
+    courseTitle = "";
+    courseID = "";
+    syllabus = "";
+    creditHours = 0;
+    instructorName = "";
+    //unordered_map<string, course> courseCatalog;
+
+}
 
 course::course(string title, string id, string syllabus, int CH, string instructorName, course* pre)
 {
@@ -26,7 +26,7 @@ course::course(string title, string id, string syllabus, int CH, string instruct
 
 void course::setCourseTitle(const string& t) {
     courseTitle = t;
-   
+
 }
 
 void course::setCourseID(const string& id) {
@@ -72,14 +72,11 @@ string course::getInstructorName() const {
     return instructorName;
 }
 
-course course::getPrerequisite() const
+course* course::getPrerequisite() const
 {
-    course temp = (*this->preRequisite);
+    course* temp = this->preRequisite;
     return temp;
 }
-
-
-
 
 
 

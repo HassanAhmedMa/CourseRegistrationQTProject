@@ -92,15 +92,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Users\mahmo\Downloads\Person.cpp" />
     <ClCompile Include="Admin.cpp" />
     <ClCompile Include="AdminMenu.cpp" />
     <ClCompile Include="AdminProfileInfoPage.cpp" />
     <ClCompile Include="course.cpp" />
     <ClCompile Include="CourseRegisterStudentPage.cpp" />
-    <ClCompile Include="person.cpp" />
+    <ClCompile Include="Grade.cpp" />
     <ClCompile Include="RegisterPage.cpp" />
     <ClCompile Include="reportStudent.cpp" />
     <ClCompile Include="setPrerequisitesPage.cpp" />
+    <ClCompile Include="Student.cpp" />
     <ClCompile Include="StudentMainMenu.cpp" />
     <ClCompile Include="UploadEditStudentGradesPage.cpp" />
     <ClCompile Include="viewGradesStudent.cpp" />
@@ -152,9 +154,11 @@
     <QtMoc Include="ViewStudentGradeAdminPage.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Users\mahmo\Downloads\Person.h" />
     <ClInclude Include="Admin.h" />
     <ClInclude Include="course.h" />
-    <ClInclude Include="person.h" />
+    <ClInclude Include="Grade.h" />
+    <ClInclude Include="Student.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

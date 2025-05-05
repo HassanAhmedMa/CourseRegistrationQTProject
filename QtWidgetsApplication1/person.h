@@ -13,14 +13,7 @@ private:
 
 
 public:
-
-    Person(int id, string name, string username, string password) {
-        this->name = name;
-        this->id = id;
-        this->username = username;
-        this->password = password;
-
-    }
+    Person();
     void setName(string& n);
     void setId(int i);
     void setUsername(string& u);
@@ -38,4 +31,3 @@ public:
 };
 
 #endif
-

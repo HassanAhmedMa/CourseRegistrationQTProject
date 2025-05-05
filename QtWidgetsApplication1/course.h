@@ -6,7 +6,7 @@ using namespace std;
 #include <string>
 #include <vector>
 
-class course{
+class course {
 private:
     string courseTitle;
     string courseID;
@@ -23,14 +23,14 @@ public:
     void setSyllabus(const string& s);
     void setCreditHours(int ch);
     void setInstructorName(const string& name);
-    
+
     void setPreRequisite(course* preReq);
     string getCourseTitle() const;
     string getCourseID() const;
     string getSyllabus() const;
     int getCreditHours() const;
     string getInstructorName() const;
-    course getPrerequisite() const;
+    course* getPrerequisite() const;
 };
 
 #endif

@@ -73,10 +73,16 @@
     <ClCompile Include="Admin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="person.cpp">
+    <ClCompile Include="course.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="course.cpp">
+    <ClCompile Include="Student.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Users\mahmo\Downloads\Person.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -148,10 +154,16 @@
     <ClInclude Include="Admin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="person.h">
+    <ClInclude Include="course.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="course.h">
+    <ClInclude Include="Student.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Users\mahmo\Downloads\Person.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Grade.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

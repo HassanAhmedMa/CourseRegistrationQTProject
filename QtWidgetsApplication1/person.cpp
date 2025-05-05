@@ -1,9 +1,9 @@
-#include "person.h"
-
+#include "Person.h"
 #include <iostream>
 
 
-
+Person::Person() {
+}
 
 
 void Person::setName(string& n) {
