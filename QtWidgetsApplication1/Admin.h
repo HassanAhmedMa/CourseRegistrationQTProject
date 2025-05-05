@@ -8,13 +8,14 @@ using namespace std;
 class Admin : public Person
 {
 private:
-    // second is student obj
+    
     map<int, int> Studs;
-    map<string, course> allCourses; // first is courseID (string), second is course obj
+    map<string, course> allCourses; 
 
 public:
-    // Function to set prerequisites for a course
-    void setPreRequisites(map<string, course>& allCourses, string selectedCourse, string preRequisite);
+    
+    void setPreRequisites(map<string, course>& allCourses, string selectedCourseID, string preRequisiteCourseID);
+    void uploadCourse(map<string, course>& allCourses, string courseID, string courseTitle, string syllabus, int creditHours, string instructorName);
 };
 
 
