@@ -7,11 +7,11 @@ Person::Person() {
 
 
 void Person::setName(string& n) {
-    name == n;
+    name = n;
 }
 
 void Person::setId(int id) {
-    id = id;
+    this->id = id;
 }
 
 void Person::setUsername(string& u) {

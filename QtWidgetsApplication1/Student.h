@@ -12,7 +12,7 @@ private:
 	vector<string> MyCourses; // still registerd courses
 	vector<string> CompletedCourses;
 	unordered_map<string, Grade> grade; // admin al mafrod hay4of al registered courses bta3ty w ydyha grades
-
+	float overallGpa;
 
 public:
 	//   ||--FUNCTIONS--||
@@ -35,7 +35,8 @@ public:
 	void CourseRegisteration(string searchedCourse, unordered_map<string, course> AllCourses, vector<string> CompletedCourses); //will call SearchForAvaibleCourses() then will call  CheckPrerequisties()
 	void ViewGrades(string courseID); //only for completed courses {the user should enter the name of the course }
 	bool CheckPrerequisties(string searchedCourse, vector<string> CompletedCourses, unordered_map<string, course> AllCourses);// will take the name of the course and the list of completed courses and check if the prerequisite is completed or not
-	//void MakeReport(); // generate priantable report
+	float getOverallGPA();
+	void MakeReport(); // generate priantable report
 	//~Student();
 };
 

@@ -77,9 +77,3 @@ course* course::getPrerequisite() const
     course* temp = this->preRequisite;
     return temp;
 }
-
-
-
-    
-
-

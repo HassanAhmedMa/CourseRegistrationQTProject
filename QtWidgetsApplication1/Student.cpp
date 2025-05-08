@@ -144,5 +144,31 @@ void Student::ViewGrades(string courseID)
 }
 
 
+void Student::MakeReport()
+{
+	cout << "\n\n\n||------------------Student Report------------------||\n";
+	cout << "Student Name: " << this->getName() << endl;
+	cout << "Student ID: " << this->getId() << endl;
+	cout << "completed courses: " << endl;
+	for (string courseID : CompletedCourses) {
+		ViewGrades(courseID);
+	}
+	cout << "Overall GPA: " << getOverallGPA() << endl;
+
+}
+
+float Student::getOverallGPA()
+{
+	overallGpa = 0;
+
+	auto it = grade.begin();
+	for (it;it != grade.end();it++) {
+		overallGpa += it->second.getGradeValue();
+	}
+	overallGpa /= grade.size();
+	return overallGpa;
+}
+
+
 
 

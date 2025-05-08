@@ -5,8 +5,12 @@
 #include "CourseRegisterStudentPage.h" 
 #include "reportStudent.h"
 #include "AdminMenu.h"
+#include "course.h"
 int main(int argc, char *argv[])
 {
+    
+    
+
     QApplication a(argc, argv);
     
     AdminMenu m;
