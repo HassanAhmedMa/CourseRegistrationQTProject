@@ -35,9 +35,10 @@ vector<string> Student::getCoursesCompleted()
 }
 
 
-
-
-
+void Student::setCurrentCourses(vector<string>& c)
+{
+	MyCourses = c;
+}
 
 bool Student::CourseIsAvaliable(string searchedCourse, unordered_map<string, course> AllCourses)
 {

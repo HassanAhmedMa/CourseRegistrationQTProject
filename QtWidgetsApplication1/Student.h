@@ -29,7 +29,7 @@ public:
 
 	void getGrade(string courseID);
 
-
+	void setCurrentCourses(vector<string>& c);
 	static bool CourseIsAvaliable(string searchedCourse, unordered_map<string, course> AllCourses);
 	void SearchForAvaibleCourses(); //we need to use search tree
 	void CourseRegisteration(string searchedCourse, unordered_map<string, course> AllCourses, vector<string> CompletedCourses); //will call SearchForAvaibleCourses() then will call  CheckPrerequisties()
