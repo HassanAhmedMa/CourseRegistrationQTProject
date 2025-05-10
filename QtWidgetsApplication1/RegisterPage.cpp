@@ -19,7 +19,7 @@ RegisterPage::~RegisterPage()
 
 void RegisterPage::on_ActiveUserButton_clicked() 
 {
-    this->hide();  // Only hide
+    this->hide();  
 
     QtWidgetsApplication1* loginWindow = dynamic_cast<QtWidgetsApplication1*>(parentWidget());
     if (loginWindow) {
