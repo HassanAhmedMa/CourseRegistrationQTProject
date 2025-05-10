@@ -1,3 +1,33 @@
+//#pragma once
+//
+//#include <QMainWindow>
+//#include "ui_CourseRegisterStudentPage.h"
+//#include "course.h"
+//#include <vector>
+//#include "Student.h"
+//class CourseRegisterStudentPage : public QMainWindow
+//{
+//	Q_OBJECT
+//
+//public:
+//	CourseRegisterStudentPage(QWidget* parent = nullptr);
+//	~CourseRegisterStudentPage();
+//	vector<course> allCourses;
+//	Student* student;
+//
+//private:
+//	Ui::CourseRegisterStudentPageClass ui;
+//
+//private slots:
+//	void displayCourseName();
+//	void updateTotalCreditHours();
+//	void checkMaxCreditLimit(int total);
+//	void registerSelectedCourses();
+//
+//	
+//
+//
+//};
 #pragma once
 
 #include <QMainWindow>
@@ -5,6 +35,7 @@
 #include "course.h"
 #include <vector>
 #include "Student.h"
+
 class CourseRegisterStudentPage : public QMainWindow
 {
 	Q_OBJECT
@@ -12,7 +43,8 @@ class CourseRegisterStudentPage : public QMainWindow
 public:
 	CourseRegisterStudentPage(QWidget* parent = nullptr);
 	~CourseRegisterStudentPage();
-	vector<course> allCourses;
+
+	std::vector<course*> allCourses;
 	Student* student;
 
 private:
@@ -23,8 +55,5 @@ private slots:
 	void updateTotalCreditHours();
 	void checkMaxCreditLimit(int total);
 	void registerSelectedCourses();
-
-	// void checkCoursePrerequisites();
-
-
 };
+
