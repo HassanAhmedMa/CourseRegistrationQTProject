@@ -17,5 +17,6 @@ private:
 
 private slots:
     void on_registerButton_clicked();
+    void on_LoginButton_clicked();
 
 };

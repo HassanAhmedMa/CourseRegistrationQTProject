@@ -92,7 +92,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Users\mahmo\Downloads\Person.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Person.cpp" />
     <ClCompile Include="Admin.cpp" />
     <ClCompile Include="AdminMenu.cpp" />
     <ClCompile Include="AdminProfileInfoPage.cpp" />
@@ -154,7 +154,7 @@
     <QtMoc Include="ViewStudentGradeAdminPage.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Users\mahmo\Downloads\Person.h" />
+    <ClInclude Include="..\..\..\..\Downloads\Person.h" />
     <ClInclude Include="Admin.h" />
     <ClInclude Include="course.h" />
     <ClInclude Include="Grade.h" />

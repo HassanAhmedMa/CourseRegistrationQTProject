@@ -15,5 +15,6 @@ private:
 	Ui::RegisterPageClass ui;
 
 private slots:
-	void on_pushButton_clicked();
+	void on_ActiveUserButton_clicked();
+	void RegisterUser_Add();
 };

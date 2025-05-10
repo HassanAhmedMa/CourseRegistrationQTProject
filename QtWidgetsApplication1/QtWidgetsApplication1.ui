@@ -66,7 +66,7 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="LoginButton">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -79,7 +79,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="RegisterButton">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -113,7 +113,7 @@
       <number>12</number>
      </property>
      <item>
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="UserNamelogin">
        <property name="text">
         <string/>
        </property>
@@ -123,7 +123,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit_2">
+      <widget class="QLineEdit" name="PasswordLogin">
        <property name="text">
         <string/>
        </property>
@@ -137,10 +137,10 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>406</x>
-      <y>253</y>
-      <width>24</width>
-      <height>76</height>
+      <x>380</x>
+      <y>250</y>
+      <width>41</width>
+      <height>81</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
@@ -150,19 +150,6 @@
      <property name="verticalSpacing">
       <number>20</number>
      </property>
-     <item row="0" column="1">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap resource="QtWidgetsApplication1.qrc">:/QtWidgetsApplication1/myImages/username.png</pixmap>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="1">
       <widget class="QLabel" name="label_4">
        <property name="text">
@@ -170,6 +157,19 @@
        </property>
        <property name="pixmap">
         <pixmap resource="QtWidgetsApplication1.qrc">:/QtWidgetsApplication1/myImages/passwordpng.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="QtWidgetsApplication1.qrc">:/QtWidgetsApplication1/myImages/username.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>

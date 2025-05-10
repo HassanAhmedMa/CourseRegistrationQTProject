@@ -31,7 +31,7 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="NewUserButton">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -44,7 +44,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="ActiveUserButton">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -80,7 +80,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QLineEdit" name="lineEdit">
+        <widget class="QLineEdit" name="FirstNameBox">
          <property name="text">
           <string/>
          </property>
@@ -90,7 +90,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_6">
+        <widget class="QLineEdit" name="LastNameBox">
          <property name="text">
           <string/>
          </property>
@@ -104,7 +104,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QLineEdit" name="lineEdit_4">
+        <widget class="QLineEdit" name="UserNameBox">
          <property name="text">
           <string/>
          </property>
@@ -130,17 +130,17 @@
       </layout>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit_5">
+      <widget class="QLineEdit" name="IDBox">
        <property name="text">
         <string/>
        </property>
        <property name="placeholderText">
-        <string>Email</string>
+        <string>ID</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit_2">
+      <widget class="QLineEdit" name="PasswordBox">
        <property name="text">
         <string/>
        </property>
@@ -150,22 +150,12 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit_3">
+      <widget class="QLineEdit" name="ConfirmPassBox">
        <property name="text">
         <string/>
        </property>
        <property name="placeholderText">
         <string>Confirm Password</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit_7">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="placeholderText">
-        <string>Phone number</string>
        </property>
       </widget>
      </item>
