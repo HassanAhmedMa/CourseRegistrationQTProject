@@ -92,13 +92,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Downloads\Person.cpp" />
     <ClCompile Include="Admin.cpp" />
     <ClCompile Include="AdminMenu.cpp" />
     <ClCompile Include="AdminProfileInfoPage.cpp" />
     <ClCompile Include="course.cpp" />
     <ClCompile Include="CourseRegisterStudentPage.cpp" />
     <ClCompile Include="Grade.cpp" />
+    <ClCompile Include="Person.cpp" />
     <ClCompile Include="RegisterPage.cpp" />
     <ClCompile Include="reportStudent.cpp" />
     <ClCompile Include="setPrerequisitesPage.cpp" />
@@ -154,10 +154,10 @@
     <QtMoc Include="ViewStudentGradeAdminPage.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Downloads\Person.h" />
     <ClInclude Include="Admin.h" />
     <ClInclude Include="course.h" />
     <ClInclude Include="Grade.h" />
+    <ClInclude Include="Person.h" />
     <ClInclude Include="Student.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -82,6 +82,7 @@
     <ClCompile Include="Grade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Person.cpp">
     <ClCompile Include="..\..\..\..\Downloads\Person.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -163,6 +164,7 @@
     <ClInclude Include="Grade.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Person.h">
     <ClInclude Include="..\..\..\..\Downloads\Person.h">
       <Filter>Header Files</Filter>
     </ClInclude>

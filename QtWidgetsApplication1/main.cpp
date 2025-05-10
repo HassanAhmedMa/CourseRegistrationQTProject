@@ -18,6 +18,12 @@ int main(int argc, char *argv[])
     q.show();
   // n.show();
     
+    AdminMenu m;
+    StudentMainMenu n;
+    n.show();
+    CourseRegisterStudentPage p;
+    p.show();
+    m.show();
     //m.show();
    
     return a.exec();
