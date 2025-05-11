@@ -16,7 +16,7 @@ private:
 
 public:
 	//   ||--FUNCTIONS--||
-//	Student();
+	Student();
 	Student(string username, string password, string name, int id);
 
 	void addCourse(string courseName); // setter for the list of courses of the student

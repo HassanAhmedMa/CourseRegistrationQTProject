@@ -279,6 +279,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <height>720</height>
       </size>
      </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
      <property name="frameShape">
       <enum>QFrame::Shape::StyledPanel</enum>
      </property>
@@ -998,18 +1001,38 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <rect>
         <x>33</x>
         <y>224</y>
-        <width>173</width>
+        <width>151</width>
         <height>23</height>
        </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
+    border: 2px solid #555;
+    border-radius: 5px;
+    background-color: #eee;
+    text-align: center;
+	color:black;
+}
+
+QProgressBar::chunk {
+    background-color: #008000;
+    border-radius: 5px;
+}</string>
       </property>
       <property name="maximum">
        <number>21</number>
       </property>
       <property name="value">
-       <number>0</number>
+       <number>10</number>
       </property>
       <property name="textVisible">
        <bool>true</bool>
+      </property>
+      <property name="invertedAppearance">
+       <bool>false</bool>
       </property>
       <property name="format">
        <string> %v Credit Hours</string>

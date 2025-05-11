@@ -198,7 +198,8 @@ CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 	course* cs301 = new course("CS 301", "CS301", "Advanced Programming", 3, "Dr. Lee", phy201);
 
 	student = new Student("user1", "pass", "Ali", 1);
-	student->addCourseCompleted("MATH101");
+
+	student->addCourseCompleted("PHY201");
 	
 	comboBoxes.push_back(ui.AvailableCourses1);
 	comboBoxes.push_back(ui.AvailableCourses2);
@@ -311,14 +312,10 @@ void CourseRegisterStudentPage::registerSelectedCourses() {
 		QMessageBox::warning(this, "Already Registered", "You have already registered courses. You cannot register again.");
 		return;
 	}
-	QStringList selectedIDs = {
-		ui.AvailableCourses1->currentText(),
-		ui.AvailableCourses2->currentText(),
-		ui.AvailableCourses3->currentText(),
-		ui.AvailableCourses4->currentText(),
-		ui.AvailableCourses5->currentText(),
-		ui.AvailableCourses6->currentText()
-	};
+	QStringList selectedIDs; //Add all courses id
+	for (auto x : comboBoxes) {
+		selectedIDs.append(x->currentText());
+	}
 
 	unordered_map<string, course> allCoursesMap;
 	for (course* c : allCourses) {
@@ -327,6 +324,9 @@ void CourseRegisterStudentPage::registerSelectedCourses() {
 
 	int totalCredits = 0;
 	for (const QString& qid : selectedIDs) {
+		if (qid == "Select an option... ") {
+			continue;
+		}
 		string courseID = qid.toStdString();
 		if (courseID.empty()) continue;
 

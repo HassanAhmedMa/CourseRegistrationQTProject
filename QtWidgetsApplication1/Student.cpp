@@ -3,9 +3,18 @@
 #include "Grade.h"
 #include "vector"
 #include<iostream>
+#include <unordered_map>
+#include <string>
 using namespace std;
 
 
+
+Student::Student() {
+	setUsername("");
+	setPassword("");
+	setName("");
+	setId(0);
+}
 
 
 Student::Student(string username, string password, string name, int id) {
@@ -163,7 +172,7 @@ float Student::getOverallGPA()
 	overallGpa = 0;
 
 	auto it = grade.begin();
-	for (it;it != grade.end();it++) {
+	for (it; it != grade.end(); it++) {
 		overallGpa += it->second.getGradeValue();
 	}
 	overallGpa /= grade.size();

@@ -6,11 +6,13 @@
 #include "reportStudent.h"
 #include "AdminMenu.h"
 #include "course.h"
+#include "FilesClass.h"
 int main(int argc, char *argv[])
 {
     
     
-
+    FilesClass c;
+    c.readStudentsData();
     QApplication a(argc, argv);
     QtWidgetsApplication1 q;
    // AdminMenu m;

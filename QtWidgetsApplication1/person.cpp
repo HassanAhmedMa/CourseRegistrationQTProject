@@ -6,7 +6,7 @@ Person::Person() {
 }
 
 
-void Person::setName(string& n) {
+void Person::setName(string n) {
     name = n;
 }
 
@@ -14,11 +14,11 @@ void Person::setId(int id) {
     this->id = id;
 }
 
-void Person::setUsername(string& u) {
+void Person::setUsername(string u) {
     username = u;
 }
 
-void Person::setPassword(string& p) {
+void Person::setPassword(string p) {
     password = p;
 }
 
@@ -42,11 +42,11 @@ string Person::getPassword() {
 
 
 
-void Person::changeUsername(string& newUsername) {
+void Person::changeUsername(string newUsername) {
     username = newUsername;
 }
 
 
-void Person::changePassword(string& newPassword) {
+void Person::changePassword(string newPassword) {
     password = newPassword;
 }

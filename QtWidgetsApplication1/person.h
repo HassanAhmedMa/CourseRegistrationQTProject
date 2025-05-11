@@ -14,10 +14,10 @@ private:
 
 public:
     Person();
-    void setName(string& n);
+    void setName(string n);
     void setId(int i);
-    void setUsername(string& u);
-    void setPassword(string& p);
+    void setUsername(string u);
+    void setPassword(string p);
 
     string getName();
     int getId();
@@ -25,8 +25,8 @@ public:
     string getPassword();
 
 
-    void changeUsername(string& newUsername);
-    void changePassword(string& newPassword);
+    void changeUsername(string newUsername);
+    void changePassword(string newPassword);
 
 };
 
