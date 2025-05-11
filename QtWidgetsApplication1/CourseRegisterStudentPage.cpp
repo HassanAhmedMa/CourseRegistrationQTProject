@@ -185,7 +185,8 @@
 #include "course.h"
 #include "Student.h"
 #include <qmessagebox.h>
-
+#include <QComboBox>
+#include <vector>
 CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 	: QMainWindow(parent)
 {
@@ -196,31 +197,37 @@ CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 	course* phy201 = new course("Physics 201", "PHY201", "Intermediate Physics", 4, "Dr. Johnson", math101);
 	course* cs301 = new course("CS 301", "CS301", "Advanced Programming", 3, "Dr. Lee", phy201);
 
-	student = new Student("user1", "pass", "Ali", 123);
+	student = new Student("user1", "pass", "Ali", 1);
 	student->addCourseCompleted("MATH101");
+	
+	comboBoxes.push_back(ui.AvailableCourses1);
+	comboBoxes.push_back(ui.AvailableCourses2);
+	comboBoxes.push_back(ui.AvailableCourses3);
+	comboBoxes.push_back(ui.AvailableCourses4);
+	comboBoxes.push_back(ui.AvailableCourses5);
+	comboBoxes.push_back(ui.AvailableCourses6);
+
+
+
+
 
 	allCourses.push_back(math101);
 	allCourses.push_back(phy201);
 	allCourses.push_back(cs301);
-
+	
 	// Connect course selectors
-	connect(ui.AvailableCourses1, SIGNAL(currentIndexChanged(int)), this, SLOT(displayCourseName()));
-	connect(ui.AvailableCourses2, SIGNAL(currentIndexChanged(int)), this, SLOT(displayCourseName()));
-	connect(ui.AvailableCourses3, SIGNAL(currentIndexChanged(int)), this, SLOT(displayCourseName()));
-	connect(ui.AvailableCourses4, SIGNAL(currentIndexChanged(int)), this, SLOT(displayCourseName()));
-	connect(ui.AvailableCourses5, SIGNAL(currentIndexChanged(int)), this, SLOT(displayCourseName()));
-	connect(ui.AvailableCourses6, SIGNAL(currentIndexChanged(int)), this, SLOT(displayCourseName()));
+	for (auto x : comboBoxes) {
+		x->addItem("Select an option... "); //initialize the index 0 with a "select an option" option for friendly user interface ~Hassan
+		connect(x, SIGNAL(currentIndexChanged(int)), this, SLOT(displayCourseName()));
+	}
 	connect(ui.SubmitButtomForCourse, &QPushButton::clicked, this, &CourseRegisterStudentPage::registerSelectedCourses);
 
 	// Populate comboboxes
 	for (course* c : allCourses) {
 		QString id = QString::fromStdString(c->getCourseID());
-		ui.AvailableCourses1->addItem(id);
-		ui.AvailableCourses2->addItem(id);
-		ui.AvailableCourses3->addItem(id);
-		ui.AvailableCourses4->addItem(id);
-		ui.AvailableCourses5->addItem(id);
-		ui.AvailableCourses6->addItem(id);
+		for (auto comboBox : comboBoxes) { //Put all the course Ids in all the combox boxes using a nested loop ~Hassan
+			comboBox->addItem(id);
+		}
 	}
 }
 
@@ -280,14 +287,11 @@ void CourseRegisterStudentPage::checkMaxCreditLimit(int total) {
 
 void CourseRegisterStudentPage::updateTotalCreditHours() {
 	int total = 0;
-	QStringList selectedIDs = {
-		ui.AvailableCourses1->currentText(),
-		ui.AvailableCourses2->currentText(),
-		ui.AvailableCourses3->currentText(),
-		ui.AvailableCourses4->currentText(),
-		ui.AvailableCourses5->currentText(),
-		ui.AvailableCourses6->currentText()
-	};
+	
+	QStringList selectedIDs;
+	for (auto x : comboBoxes) {
+		selectedIDs.append(x->currentText());
+	}
 
 	for (const QString& id : selectedIDs) {
 		for (course* c : allCourses) {
@@ -298,7 +302,6 @@ void CourseRegisterStudentPage::updateTotalCreditHours() {
 		}
 	}
 
-	ui.progressBarTotalCreditHours->setMaximum(21);
 	ui.progressBarTotalCreditHours->setValue(total);
 	checkMaxCreditLimit(total);
 }

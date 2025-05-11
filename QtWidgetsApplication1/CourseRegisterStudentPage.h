@@ -43,7 +43,7 @@ class CourseRegisterStudentPage : public QMainWindow
 public:
 	CourseRegisterStudentPage(QWidget* parent = nullptr);
 	~CourseRegisterStudentPage();
-
+	vector<QComboBox*> comboBoxes;
 	std::vector<course*> allCourses;
 	Student* student;
 
