@@ -12,16 +12,20 @@
 #include <sstream>
 #include <algorithm>
 #include <cctype>
+#include <unordered_map>
+
+
 class FilesClass { //~Full class by Hassan Ahmed
 public:
 	vector<Student> AllStudents;//----------> Saves all students Data in the system, Can be accessed by adminstrator and other classes to read data of students
-
+	unordered_map<string, Student> demoStudentsMap;
 
 
 
 
 	//-------------------------/CSV Parser/--------------------------------------------------------------------------------
-	vector<string> parseCSVLine(const string& line) { //Function to return all parts of a csv File {Core function for file handling from csv Files) ~Hassan 
+
+	vector<string> parseCSVLine(string& line) { //Function to return all parts of a csv File {Core function for file handling from csv Files) ~Hassan 
 		vector<string> fields; //Fields to be returned as vector of strings
 		string field; //temp  Field
 		bool inQuotes = false; //initialized with false so when typing inQuotes = ~inQuotes it switches the statment without usage of checking
@@ -44,6 +48,7 @@ public:
 		fields.push_back(field); // Add the last field
 		return fields;
 	}
+	
 
 
 
@@ -112,15 +117,37 @@ public:
 			stud.addCourseCompleted(CompletedCourses);
 			
 			AllStudents.push_back(stud);
-
+			demoStudentsMap[fields.at(2)] = stud;
 		
 			//qDebug() << fields.at(2) + ' ' + fields.at(3) + ' ' + fields.at(0) + ' ' + fields.at(1) + ' ' + registeredCourses.at(0) + ' ' + CompletedCourses.at(0);
-			
+		 	
 
 
 
 		}
 
+	}
+
+	void readCoursesData(string location = "CoursesData.csv") {
+		ifstream file(location);
+		string line;
+
+		if (!file.is_open()) {
+			qDebug() << "Error cannot open file : " + location << '\n';
+		}
+		else
+		{
+			qDebug() << "Read " + location + " Successfully !";
+		}
+		int i = 0; //used to skip the headers
+
+		while (getline(file, line)) {
+			if (i == 0) {
+				i++;
+				continue;
+			}
+			vector<string> fields;
+		}
 	}
 
 
