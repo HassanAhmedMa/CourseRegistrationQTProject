@@ -1,63 +1,171 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Admin.cpp" />
-    <ClCompile Include="AdminMenu.cpp" />
-    <ClCompile Include="AdminProfileInfoPage.cpp" />
-    <ClCompile Include="course.cpp" />
-    <ClCompile Include="CourseRegisterStudentPage.cpp" />
-    <ClCompile Include="Grade.cpp" />
-    <ClCompile Include="Person.cpp" />
-    <ClCompile Include="RegisterPage.cpp" />
-    <ClCompile Include="reportStudent.cpp" />
-    <ClCompile Include="setPrerequisitesPage.cpp" />
-    <ClCompile Include="Student.cpp" />
-    <ClCompile Include="StudentMainMenu.cpp" />
-    <ClCompile Include="UploadEditStudentGradesPage.cpp" />
-    <ClCompile Include="viewGradesStudent.cpp" />
-    <ClCompile Include="ViewStudentGradeAdminPage.cpp" />
-    <ClCompile Include="QtWidgetsApplication1.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="FilesClass.cpp" />
+    <ClCompile Include="RegisterPage.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="QtWidgetsApplication1.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Person.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Grade.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CourseRegisterStudentPage.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="course.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="AdminProfileInfoPage.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="AdminMenu.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Admin.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="reportStudent.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="setPrerequisitesPage.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Student.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="StudentMainMenu.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="UploadEditStudentGradesPage.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="viewGradesStudent.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewStudentGradeAdminPage.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="FilesClass.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Admin.h" />
-    <ClInclude Include="course.h" />
-    <ClInclude Include="Grade.h" />
-    <ClInclude Include="Person.h" />
-    <ClInclude Include="Student.h" />
-    <ClInclude Include="FilesClass.h" />
+    <ClInclude Include="Admin.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="course.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Grade.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Person.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Student.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="FilesClass.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="QtWidgetsApplication1.h" />
-    <QtMoc Include="RegisterPage.h" />
-    <QtMoc Include="StudentMainMenu.h" />
-    <QtMoc Include="CourseRegisterStudentPage.h" />
-    <QtMoc Include="reportStudent.h" />
-    <QtMoc Include="viewGradesStudent.h" />
-    <QtMoc Include="AdminMenu.h" />
-    <QtMoc Include="AdminProfileInfoPage.h" />
-    <QtMoc Include="UploadEditStudentGradesPage.h" />
-    <QtMoc Include="setPrerequisitesPage.h" />
-    <QtMoc Include="ViewStudentGradeAdminPage.h" />
+    <QtMoc Include="AdminMenu.h">
+      <Filter>Headers</Filter>
+    </QtMoc>
+    <QtMoc Include="reportStudent.h">
+      <Filter>Headers</Filter>
+    </QtMoc>
+    <QtMoc Include="QtWidgetsApplication1.h">
+      <Filter>Headers</Filter>
+    </QtMoc>
+    <QtMoc Include="setPrerequisitesPage.h">
+      <Filter>Headers</Filter>
+    </QtMoc>
+    <QtMoc Include="StudentMainMenu.h">
+      <Filter>Headers</Filter>
+    </QtMoc>
+    <QtMoc Include="UploadEditStudentGradesPage.h">
+      <Filter>Headers</Filter>
+    </QtMoc>
+    <QtMoc Include="viewGradesStudent.h">
+      <Filter>Headers</Filter>
+    </QtMoc>
+    <QtMoc Include="ViewStudentGradeAdminPage.h">
+      <Filter>Headers</Filter>
+    </QtMoc>
+    <QtMoc Include="AdminProfileInfoPage.h">
+      <Filter>Headers</Filter>
+    </QtMoc>
+    <QtMoc Include="CourseRegisterStudentPage.h">
+      <Filter>Headers</Filter>
+    </QtMoc>
+    <QtMoc Include="RegisterPage.h">
+      <Filter>Headers</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="QtWidgetsApplication1.qrc" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtUic Include="AdminMenu.ui" />
-    <QtUic Include="AdminProfileInfoPage.ui" />
-    <QtUic Include="CourseRegisterStudentPage.ui" />
-    <QtUic Include="QtWidgetsApplication1.ui" />
-    <QtUic Include="RegisterPage.ui" />
-    <QtUic Include="reportStudent.ui" />
-    <QtUic Include="setPrerequisitesPage.ui" />
-    <QtUic Include="StudentMainMenu.ui" />
-    <QtUic Include="UploadEditStudentGradesPage.ui" />
-    <QtUic Include="viewGradesStudent.ui" />
-    <QtUic Include="ViewStudentGradeAdminPage.ui" />
+    <QtUic Include="AdminMenu.ui">
+      <Filter>Forms</Filter>
+    </QtUic>
+    <QtUic Include="AdminProfileInfoPage.ui">
+      <Filter>Forms</Filter>
+    </QtUic>
+    <QtUic Include="CourseRegisterStudentPage.ui">
+      <Filter>Forms</Filter>
+    </QtUic>
+    <QtUic Include="QtWidgetsApplication1.ui">
+      <Filter>Forms</Filter>
+    </QtUic>
+    <QtUic Include="RegisterPage.ui">
+      <Filter>Forms</Filter>
+    </QtUic>
+    <QtUic Include="reportStudent.ui">
+      <Filter>Forms</Filter>
+    </QtUic>
+    <QtUic Include="setPrerequisitesPage.ui">
+      <Filter>Forms</Filter>
+    </QtUic>
+    <QtUic Include="StudentMainMenu.ui">
+      <Filter>Forms</Filter>
+    </QtUic>
+    <QtUic Include="viewGradesStudent.ui">
+      <Filter>Forms</Filter>
+    </QtUic>
+    <QtUic Include="ViewStudentGradeAdminPage.ui">
+      <Filter>Forms</Filter>
+    </QtUic>
+    <QtUic Include="UploadEditStudentGradesPage.ui">
+      <Filter>Forms</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <None Include="Book1.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{69f98d89-c941-4005-95d9-59c40715cde7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{909bc814-3d56-440f-ad2a-f8549a359259}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Forms">
+      <UniqueIdentifier>{8f07c251-bc39-44a7-8aae-d5988d2bf17f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{0b657618-9605-4855-bbbb-883928436a9e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="QtWidgetsApplication1.qrc">
+      <Filter>Resources</Filter>
+    </QtRcc>
   </ItemGroup>
 </Project>

@@ -33,6 +33,20 @@ vector<string> Student::getCourses() {
 	return MyCourses;
 }
 
+void Student::addCourse(vector<string> coursesToAdd)
+{
+	for (auto cur : coursesToAdd) {
+		MyCourses.push_back(cur);
+	}
+}
+
+void Student::addCourseCompleted(vector<string> coursesToAdd)
+{
+	for (auto cur : coursesToAdd) {
+		CompletedCourses.push_back(cur);
+	}
+}
+
 void Student::addCourseCompleted(string courseName)
 {
 	CompletedCourses.push_back(courseName);
