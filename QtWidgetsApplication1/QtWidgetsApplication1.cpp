@@ -6,9 +6,8 @@
 #include"Admin.h"
 #include<qmessagebox.h>
 #include <vector>
-
+#include "FilesClass.h"
 vector<Admin> allAdmins;
-vector<Student> allStudents;
 QtWidgetsApplication1::QtWidgetsApplication1(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -23,9 +22,7 @@ QtWidgetsApplication1::QtWidgetsApplication1(QWidget *parent)
     allAdmins.push_back(Admin(103, "Carol Chief", "carol@admin", "chief789"));
 
     
-    allStudents.push_back(Student("mohamed123", "pass1", "Mohamed Tarek", 201));
-    allStudents.push_back(Student("sara456", "pass2", "Sara Youssef", 202));
-    allStudents.push_back(Student("ahmed789", "pass3", "Ahmed Nabil", 203));
+    
 }
 
 
@@ -66,9 +63,11 @@ void QtWidgetsApplication1::on_LoginButton_clicked()
     }
     else {
         // Student Login
-        for ( Student student : allStudents) {
-            if (student.getUsername() == usernameStd && student.getPassword() == passwordStd) {
+        for ( auto it : FilesClass::demoStudentsMap) {
+            if (it.second.getUsername() == usernameStd && it.second.getPassword() == passwordStd) {
                 StudentMainMenu* studentMenu = new StudentMainMenu(this);
+                this->hide(); //~Hassan
+                FilesClass::loggedInStudent = &FilesClass::demoStudentsMap[usernameStd];
                 studentMenu->show();
                 found = true;
                 break;

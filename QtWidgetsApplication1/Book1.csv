@@ -1,4 +1,11 @@
-name,Seat Number ID,username,password,registeredCourses,Completed Courses
-hassan,12345678,hassan123,hassan123,"MATH101,PHIL101,POL101",None
-mahmoud,12345679,mahmoud123,mahmoud123,"PHY201,CHEM101,PHIL101",MATH101
-ziad,12345670,ziadehab,ziadEhab123,"PHY201,CHEM101,PHIL101",MATH101
+Name,Seat Number ID,Username,Password,Registered Courses,Completed Courses,grades
+amira,12345681,amira01,passAmira01,"CS101, MATH101, ENG101",None,
+youssef,12345682,youssef22,ypass2024,"CS102, PHY101, MATH102","CS101, MATH101","2.3,3.5"
+laila,12345683,laila90,lpass123,"CHEM101, PHIL101",None,
+omar,12345684,omarK,omark321,"PHY201, MATH201","PHY101, MATH102","2.8,3.4"
+fatma,12345685,fatma.tech,fatma@pass,"CS201, ENG101","CS102, MATH101","3.5,2.9"
+karim,12345686,karim_dev,devkarim,"SWENG101, DB101","CS102, CS201","3.0,3.6"
+salma,12345687,salma123,s@lma321,"CS301, AI301","CS201, MATH201","3.3,2.7"
+ahmed,12345688,ahmed.elk,pass123ahmed,"COMM201, ENG101",None,
+mariam,12345689,mariam98,mpasspass,"CS102, CS201, DB101",CS101,2.5
+tarek,12345690,tarek.m,tm123pass,"AI301, SWENG101","CS201, MATH201","3.2,3.8"

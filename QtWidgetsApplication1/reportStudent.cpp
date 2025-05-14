@@ -85,7 +85,7 @@
 #include <QTextStream>
 #include <QFileDialog>
 #include <QMessageBox>
-
+#include "FilesClass.h"
 
 
 
@@ -95,53 +95,24 @@ reportStudent::reportStudent(QWidget* parent)
     ui.setupUi(this);
 
     // Dummy student
-    Student student("user1", "pass", "Mahmoud Bahaa", 1234);
+    Student* student = FilesClass::loggedInStudent;
 
-    student.addCourseCompleted("MATH101");
-    student.addGrade("MATH101", "Calculus I", "Fall 2023", 3.3);
-
-    student.addCourseCompleted("PHYS101");
-    student.addGrade("PHYS101", "Physics I", "Fall 2023", 3.0);
-
-    student.addCourseCompleted("CHEM101");
-    student.addGrade("CHEM101", "General Chemistry", "Fall 2023", 2.7);
-
-    student.addCourseCompleted("CS101");
-    student.addGrade("CS101", "Intro to Programming", "Spring 2024", 3.8);
-
-    student.addCourseCompleted("CS102");
-    student.addGrade("CS102", "Data Structures", "Spring 2024", 3.6);
-
-    student.addCourseCompleted("HIST201");
-    student.addGrade("HIST201", "Modern History", "Spring 2024", 2.9);
-
-    student.addCourseCompleted("ENG101");
-    student.addGrade("ENG101", "English Composition", "Fall 2024", 3.2);
-
-    student.addCourseCompleted("STAT202");
-    student.addGrade("STAT202", "Statistics", "Fall 2024", 3.4);
-
-    student.addCourseCompleted("CS201");
-    student.addGrade("CS201", "Algorithms", "Spring 2025", 3.9);
-
-    student.addCourseCompleted("ELEC220");
-    student.addGrade("ELEC220", "Digital Logic", "Spring 2025", 3.1);
 
     // Display in UI
-    ui.lineEdit_2->setText(QString::fromStdString(student.getName()));
-    ui.lineEdit_3->setText(QString::number(student.getId()));
-    ui.lineEdit->setText(QString::number(student.getOverallGPA(), 'f', 2));
+    ui.lineEdit_2->setText(QString::fromStdString(student->getName()));
+    ui.lineEdit_3->setText(QString::number(student->getId()));
+    ui.lineEdit->setText(QString::number(student->getOverallGPA(), 'f', 2));
     
 
     // Table setup
     ui.tableWidget->setColumnCount(3);
     QStringList headers = { "Course Name", "Semester", "Grades" };
     ui.tableWidget->setHorizontalHeaderLabels(headers);
-    ui.tableWidget->setRowCount(student.getCoursesCompleted().size());
+    ui.tableWidget->setRowCount(student->getCoursesCompleted().size());
 
     int row = 0;
-    for (string courseID : student.getCoursesCompleted()) {
-        Grade g = student.getGradeObject(courseID);
+    for (string courseID : student->getCoursesCompleted()) {
+        Grade g = student->getGradeObject(courseID);
 
         QTableWidgetItem* nameItem = new QTableWidgetItem(QString::fromStdString(g.getCourseName()));
         QTableWidgetItem* semesterItem = new QTableWidgetItem(QString::fromStdString(g.getSemester()));

@@ -1,7 +1,7 @@
 #include "FilesClass.h"
 unordered_map<string, Student> FilesClass::demoStudentsMap;
 unordered_map<string, course> FilesClass::AllCourses;
-
+Student* FilesClass::loggedInStudent;
 
 //-------------------------/CSV Parser/--------------------------------------------------------------------------------
 
@@ -38,7 +38,7 @@ vector<string> FilesClass::parseCSVLine(string& line) { //Function to return all
 void FilesClass::readStudentsData(string studentsFile) {
 	ifstream file(studentsFile);
 	string line;
-
+	
 	if (!file.is_open()) {
 		qDebug() << "Error cannot open file : " + studentsFile << '\n';
 	}
@@ -60,7 +60,8 @@ void FilesClass::readStudentsData(string studentsFile) {
 		vector<string> CompletedCourses;														//Temp data
 		string coursesBeforeCleanUp = fields.at(4);												//Temp data
 		string CompletedCoursesBeforeCleanUp = fields.at(5);									//Temp data
-
+		string gradesBeforeCleanUp = fields.at(6);
+		vector<float> grades;
 
 		//Splitting Data in the multiAttribute Columns-------------\/\/\/
 		if (!coursesBeforeCleanUp.empty() && coursesBeforeCleanUp.front() == '"' && coursesBeforeCleanUp.back() == '"') {
@@ -92,10 +93,45 @@ void FilesClass::readStudentsData(string studentsFile) {
 		else {
 			CompletedCourses.push_back("none");
 		}
+		qDebug() << fields.at(6);
+
+
+
+		if (!gradesBeforeCleanUp.empty() && gradesBeforeCleanUp.front() == '"' && gradesBeforeCleanUp.back() == '"') {
+			gradesBeforeCleanUp = gradesBeforeCleanUp.substr(1, gradesBeforeCleanUp.length() - 2); // -2 because it we don't want the "
+		}
+		if (toLower(gradesBeforeCleanUp) != "none") {
+			stringstream gradesStream(gradesBeforeCleanUp);
+			string tempCourse;
+			while (getline(gradesStream, tempCourse, ',')) {
+				grades.push_back(stof(tempCourse));
+			}
+		}
+		else {
+			grades.push_back(-1.0);
+		}
+
+
+		
+
+
+
 
 		Student stud(fields.at(2), fields.at(3), fields.at(0), stoi(fields.at(1)));
 		stud.addCourse(registeredCourses);
 		stud.addCourseCompleted(CompletedCourses);
+		
+
+		if (CompletedCourses.size() == grades.size() && grades.at(0) != -1) {
+			int k = 0;
+			for (auto grade : grades) {
+				stud.addGrade(CompletedCourses.at(k), AllCourses[CompletedCourses.at(k)].getCourseTitle(), "fall", grade);
+				k++;
+				
+
+			}
+		}
+		
 
 		AllStudents.push_back(stud);
 		demoStudentsMap[fields.at(2)] = stud;

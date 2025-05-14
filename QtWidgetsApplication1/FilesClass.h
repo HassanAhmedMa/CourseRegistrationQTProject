@@ -22,6 +22,7 @@ public:
 	static unordered_map<string, Student> demoStudentsMap;
 	static unordered_map<string, course> AllCourses;
 	unordered_map<string, string> preReq;
+	static Student* loggedInStudent;
 
 	vector<string> parseCSVLine(string& line);
 	void readStudentsData(string studentsFile = "Book1.csv");

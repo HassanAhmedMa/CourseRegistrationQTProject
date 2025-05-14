@@ -4,6 +4,10 @@
 #include "QtWidgetsApplication1.h"
 #include "viewGradesStudent.h"
 #include "reportStudent.h"
+
+
+
+
 StudentMainMenu::StudentMainMenu(QWidget* parent)
     : QMainWindow(parent)
 {
