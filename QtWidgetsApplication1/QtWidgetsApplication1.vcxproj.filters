@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Book1.csv" />
+    <None Include="CoursesData.CSV" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Headers">

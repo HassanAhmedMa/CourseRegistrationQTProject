@@ -2,7 +2,6 @@
 
 #include <QMainWindow>
 #include "ui_ViewStudentGradeAdminPage.h"
-
 class ViewStudentGradeAdminPage : public QMainWindow
 {
 	Q_OBJECT
@@ -12,5 +11,9 @@ public:
 	~ViewStudentGradeAdminPage();
 
 private:
-	Ui::ViewStudentGradeAdminPageClass ui;
+	Ui::ViewStudentGradeAdminPageClass* ui;
+
+
+private slots:
+	void displayGrades();
 };

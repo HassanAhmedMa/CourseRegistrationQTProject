@@ -187,6 +187,7 @@
 #include <qmessagebox.h>
 #include <QComboBox>
 #include <vector>
+#include "FilesClass.h"
 CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 	: QMainWindow(parent)
 {
@@ -209,7 +210,7 @@ CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 	comboBoxes.push_back(ui.AvailableCourses6);
 
 
-
+	//FilesClass::AllStudents;
 
 
 	allCourses.push_back(math101);

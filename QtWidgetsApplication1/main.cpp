@@ -22,12 +22,12 @@ int main(int argc, char *argv[])
     q.show();
    n.show();
     
-    /////////////AdminMenu m;
-    /////////////StudentMainMenu n;
-    /////////////n.show();
-    /////////////CourseRegisterStudentPage p; commented out by ~Hassan
-    /////////////p.show();
-    /////////////m.show();
+   AdminMenu m;
+   StudentMainMenu n;
+   n.show();
+   CourseRegisterStudentPage p;
+   p.show();
+   m.show();
     //m.show();
    
     return a.exec();
@@ -37,13 +37,18 @@ int main(int argc, char *argv[])
 
 
 void displayAllStudentsDataFromFile(FilesClass& c) {
-    for (auto stud : c.AllStudents) {
-        qDebug() << stud.getCourses();
+    for (auto& stud : c.demoStudentsMap) {
+        /*qDebug() << stud.getCourses();
         qDebug() << stud.getCoursesCompleted();
         qDebug() << stud.getName();
         qDebug() << stud.getPassword();
         qDebug() << stud.getUsername();
-        qDebug() << stud.getId();
+        qDebug() << stud.getId();*/
+        qDebug() << c.demoStudentsMap[stud.first].getName();
+        qDebug() << c.demoStudentsMap[stud.first].getPassword();
+        qDebug() << c.demoStudentsMap[stud.first].getUsername();
+        qDebug() << c.demoStudentsMap[stud.first].getCourses();
+        qDebug() << c.demoStudentsMap[stud.first].getCoursesCompleted();
 
 
 

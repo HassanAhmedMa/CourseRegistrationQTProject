@@ -1,3 +1,4 @@
-name,nationalID,username,password,registeredCourses,Completed Courses
+name,Seat Number ID,username,password,registeredCourses,Completed Courses
 hassan,12345678,hassan123,hassan123,"MATH101,PHIL101,POL101",None
 mahmoud,12345679,mahmoud123,mahmoud123,"PHY201,CHEM101,PHIL101",MATH101
+ziad,12345670,ziadehab,ziadEhab123,"PHY201,CHEM101,PHIL101",MATH101
