@@ -50,6 +50,20 @@ color:White;
       <height>300</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QTableWidget {
+    background-color: #2e2e2e;
+    color: white;
+    font-size: 14px;
+    gridline-color: gray;
+}
+
+QHeaderView::section {
+    background-color: #444;
+    color: white;
+    font-weight: bold;
+}</string>
+    </property>
     <attribute name="horizontalHeaderDefaultSectionSize">
      <number>316</number>
     </attribute>
@@ -118,9 +132,10 @@ color:White;
        <property name="styleSheet">
         <string notr="true">QLineEdit {
     border: 1px solid gray;
-    border-radius: 15px;     /* Makes it oval */
+    border-radius: 15px;  /* Makes it oval */
     padding: 5px;
     background-color: white;
+    color: black;  
 }</string>
        </property>
        <property name="readOnly">
@@ -180,13 +195,13 @@ color:White;
      <string>Back</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>240</x>
       <y>110</y>
       <width>251</width>
-      <height>81</height>
+      <height>84</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -194,11 +209,15 @@ color:White;
       <widget class="QLineEdit" name="lineEdit_2">
        <property name="styleSheet">
         <string notr="true">QLineEdit {
-    border: 1px solid gray;
-    border-radius: 15px;     /* Makes it oval */
+   border: 1px solid gray;
+    border-radius: 15px;
     padding: 5px;
     background-color: white;
-}</string>
+    font-size: 16px;   /* Clean and readable size */
+    color: black;}</string>
+       </property>
+       <property name="text">
+        <string/>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -209,10 +228,12 @@ color:White;
       <widget class="QLineEdit" name="lineEdit_3">
        <property name="styleSheet">
         <string notr="true">QLineEdit {
-    border: 1px solid gray;
-    border-radius: 15px;     /* Makes it oval */
+   border: 1px solid gray;
+    border-radius: 15px;
     padding: 5px;
     background-color: white;
+    font-size: 16px;   /* Clean and readable size */
+    color: black;
 }</string>
        </property>
        <property name="readOnly">
@@ -221,6 +242,19 @@ color:White;
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="printButton">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>100</y>
+      <width>121</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Print </string>
+    </property>
    </widget>
   </widget>
  </widget>

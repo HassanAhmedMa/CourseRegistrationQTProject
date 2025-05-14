@@ -13,4 +13,5 @@ public:
 
 private:
 	Ui::reportStudentClass ui;
+	void saveReportAsText();
 };

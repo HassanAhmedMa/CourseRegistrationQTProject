@@ -192,7 +192,12 @@ float Student::getOverallGPA()
 	overallGpa /= grade.size();
 	return overallGpa;
 }
-
+Grade Student::getGradeObject(string courseID) {
+	auto it = grade.find(courseID);
+	if (it != grade.end())
+		return it->second;
+	return Grade(); // return default if not found
+}
 
 
 

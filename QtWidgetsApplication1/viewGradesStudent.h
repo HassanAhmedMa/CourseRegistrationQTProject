@@ -11,6 +11,8 @@ public:
 	viewGradesStudent(QWidget *parent = nullptr);
 	~viewGradesStudent();
 
+
 private:
 	Ui::viewGradesStudentClass ui;
+
 };

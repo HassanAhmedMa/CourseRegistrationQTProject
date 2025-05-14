@@ -38,6 +38,7 @@ public:
 	bool CheckPrerequisties(string searchedCourse, vector<string> CompletedCourses, unordered_map<string, course> AllCourses);// will take the name of the course and the list of completed courses and check if the prerequisite is completed or not
 	float getOverallGPA();
 	void MakeReport(); // generate priantable report
+	Grade getGradeObject(string courseID);
 	//~Student();
 };
 
