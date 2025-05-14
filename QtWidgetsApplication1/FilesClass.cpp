@@ -1,6 +1,6 @@
 #include "FilesClass.h"
 unordered_map<string, Student> FilesClass::demoStudentsMap;
-
+unordered_map<string, course> FilesClass::AllCourses;
 
 
 //-------------------------/CSV Parser/--------------------------------------------------------------------------------
@@ -127,9 +127,29 @@ void FilesClass::readCoursesData(string location) {
 			i++;
 			continue;
 		}
-		vector<string> fields;
+		vector<string> fields = parseCSVLine(line);
+		
+		
+		preReq[fields.at(0)] = fields.at(4);
+		course tempCourse = course(fields.at(1), fields.at(0), fields.at(5), stoi(fields.at(2)), fields.at(3));
+		AllCourses[fields.at(0)] = tempCourse;
+		qDebug() << preReq.size();
+
+
+
+
+	}
+
+	for (auto cur : preReq) {
+		if (cur.second == "None") {
+			continue;
+		}
+		else {
+			AllCourses[cur.first].setPreRequisite(&AllCourses[cur.second]);
+		}
 	}
 }
+
 
 
 
@@ -138,6 +158,24 @@ string FilesClass::toLower(string s) {
 	transform(s.begin(), s.end(), s.begin(), ::tolower);
 	return s;
 
+}
+
+course FilesClass::returnCoursePointer(string prerequisuteId)
+{
+	/*course* temp;
+	unordered_map<string, course>::iterator it = AllCourses.begin();
+	while (it != AllCourses.end()) {
+		if (it->second.getCourseID() == prerequisuteId) {
+			temp = &(it->second);
+			return temp;
+		}
+	}*/
+	course temp = AllCourses[prerequisuteId];
+	return temp;
+
+
+
+	
 }
 
 

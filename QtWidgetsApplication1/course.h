@@ -18,19 +18,20 @@ private:
 public:
     course();
     course(string title, string id, string syllabus, int CH, string instructorName, course* pre = nullptr);
-    void setCourseTitle(const string& t);
-    void setCourseID(const string& id);
-    void setSyllabus(const string& s);
+    void setCourseTitle( string t);
+    void setCourseID( string id);
+    void setSyllabus( string s);
     void setCreditHours(int ch);
-    void setInstructorName(const string& name);
+    void setInstructorName( string name);
 
     void setPreRequisite(course* preReq);
-    string getCourseTitle() const;
-    string getCourseID() const;
-    string getSyllabus() const;
-    int getCreditHours() const;
-    string getInstructorName() const;
-    course* getPrerequisite() const;
+    string getCourseTitle();
+    string getCourseID();
+    string getSyllabus();
+    int getCreditHours();
+    string getInstructorName();
+    course* getPrerequisite() const ;
+    string getPreRequisuteID();
 };
 
 #endif

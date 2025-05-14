@@ -194,10 +194,7 @@ CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 	ui.setupUi(this);
 
 	// Allocate courses on heap to avoid pointer issues
-	course* math101 = new course("Math 101", "MATH101", "Basic Math Course", 3, "Dr. Smith", nullptr);
-	course* phy201 = new course("Physics 201", "PHY201", "Intermediate Physics", 4, "Dr. Johnson", math101);
-	course* cs301 = new course("CS 301", "CS301", "Advanced Programming", 3, "Dr. Lee", phy201);
-
+	FilesClass::AllCourses;
 	student = new Student("user1", "pass", "Ali", 1);
 
 	student->addCourseCompleted("PHY201");
@@ -213,9 +210,6 @@ CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 	//FilesClass::AllStudents;
 
 
-	allCourses.push_back(math101);
-	allCourses.push_back(phy201);
-	allCourses.push_back(cs301);
 	
 	// Connect course selectors
 	for (auto x : comboBoxes) {
@@ -225,8 +219,8 @@ CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 	connect(ui.SubmitButtomForCourse, &QPushButton::clicked, this, &CourseRegisterStudentPage::registerSelectedCourses);
 
 	// Populate comboboxes
-	for (course* c : allCourses) {
-		QString id = QString::fromStdString(c->getCourseID());
+	for (auto c : FilesClass::AllCourses) {
+		QString id = QString::fromStdString(c.second.getCourseID());
 		for (auto comboBox : comboBoxes) { //Put all the course Ids in all the combox boxes using a nested loop ~Hassan
 			comboBox->addItem(id);
 		}
@@ -234,7 +228,7 @@ CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 }
 
 CourseRegisterStudentPage::~CourseRegisterStudentPage() {
-	for (course* c : allCourses) delete c;
+	//for (course* c : allCourses) delete c;
 }
 
 void CourseRegisterStudentPage::displayCourseName() {
@@ -245,10 +239,10 @@ void CourseRegisterStudentPage::displayCourseName() {
 	QString courseName = "Course Not Found";
 	QString creditHours = "N/A";
 
-	for (course* c : allCourses) {
-		if (QString::fromStdString(c->getCourseID()) == selectedCourseID) {
-			courseName = QString::fromStdString(c->getCourseTitle());
-			creditHours = QString::number(c->getCreditHours());
+	for (auto c : FilesClass::AllCourses) {
+		if (QString::fromStdString(c.second.getCourseID()) == selectedCourseID) {
+			courseName = QString::fromStdString(c.second.getCourseTitle());
+			creditHours = QString::number(c.second.getCreditHours());
 			break;
 		}
 	}
@@ -296,9 +290,9 @@ void CourseRegisterStudentPage::updateTotalCreditHours() {
 	}
 
 	for (const QString& id : selectedIDs) {
-		for (course* c : allCourses) {
-			if (QString::fromStdString(c->getCourseID()) == id) {
-				total += c->getCreditHours();
+		for (auto c : FilesClass::AllCourses) {
+			if (QString::fromStdString(c.second.getCourseID()) == id) {
+				total += c.second.getCreditHours();
 				break;
 			}
 		}
@@ -319,8 +313,8 @@ void CourseRegisterStudentPage::registerSelectedCourses() {
 	}
 
 	unordered_map<string, course> allCoursesMap;
-	for (course* c : allCourses) {
-		allCoursesMap[c->getCourseID()] = *c;
+	for (auto c : FilesClass::AllCourses) {
+		allCoursesMap[c.second.getCourseID()] = c.second;
 	}
 
 	int totalCredits = 0;

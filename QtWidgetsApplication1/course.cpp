@@ -24,16 +24,16 @@ course::course(string title, string id, string syllabus, int CH, string instruct
 
 }
 
-void course::setCourseTitle(const string& t) {
+void course::setCourseTitle( string t) {
     courseTitle = t;
 
 }
 
-void course::setCourseID(const string& id) {
+void course::setCourseID( string id) {
     courseID = id;
 }
 
-void course::setSyllabus(const string& s) {
+void course::setSyllabus( string s) {
     syllabus = s;
 }
 
@@ -41,7 +41,7 @@ void course::setCreditHours(int ch) {
     creditHours = ch;
 }
 
-void course::setInstructorName(const string& name) {
+void course::setInstructorName( string name) {
     instructorName = name;
 }
 
@@ -52,23 +52,23 @@ void course::setPreRequisite(course* preReq)
     preRequisite = preReq;
 }
 
-string course::getCourseTitle() const {
+string course::getCourseTitle()  {
     return courseTitle;
 }
 
-string course::getCourseID() const {
+string course::getCourseID()  {
     return courseID;
 }
 
-string course::getSyllabus() const {
+string course::getSyllabus()  {
     return syllabus;
 }
 
-int course::getCreditHours() const {
+int course::getCreditHours()  {
     return creditHours;
 }
 
-string course::getInstructorName() const {
+string course::getInstructorName()  {
     return instructorName;
 }
 
@@ -76,4 +76,10 @@ course* course::getPrerequisite() const
 {
     course* temp = this->preRequisite;
     return temp;
+}
+
+string course::getPreRequisuteID()
+{
+
+    return courseTitle;
 }
