@@ -1,7 +1,12 @@
+
+
 #pragma once
 
 #include <QtWidgets/QMainWindow>
 #include "ui_QtWidgetsApplication1.h"
+
+class Admin;
+class Student;
 
 class QtWidgetsApplication1 : public QMainWindow
 {
@@ -10,6 +15,8 @@ class QtWidgetsApplication1 : public QMainWindow
 public:
     QtWidgetsApplication1(QWidget *parent = nullptr);
     ~QtWidgetsApplication1();
+    static Admin* currentAdmin;
+
 
 private:
     Ui::QtWidgetsApplication1Class ui;

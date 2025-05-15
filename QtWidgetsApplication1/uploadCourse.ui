@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AdminProfileInfoPageClass</class>
- <widget class="QMainWindow" name="AdminProfileInfoPageClass">
+ <class>uploadCourseClass</class>
+ <widget class="QMainWindow" name="uploadCourseClass">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1010</width>
-    <height>511</height>
+    <width>771</width>
+    <height>723</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>AdminProfileInfoPage</string>
+   <string>uploadCourse</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>991</width>
-      <height>421</height>
+      <x>0</x>
+      <y>0</y>
+      <width>761</width>
+      <height>661</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -32,10 +32,10 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>20</y>
-       <width>171</width>
-       <height>31</height>
+       <x>30</x>
+       <y>10</y>
+       <width>341</width>
+       <height>61</height>
       </rect>
      </property>
      <property name="font">
@@ -45,15 +45,15 @@
       </font>
      </property>
      <property name="text">
-      <string>Profile Info:</string>
+      <string>Upload / Edit New Course:</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>130</y>
-       <width>63</width>
+       <y>100</y>
+       <width>91</width>
        <height>20</height>
       </rect>
      </property>
@@ -63,16 +63,52 @@
       </font>
      </property>
      <property name="text">
-      <string>Name:</string>
+      <string>Course ID:&quot;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>140</y>
+       <width>111</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Course Title:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>190</y>
+       <width>121</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Credit Hours:</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>230</y>
-       <width>91</width>
-       <height>21</height>
+       <y>280</y>
+       <width>201</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -81,48 +117,15 @@
       </font>
      </property>
      <property name="text">
-      <string>Password:</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="NamelineEdit">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>130</y>
-       <width>211</width>
-       <height>28</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="passwordLineEdit">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>230</y>
-       <width>201</width>
-       <height>28</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="backBtn">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>360</y>
-       <width>93</width>
-       <height>29</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Back</string>
+      <string>Syllabus / Description: </string>
      </property>
     </widget>
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>180</y>
-       <width>101</width>
+       <y>240</y>
+       <width>151</width>
        <height>20</height>
       </rect>
      </property>
@@ -132,48 +135,83 @@
       </font>
      </property>
      <property name="text">
-      <string>Username:</string>
+      <string>Instructor Name:</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="UsernamelineEdit">
+    <widget class="QLineEdit" name="lineEditCourseId">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>180</y>
-       <width>201</width>
+       <x>150</x>
+       <y>100</y>
+       <width>191</width>
        <height>26</height>
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="label_7">
+    <widget class="QLineEdit" name="lineEdit_CourseTitle">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>140</y>
+       <width>191</width>
+       <height>26</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="LineEdit_CourseCreditHours">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>190</y>
+       <width>181</width>
+       <height>26</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_InstructorName">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>240</y>
+       <width>191</width>
+       <height>26</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_CourseDesc">
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>40</y>
-       <width>951</width>
-       <height>81</height>
+       <y>340</y>
+       <width>701</width>
+       <height>171</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>You can view and edit your information directly through these fields. Any changes you make will be saved automatically.</string>
-     </property>
     </widget>
-    <widget class="QPushButton" name="editInfoBtn">
+    <widget class="QPushButton" name="uploadEditCourseBtn">
      <property name="geometry">
       <rect>
-       <x>812</x>
-       <y>370</y>
-       <width>141</width>
+       <x>260</x>
+       <y>540</y>
+       <width>231</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Upload</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="backBtn">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>600</y>
+       <width>93</width>
        <height>29</height>
       </rect>
      </property>
      <property name="text">
-      <string>Edit Information</string>
+      <string>Back</string>
      </property>
     </widget>
    </widget>
@@ -183,7 +221,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1010</width>
+     <width>771</width>
      <height>26</height>
     </rect>
    </property>

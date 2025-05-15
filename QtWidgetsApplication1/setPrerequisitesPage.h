@@ -10,6 +10,11 @@ class setPrerequisitesPage : public QMainWindow
 public:
 	setPrerequisitesPage(QWidget *parent = nullptr);
 	~setPrerequisitesPage();
+	void onCourseChanged();
+	void onPrereqChanged();
+	void onSubmitClicked();
+private slots:
+    void on_Back_clicked();
 
 private:
 	Ui::setPrerequisitesPageClass ui;

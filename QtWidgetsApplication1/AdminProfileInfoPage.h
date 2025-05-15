@@ -11,6 +11,11 @@ public:
 	AdminProfileInfoPage(QWidget *parent = nullptr);
 	~AdminProfileInfoPage();
 
+private slots:
+    void on_backBtn_clicked();
+
+    void on_editInfoBtn_clicked();
+
 private:
 	Ui::AdminProfileInfoPageClass ui;
 };
