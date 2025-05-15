@@ -139,6 +139,11 @@ void FilesClass::readStudentsData(string studentsFile) {
 		}
 		
 
+
+		for (auto x : stud.getCourses()) {
+			qDebug() << x;
+		}
+
 		
 		demoStudentsMap[fields.at(2)] = stud;
 
