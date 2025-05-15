@@ -6,6 +6,7 @@
 #include"Student.h"
 #include"AdminMenu.h"
 #include"StudentMainMenu.h"
+#include "FilesClass.h"
 RegisterPage::RegisterPage(QWidget* parent)
     : QMainWindow(parent)
 {
@@ -17,7 +18,7 @@ RegisterPage::RegisterPage(QWidget* parent)
 RegisterPage::~RegisterPage()
 {}
 
-void RegisterPage::on_ActiveUserButton_clicked() 
+void RegisterPage::on_ActiveUserButton_clicked() //To be completed
 {
     this->hide();  
 
@@ -56,22 +57,30 @@ void RegisterPage::RegisterUser_Add()
     string usernameStd = username.toStdString();
     string passwordStd = password.toStdString();
     int id = idStr.toInt();
-
+    
 
     //to select whether he is an admin or a student 
 
     if (username.contains("@admin", Qt::CaseInsensitive)) {
         Admin* newAdmin = new Admin(id, nameStd, usernameStd, passwordStd);
         QMessageBox::information(this, "Success", "Admin registered successfully!");
-        AdminMenu* adminMenu = new AdminMenu();
-        adminMenu->show();
+        //AdminMenu* adminMenu = new AdminMenu();
+        
+        
+      
+        
     }
     else {
-        Student* newStudent = new Student(usernameStd, passwordStd, nameStd, id);
+        Student newStudent = Student(usernameStd, passwordStd, nameStd, id);
+        FilesClass::demoStudentsMap[usernameStd] = newStudent;
         QMessageBox::information(this, "Success", "Student registered successfully!");
-        StudentMainMenu* studentMenu = new StudentMainMenu();
-        studentMenu->show();
+        //StudentMainMenu* studentMenu = new StudentMainMenu();
+        
+        
+        
+        
     }
-
+    QtWidgetsApplication1* loginPage = new QtWidgetsApplication1(this);
+    loginPage->show();
 
 }

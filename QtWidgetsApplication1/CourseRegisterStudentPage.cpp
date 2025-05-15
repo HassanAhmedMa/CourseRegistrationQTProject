@@ -247,9 +247,17 @@ void CourseRegisterStudentPage::displayCourseName() {
 		}
 	}
 
+	//for (auto combo : comboBoxes) {
+	//	if (senderCombo == combo) {
+	//		ui.CourseName1->setText("Course Name\n" + courseName);
+	//		ui.CreditHoursOfcourse1->setText("Credit Hours : " + creditHours);
+	//	}
+	//}
+
+
 	if (senderCombo == ui.AvailableCourses1) {
 		ui.CourseName1->setText("Course Name\n" + courseName);
-		ui.CreditHoursOfcourse1->setText(creditHours);
+		ui.CreditHoursOfcourse1->setText("Credit Hours : " + creditHours);
 	}
 	else if (senderCombo == ui.AvailableCourses2) {
 		ui.CourseName2->setText("Course Name\n" + courseName);

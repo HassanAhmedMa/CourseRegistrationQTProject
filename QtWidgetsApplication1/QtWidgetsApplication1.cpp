@@ -18,8 +18,7 @@ QtWidgetsApplication1::QtWidgetsApplication1(QWidget *parent)
      //3 dummies
 
     allAdmins.push_back(Admin(101, "Alice Admin", "alice@admin", "admin123"));
-    allAdmins.push_back(Admin(102, "Bob Boss", "bob@admin", "boss456"));
-    allAdmins.push_back(Admin(103, "Carol Chief", "carol@admin", "chief789"));
+
 
     
     
@@ -36,7 +35,7 @@ QtWidgetsApplication1::~QtWidgetsApplication1()
 
 void QtWidgetsApplication1::on_registerButton_clicked() {
     RegisterPage* registerPage = new RegisterPage(this);  
-    this->close();  // just hide, do NOT close
+    this->hide();  // just hide, do NOT close
     registerPage->show();
     
 }
