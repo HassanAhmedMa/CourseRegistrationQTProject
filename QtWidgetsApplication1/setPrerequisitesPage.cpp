@@ -56,13 +56,21 @@ setPrerequisitesPage::setPrerequisitesPage(QWidget *parent)
 		ui.comboBoxAddCourseprereq->addItem(qCourseID);
 	}
 	
-	
 
-	connect(ui.comboBoxSelectCoursePrereq, SIGNAL(currentIndexChanged(int)), this, SLOT(onCourseChanged()));
+	connect(ui.comboBoxSelectCoursePrereq, &QComboBox::currentIndexChanged, this, &setPrerequisitesPage::onCourseChanged);
 	connect(ui.comboBoxAddCourseprereq, SIGNAL(currentIndexChanged(int)), this, SLOT(onPrereqChanged()));
 	connect(ui.SubmitPrerequisiteBtn, &QPushButton::clicked, this, &setPrerequisitesPage::onSubmitClicked);
 
+	if ((FilesClass::AllCourses[ui.comboBoxSelectCoursePrereq->currentText().toStdString()].getPrerequisite() != nullptr)) {
 
+		
+		ui.CurrentCourseLabel->setText("prerequisite Course : " + QString::fromStdString(FilesClass::AllCourses[ui.comboBoxSelectCoursePrereq->currentText().toStdString()].getPrerequisite()->getCourseID()));
+	}
+	else
+
+	{
+		ui.CurrentCourseLabel->setText("prerequisite Course : No prerequisite ");
+	}
 }
 
 setPrerequisitesPage::~setPrerequisitesPage()
@@ -71,6 +79,15 @@ void setPrerequisitesPage::onCourseChanged()
 {
 	QString selected = ui.comboBoxSelectCoursePrereq->currentText();
 	qDebug() << "Selected course:" << selected;
+	if ((FilesClass::AllCourses[selected.toStdString()].getPrerequisite() != nullptr)) {
+
+		ui.CurrentCourseLabel->setText("prerequisite Course : " + QString::fromStdString(FilesClass::AllCourses[selected.toStdString()].getPrerequisite()->getCourseID()));
+	}
+	else
+
+	{
+		ui.CurrentCourseLabel->setText("prerequisite Course : No prerequisite " );
+	}
 }	
 
 void setPrerequisitesPage::onPrereqChanged()
@@ -93,7 +110,7 @@ void setPrerequisitesPage::onSubmitClicked()
 	
 	Admin* admin = QtWidgetsApplication1::currentAdmin;
 	admin->setPreRequisites(FilesClass::AllCourses, selectedID.toStdString(), prerequisiteID.toStdString());
-
+	ui.CurrentCourseLabel->setText("prerequisite Course : " + QString::fromStdString(FilesClass::AllCourses[ui.comboBoxSelectCoursePrereq->currentText().toStdString()].getPrerequisite()->getCourseID()));
 	QMessageBox::information(this, "Success", "Prerequisite set successfully.");
 }
 
