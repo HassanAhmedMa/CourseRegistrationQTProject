@@ -95,7 +95,7 @@ void FilesClass::readStudentsData(string studentsFile) {
 		else {
 			CompletedCourses.push_back("none");
 		}
-		qDebug() << fields.at(6);
+		//qDebug() << fields.at(6);
 
 
 
@@ -129,6 +129,7 @@ void FilesClass::readStudentsData(string studentsFile) {
 			for (auto grade : grades) {
 				stud.addGrade(CompletedCourses.at(k), AllCourses[CompletedCourses.at(k)].getCourseTitle(), "fall", grade);
 				k++;
+				
 				
 
 			}
