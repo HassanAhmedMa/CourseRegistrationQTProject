@@ -33,6 +33,11 @@ vector<string> Student::getCourses() {
 	return MyCourses;
 }
 
+vector<string>* Student::getCoursesPtr()
+{
+	return &MyCourses;
+}
+
 void Student::addCourse(vector<string> coursesToAdd)
 {
 	for (auto cur : coursesToAdd) {

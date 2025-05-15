@@ -39,12 +39,13 @@ int main(int argc, char *argv[])
 
 void displayAllStudentsDataFromFile(FilesClass& c) {
     for (auto& stud : c.demoStudentsMap) {
-        //qDebug() << stud.getCourses();
-        //qDebug() << stud.getCoursesCompleted();
-        //qDebug() << stud.getName();
-        //qDebug() << stud.getPassword();
-        //qDebug() << stud.getUsername();
-        //qDebug() << stud.getId();
+        qDebug() << stud.second.getCourses();
+        qDebug() << stud.second.getCoursesPtr();
+        qDebug() << stud.second.getCoursesCompleted();
+        qDebug() << stud.second.getName();
+        qDebug() << stud.second.getPassword();
+        qDebug() << stud.second.getUsername();
+        qDebug() << stud.second.getId();
         //qDebug() << c.AllCourses[stud.first].getCourseID();
         //qDebug() << c.AllCourses[stud.first].getCourseTitle();
         //qDebug() << c.AllCourses[stud.first].getInstructorName();

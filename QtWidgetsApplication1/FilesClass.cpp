@@ -145,7 +145,7 @@ void FilesClass::readStudentsData(string studentsFile) {
 		}
 
 		
-		demoStudentsMap[fields.at(2)] = stud;
+		demoStudentsMap[fields.at(1)] = stud;
 
 		//qDebug() << fields.at(2) + ' ' + fields.at(3) + ' ' + fields.at(0) + ' ' + fields.at(1) + ' ' + registeredCourses.at(0) + ' ' + CompletedCourses.at(0);
 

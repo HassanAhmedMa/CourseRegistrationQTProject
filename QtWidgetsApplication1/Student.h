@@ -21,6 +21,7 @@ public:
 
 	void addCourse(string courseName); // setter for the list of courses of the student
 	vector<string> getCourses();	// getter for the list of courses of the student
+	vector<string>* getCoursesPtr();	// getter for the list of courses of the student
 	void addCourse(vector<string> coursesToAdd); //Adds a course from a vector of courses (used in files class can be helpful for registering more courses) ~Hassan
 	void addCourseCompleted(vector<string> coursesToAdd); // setter for the list of completed courses of the student
 	void addCourseCompleted(string courseName); // setter for the list of completed courses of the student

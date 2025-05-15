@@ -14,7 +14,7 @@ public:
 
 	UploadEditStudentGradesPage( QWidget* parent = nullptr); //new constructor (ziad)
 	vector<string> AdminGetCourses(string id);
-	void loadStudentCourses(string studentId);
+	
 	void adminSetStudentGrade(string studentId, bool isEdit);
 
 	~UploadEditStudentGradesPage();
@@ -25,9 +25,10 @@ private slots:
 	void onCourseSelected(); // Called when a course is selected
 	void onEditStudentGradeClicked();
 	void onBackToAdminMenuClicked();
+	void loadStudentCourses(string studentId);
 
 
 private:
-	Ui::UploadEditStudentGradesPageClass* ui;
+	Ui::UploadEditStudentGradesPageClass ui;
 	
 };
