@@ -63,6 +63,8 @@ void FilesClass::readStudentsData(string studentsFile) {
 		string CompletedCoursesBeforeCleanUp = fields.at(5);									//Temp data
 		string gradesBeforeCleanUp = fields.at(6);
 		vector<float> grades;
+		vector<float> registeredGrades;
+		string registeredGradesBeforeCleanUp = fields.at(7);
 
 		//Splitting Data in the multiAttribute Columns-------------\/\/\/
 		if (!coursesBeforeCleanUp.empty() && coursesBeforeCleanUp.front() == '"' && coursesBeforeCleanUp.back() == '"') {
@@ -138,11 +140,11 @@ void FilesClass::readStudentsData(string studentsFile) {
 			qDebug() << "CRITICAL ERROR 1 OCCURED IN FILES"; //Number of completed courses != number of grades {Problem in files .csv}
 		}
 		
+		qDebug() << stud.getCoursesCompleted() << "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 
-
-		for (auto x : stud.getCourses()) {
+		/*for (auto x : stud.getCourses()) {
 			qDebug() << x;
-		}
+		}*/
 
 		
 		demoStudentsMap[fields.at(1)] = stud;

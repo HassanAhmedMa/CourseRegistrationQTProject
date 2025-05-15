@@ -135,8 +135,8 @@ void UploadEditStudentGradesPage::adminSetStudentGrade(string studentId, bool is
 
     bool ok;
     double gradeValue = gradeStr.toDouble(&ok);
-    if (!ok || gradeValue < 0 || gradeValue > 100) {
-        QMessageBox::warning(this, "Invalid Grade", "Grade must be a number between 0 and 100");
+    if (!ok || gradeValue < 0 || gradeValue > 4) {
+        QMessageBox::warning(this, "Invalid Grade", "Grade must be a number between 0 and 4");
         return;
     }
 

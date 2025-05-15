@@ -105,6 +105,7 @@ void QtWidgetsApplication1::on_LoginButton_clicked()// when presses the login bu
 #include <vector>
 #include "FilesClass.h"
 #include <unordered_map>
+#include <string>
 vector<Admin> allAdmins;
 Admin* QtWidgetsApplication1::currentAdmin = nullptr;
 QtWidgetsApplication1::QtWidgetsApplication1(QWidget* parent)
@@ -166,7 +167,7 @@ void QtWidgetsApplication1::on_LoginButton_clicked()
             if (it.second.getUsername() == usernameStd && it.second.getPassword() == passwordStd) {
                 StudentMainMenu* studentMenu = new StudentMainMenu(this);
                 this->hide(); //~Hassan
-                FilesClass::loggedInStudent = &FilesClass::demoStudentsMap[usernameStd];
+                FilesClass::loggedInStudent = &FilesClass::demoStudentsMap[to_string( it.second.getId())];
                 studentMenu->show();
                 found = true;
                 break;

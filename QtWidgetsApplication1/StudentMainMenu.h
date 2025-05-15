@@ -21,6 +21,7 @@ private slots:
     void logoutInStudentMenu();
     void openViewGradesPage(); 
     void openreport(); 
+    void openPersonalInformationPage();
 
 private:
     Ui::StudentMainMenuClass ui;  // UI for the main menu

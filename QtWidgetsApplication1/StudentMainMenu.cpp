@@ -4,7 +4,7 @@
 #include "QtWidgetsApplication1.h"
 #include "viewGradesStudent.h"
 #include "reportStudent.h"
-
+#include "StudentInformation.h"
 
 
 
@@ -23,7 +23,7 @@ StudentMainMenu::StudentMainMenu(QWidget* parent)
     connect(ui.LogoutInStudentMenu, &QPushButton::clicked, this, &StudentMainMenu::logoutInStudentMenu);
     connect(ui.ViewGradeButtonStudentMainPage, &QPushButton::clicked, this, &StudentMainMenu::openViewGradesPage);
     connect(ui.MakeReport, &QPushButton::clicked, this, &StudentMainMenu::openreport);
-    
+    connect(ui.StudentInfo, &QPushButton::clicked, this, &StudentMainMenu::openPersonalInformationPage);
 }
 
 StudentMainMenu::~StudentMainMenu()
@@ -68,4 +68,13 @@ void StudentMainMenu::openreport()
 
     // Show the report page
     reportPage->show();
+}
+
+void StudentMainMenu::openPersonalInformationPage()
+{
+    StudentInformation* info = new StudentInformation(this);
+    info->show();
+    this->hide();
+    
+
 }
