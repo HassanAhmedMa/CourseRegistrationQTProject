@@ -13,13 +13,13 @@ Admin::Admin(int id, string name, string username, string password)
     this->setPassword(password);
 }
 
-void Admin::setPreRequisites(map<string, course>& allCourses, string selectedCourseID, string preRequisiteCourseID) {
+void Admin::setPreRequisites(unordered_map<string, course>& allcourses, string selectedCourseID, string preRequisiteCourseID) {
 
-    auto it = allCourses.find(selectedCourseID);
+    auto it = allcourses.find(selectedCourseID);
 
-    if (it != allCourses.end()) {
-        auto preReqIt = allCourses.find(preRequisiteCourseID);
-        if (preReqIt != allCourses.end()) {
+    if (it != allcourses.end()) {
+        auto preReqIt = allcourses.find(preRequisiteCourseID);
+        if (preReqIt != allcourses.end()) {
             it->second.setPreRequisite(&(preReqIt->second));
         }
         else {
@@ -32,7 +32,7 @@ void Admin::setPreRequisites(map<string, course>& allCourses, string selectedCou
 }
 
 
-void Admin::uploadCourse(map<string, course>& allCourses, string courseID, string courseTitle, string syllabus, int creditHours, string instructorName) {
+void Admin::uploadCourse(unordered_map<string, course>& allCourses, string courseID, string courseTitle, string syllabus, int creditHours, string instructorName) {
 
     auto it = allCourses.find(courseID);
 
@@ -59,7 +59,7 @@ void Admin::uploadCourse(map<string, course>& allCourses, string courseID, strin
 
     }
 }
-void Admin::deleteCourse(map<string, course>& allCourses, string courseId) {
+void Admin::deleteCourse(unordered_map<string, course>& allCourses, string courseId) {
 
     auto it = allCourses.find(courseId);
     if (it == allCourses.end()) {
@@ -73,7 +73,7 @@ void Admin::deleteCourse(map<string, course>& allCourses, string courseId) {
 }
 
 
-void Admin::uploadStudentGrades(int id, string courseId, int grade, string sem, map<int, Student>& Studs, map<string, course>& allCourses)
+void Admin::uploadStudentGrades(int id, string courseId, int grade, string sem, unordered_map<int, Student>& Studs, unordered_map<string, course>& allCourses)
 {
     auto it = Studs.find(id);
     if (it == Studs.end()) {
@@ -104,7 +104,7 @@ void Admin::uploadStudentGrades(int id, string courseId, int grade, string sem, 
     cout << "Grade uploaded successfully.";
 }
 
-void Admin::EditStudentGrades(int id, string courseId, int grade, string sem, map<int, Student>& Studs, map<string, course>& allCourses)
+void Admin::EditStudentGrades(int id, string courseId, int grade, string sem, unordered_map<int, Student>& Studs, unordered_map<string, course>& allCourses)
 {
     auto it = Studs.find(id);
     if (it == Studs.end()) {
@@ -133,7 +133,7 @@ void Admin::EditStudentGrades(int id, string courseId, int grade, string sem, ma
     cout << "Grade uploaded successfully.";
 }
 
-void Admin::uploadStudentCompletedCourse(int id, string courseId, map<int, Student>& Studs, map<string, course>& allCourses)
+void Admin::uploadStudentCompletedCourse(int id, string courseId, unordered_map<int, Student>& Studs, unordered_map<string, course>& allCourses)
 {
     auto it = Studs.find(id);
     if (it == Studs.end()) {
@@ -154,7 +154,7 @@ void Admin::uploadStudentCompletedCourse(int id, string courseId, map<int, Stude
 }
 
 
-void Admin::displayStudentGrades(int id, map<int, Student>& Studs) {
+void Admin::displayStudentGrades(int id, unordered_map<int, Student>& Studs) {
 
     auto it = Studs.find(id);
     if (it == Studs.end()) {
@@ -184,7 +184,7 @@ void Admin::displayStudentGrades(int id, map<int, Student>& Studs) {
     cout << "Student Grade displayed successfully." << endl;
 }
 
-void Admin::assignInstructorToCourse(string courseId, string instructorName, map<string, course>& allCourses)
+void Admin::assignInstructorToCourse(string courseId, string instructorName, unordered_map<string, course>& allCourses)
 {
 
     auto it = allCourses.find(courseId);
@@ -196,7 +196,7 @@ void Admin::assignInstructorToCourse(string courseId, string instructorName, map
     currentCourse.setInstructorName(instructorName);
 }
 
-void Admin::removeStudentFromCourse(int studentId, string courseId, map<int, Student>& Studs)
+void Admin::removeStudentFromCourse(int studentId, string courseId, unordered_map<int, Student>& Studs)
 {
     auto it = Studs.find(studentId);
     if (it == Studs.end()) {
@@ -220,18 +220,18 @@ void Admin::removeStudentFromCourse(int studentId, string courseId, map<int, Stu
 }
 
 // SETTERS AND GETTERS
-map<int, Student>& Admin::getStudents() {
+unordered_map<int, Student>& Admin::getStudents() {
     return Studs;
 }
 
-map<string, course>& Admin::getAllCourses() {
-    return allCourses;
+unordered_map<string, course>& Admin::getAllCourses() {
+    return *allCourses;
 }
 
-void Admin::setStudents(const map<int, Student>& students) {
+void Admin::setStudents(unordered_map<int, Student>& students) {
     Studs = students;
 }
 
-void Admin::setAllCourses(const map<string, course>& courses) {
-    allCourses = courses;
+void Admin::setAllCourses(unordered_map<string, course>& courses) {
+    allCourses = &courses;
 }

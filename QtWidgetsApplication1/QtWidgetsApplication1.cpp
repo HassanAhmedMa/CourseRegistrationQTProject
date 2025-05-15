@@ -104,6 +104,7 @@ void QtWidgetsApplication1::on_LoginButton_clicked()// when presses the login bu
 #include<qmessagebox.h>
 #include <vector>
 #include "FilesClass.h"
+#include <unordered_map>
 vector<Admin> allAdmins;
 Admin* QtWidgetsApplication1::currentAdmin = nullptr;
 QtWidgetsApplication1::QtWidgetsApplication1(QWidget* parent)

@@ -7,31 +7,34 @@
 #include "Student.h"
 #include <vector>
 #include <algorithm>
+#include "FilesClass.h"
+#include <string>
+#include <unordered_map>
 using namespace std;
 
 class Admin : public Person
 {
 private:
 
-    map<int, Student> Studs;
-    map<string, course> allCourses;
+    unordered_map<int, Student> Studs;
+    unordered_map<string, course>* allCourses = &FilesClass::AllCourses;
 
 public:
     Admin();
     Admin(int id, string name, string username, string password);
-    void setPreRequisites(map<string, course>& allCourses, string selectedCourseID, string preRequisiteCourseID);
-    void uploadCourse(map<string, course>& allCourses, string courseID, string courseTitle, string syllabus, int creditHours, string instructorName);
-    void deleteCourse(map<string, course>& allCourses, string courseId);
-    void uploadStudentGrades(int id, string courseId, int grade, string sem, map<int, Student>& Studs, map<string, course>& allCourses);
-    void EditStudentGrades(int id, string courseId, int grade, string sem, map<int, Student>& Studs, map<string, course>& allCourses);
-    void uploadStudentCompletedCourse(int id, string courseId, map<int, Student>& Studs, map<string, course>& allCourses);
-    void displayStudentGrades(int id, map<int, Student>& Studs);
-    void assignInstructorToCourse(string courseId, string instructorName, map<string, course>& allcourses);
-    void removeStudentFromCourse(int studentId, string courseId, map<int, Student>& Studs);
-    void setStudents(const map<int, Student>& students);
-    void setAllCourses(const map<string, course>& courses);
-    map<int, Student>& getStudents();
-    map<string, course>& getAllCourses();
+    void setPreRequisites(unordered_map<string, course>& allcourses, string selectedCourseID, string preRequisiteCourseID);
+    void uploadCourse(unordered_map<string, course>& allCourses, string courseID, string courseTitle, string syllabus, int creditHours, string instructorName);
+    void deleteCourse(unordered_map<string, course>& allCourses, string courseId);
+    void uploadStudentGrades(int id, string courseId, int grade, string sem, unordered_map<int, Student>& Studs, unordered_map<string, course>& allCourses);
+    void EditStudentGrades(int id, string courseId, int grade, string sem, unordered_map<int, Student>& Studs, unordered_map<string, course>& allCourses);
+    void uploadStudentCompletedCourse(int id, string courseId, unordered_map<int, Student>& Studs, unordered_map<string, course>& allCourses);
+    void displayStudentGrades(int id, unordered_map<int, Student>& Studs);
+    void assignInstructorToCourse(string courseId, string instructorName, unordered_map<string, course>& allcourses);
+    void removeStudentFromCourse(int studentId, string courseId, unordered_map<int, Student>& Studs);
+    void setStudents( unordered_map<int, Student>& students);
+    void setAllCourses( unordered_map<string, course>& courses);
+    unordered_map<int, Student>& getStudents();
+    unordered_map<string, course>& getAllCourses();
 
 
 };

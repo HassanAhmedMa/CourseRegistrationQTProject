@@ -8,7 +8,7 @@
 #include <qpushbutton.h>
 #include <unordered_set>
 #include<QtWidgetsApplication1.h>
-#include <FilesClass.h>
+#include "FilesClass.h" 
 using namespace std;
 map<string, course> allCourses;
 setPrerequisitesPage::setPrerequisitesPage(QWidget *parent)

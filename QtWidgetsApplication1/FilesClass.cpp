@@ -1,5 +1,4 @@
 #include "FilesClass.h"
-#include "QtWidgetsApplication1.h"
 
 unordered_map<string, Student> FilesClass::demoStudentsMap;
 unordered_map<string, course> FilesClass::AllCourses;
@@ -140,7 +139,7 @@ void FilesClass::readStudentsData(string studentsFile) {
 		}
 		
 
-		AllStudents.push_back(stud);
+		
 		demoStudentsMap[fields.at(2)] = stud;
 
 		//qDebug() << fields.at(2) + ' ' + fields.at(3) + ' ' + fields.at(0) + ' ' + fields.at(1) + ' ' + registeredCourses.at(0) + ' ' + CompletedCourses.at(0);

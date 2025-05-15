@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <fstream>
 #include "course.h"
@@ -17,7 +18,7 @@
 
 class FilesClass { //~Full class by Hassan Ahmed
 public:
-	vector<Student> AllStudents;//----------> Saves all students Data in the system, Can be accessed by adminstrator and other classes to read data of students
+	//vector<Student> AllStudents;//----------> Saves all students Data in the system, Can be accessed by adminstrator and other classes to read data of students
 	static unordered_map<string, Student> demoStudentsMap;
 	static unordered_map<string, course> AllCourses;
 	unordered_map<string, string> preReq;
