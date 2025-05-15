@@ -1,4 +1,6 @@
 #include "FilesClass.h"
+#include "QtWidgetsApplication1.h"
+
 unordered_map<string, Student> FilesClass::demoStudentsMap;
 unordered_map<string, course> FilesClass::AllCourses;
 Student* FilesClass::loggedInStudent;
@@ -93,7 +95,7 @@ void FilesClass::readStudentsData(string studentsFile) {
 		else {
 			CompletedCourses.push_back("none");
 		}
-		qDebug() << fields.at(6);
+		//qDebug() << fields.at(6);
 
 
 
@@ -108,7 +110,7 @@ void FilesClass::readStudentsData(string studentsFile) {
 			}
 		}
 		else {
-			grades.push_back(-1.0);
+			grades.push_back(-1.0); //To check if the student has no grades at all
 		}
 
 
@@ -122,14 +124,19 @@ void FilesClass::readStudentsData(string studentsFile) {
 		stud.addCourseCompleted(CompletedCourses);
 		
 
-		if (CompletedCourses.size() == grades.size() && grades.at(0) != -1) {
+		if (CompletedCourses.size() == grades.size() && grades.at(0) != -1) { //if the student has grades and at the same time the number of grades = the number of completed courses
 			int k = 0;
 			for (auto grade : grades) {
 				stud.addGrade(CompletedCourses.at(k), AllCourses[CompletedCourses.at(k)].getCourseTitle(), "fall", grade);
 				k++;
 				
+				
 
 			}
+		}
+		else
+		{
+			qDebug() << "CRITICAL ERROR 1 OCCURED IN FILES"; //Number of completed courses != number of grades {Problem in files .csv}
 		}
 		
 
@@ -196,22 +203,14 @@ string FilesClass::toLower(string s) {
 
 }
 
-course FilesClass::returnCoursePointer(string prerequisuteId)
-{
-	/*course* temp;
-	unordered_map<string, course>::iterator it = AllCourses.begin();
-	while (it != AllCourses.end()) {
-		if (it->second.getCourseID() == prerequisuteId) {
-			temp = &(it->second);
-			return temp;
-		}
-	}*/
-	course temp = AllCourses[prerequisuteId];
-	return temp;
 
 
 
-	
-}
+
+
+
+
+
+
 
 

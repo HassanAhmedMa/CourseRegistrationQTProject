@@ -26,8 +26,7 @@ QtWidgetsApplication1::QtWidgetsApplication1(QWidget *parent)
      //3 dummies
 
     allAdmins.push_back(Admin(101, "Alice Admin", "alice@admin", "admin123"));
-    allAdmins.push_back(Admin(102, "Bob Boss", "bob@admin", "boss456"));
-    allAdmins.push_back(Admin(103, "Carol Chief", "carol@admin", "chief789"));
+
 
     
     
@@ -42,13 +41,14 @@ QtWidgetsApplication1::~QtWidgetsApplication1()
 }
 
 
-void QtWidgetsApplication1::on_registerButton_clicked() {
+void QtWidgetsApplication1::on_registerButton_clicked() //when presses the register button take him to the register page
+{ 
     RegisterPage* registerPage = new RegisterPage(this);  
-    this->close();  // just hide, do NOT close
+    this->hide();  // just hide, do NOT close
     registerPage->show();
     
 }
-void QtWidgetsApplication1::on_LoginButton_clicked()
+void QtWidgetsApplication1::on_LoginButton_clicked()// when presses the login button
 {
     QString username = ui.UserNamelogin->text();
     QString password = ui.PasswordLogin->text();
@@ -72,8 +72,10 @@ void QtWidgetsApplication1::on_LoginButton_clicked()
     }
     else {
         // Student Login
-        for ( auto it : FilesClass::demoStudentsMap) {
-            if (it.second.getUsername() == usernameStd && it.second.getPassword() == passwordStd) {
+        for ( auto it : FilesClass::demoStudentsMap) //searches for the students in the files 
+        {
+            if (it.second.getUsername() == usernameStd && it.second.getPassword() == passwordStd) // checks if the username and password are the correct ones in the files
+            {
                 StudentMainMenu* studentMenu = new StudentMainMenu(this);
                 this->hide(); //~Hassan
                 FilesClass::loggedInStudent = &FilesClass::demoStudentsMap[usernameStd];

@@ -112,11 +112,11 @@ reportStudent::reportStudent(QWidget* parent)
 
     int row = 0;
     for (string courseID : student->getCoursesCompleted()) {
-        Grade g = student->getGradeObject(courseID);
+        Grade* g = student->getGradeObject(courseID);
 
-        QTableWidgetItem* nameItem = new QTableWidgetItem(QString::fromStdString(g.getCourseName()));
-        QTableWidgetItem* semesterItem = new QTableWidgetItem(QString::fromStdString(g.getSemester()));
-        QTableWidgetItem* gradeItem = new QTableWidgetItem(QString::number(g.getGradeValue(), 'f', 2));
+        QTableWidgetItem* nameItem = new QTableWidgetItem(QString::fromStdString(g->getCourseName()));
+        QTableWidgetItem* semesterItem = new QTableWidgetItem(QString::fromStdString(g->getSemester()));
+        QTableWidgetItem* gradeItem = new QTableWidgetItem(QString::number(g->getGradeValue(), 'f', 2));
 
         nameItem->setFlags(nameItem->flags() & ~Qt::ItemIsEditable);
         semesterItem->setFlags(semesterItem->flags() & ~Qt::ItemIsEditable);

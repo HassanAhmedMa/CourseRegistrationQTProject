@@ -11,7 +11,6 @@
 #include <QMessageBox>  // Optional, for user-facing error display
 #include <sstream>
 #include <algorithm>
-#include <course.h>
 #include <cctype>
 #include <unordered_map>
 
@@ -28,7 +27,6 @@ public:
 	void readStudentsData(string studentsFile = "Book1.csv");
 	void readCoursesData(string location = "CoursesData.csv");
 	static string toLower(string s);
-	course returnCoursePointer(string prerequisuteId);
 	
 
 	
