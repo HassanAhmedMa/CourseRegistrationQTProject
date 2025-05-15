@@ -17,35 +17,40 @@
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>0</y>
+      <x>0</x>
+      <y>-20</y>
       <width>1031</width>
       <height>651</height>
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::Shape::StyledPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
+     <enum>QFrame::Shadow::Raised</enum>
     </property>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>340</x>
        <y>20</y>
-       <width>201</width>
+       <width>211</width>
        <height>20</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Upload / Edit Student Grades:</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="UploadEditIDTextField">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>160</x>
        <y>90</y>
        <width>211</width>
        <height>28</height>
@@ -62,7 +67,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Enter Student ID: </string>
+      <string>Enter Student ID :  </string>
      </property>
     </widget>
     <widget class="QLabel" name="label_3">
@@ -75,7 +80,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Select Course:</string>
+      <string>Select Course :</string>
      </property>
     </widget>
     <widget class="QComboBox" name="comboBoxCourse">
@@ -92,20 +97,20 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>180</y>
+       <y>290</y>
        <width>81</width>
        <height>20</height>
       </rect>
      </property>
      <property name="text">
-      <string>Enter Grade:</string>
+      <string>Enter Grade :</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="UploadEditGradeTextField">
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>180</y>
+       <y>280</y>
        <width>113</width>
        <height>28</height>
       </rect>
@@ -115,7 +120,7 @@
      <property name="geometry">
       <rect>
        <x>100</x>
-       <y>300</y>
+       <y>410</y>
        <width>83</width>
        <height>29</height>
       </rect>
@@ -127,8 +132,8 @@
     <widget class="QPushButton" name="EditStudentGradeBtn">
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>300</y>
+       <x>380</x>
+       <y>410</y>
        <width>83</width>
        <height>29</height>
       </rect>
@@ -137,6 +142,78 @@
       <string>Edit</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="showCourses">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>130</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Show Courses</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>200</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Semster :</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>230</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Year :</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="SemstersComboBox">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>200</y>
+       <width>80</width>
+       <height>24</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="yearsComboBox">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>230</y>
+       <width>80</width>
+       <height>24</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="BackPushBtn">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>BACK</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -145,7 +222,7 @@
      <x>0</x>
      <y>0</y>
      <width>1047</width>
-     <height>25</height>
+     <height>33</height>
     </rect>
    </property>
   </widget>

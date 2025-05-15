@@ -27,8 +27,12 @@ public:
 	vector<string> getCoursesCompleted();	// getter for the list of completed courses of the student
 
 	void addGrade(string courseID, string courseName, string semester, double gradeValue);
-
 	void getGrade(string courseID);
+	bool getGradeValue(string& courseID, float& gradeOut); //boolean  i used it to validate that the corse hasnot been uploaded a grade before (ziad 14-5)
+	bool getGradeDetails(string& courseID, string& titleOut, string& semesterOut, float& gradeOut);   //  i used it to show the field of semster and year if i try to edit a past uploaded grade of course (ziad 14-5)
+
+
+
 
 	void setCurrentCourses(vector<string>& c);
 	static bool CourseIsAvaliable(string searchedCourse, unordered_map<string, course> AllCourses);

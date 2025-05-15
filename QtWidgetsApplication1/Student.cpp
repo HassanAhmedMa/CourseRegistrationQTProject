@@ -99,6 +99,29 @@ void Student::getGrade(string courseID) {
 }
 
 
+bool Student::getGradeValue(string& courseID, float& gradeOut)
+{
+	auto it = grade.find(courseID);
+	if (it != grade.end()) {
+		gradeOut = it->second.getGradeValue();
+		return true;
+	}
+	return false;
+}
+
+bool Student::getGradeDetails(string& courseID, string& titleOut, string& semesterOut, float& gradeOut)
+{
+	auto it = grade.find(courseID);
+	if (it != grade.end()) {
+		titleOut = it->second.getCourseName();
+		semesterOut = it->second.getSemester();
+		gradeOut = it->second.getGradeValue();
+		return true;
+	}
+	return false;
+}
+
+
 bool Student::CheckPrerequisties(string searchedCourse, vector<string> CompletedCourses, unordered_map<string, course> AllCourses)
 {//searchCourse da al mafrod course 3ndy fl files fa ana lazm ashof course.prereq bta3to w abtdy akrnha bl completedcourses bta3ty
 

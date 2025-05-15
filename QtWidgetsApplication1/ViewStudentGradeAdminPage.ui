@@ -24,19 +24,25 @@
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::Shape::StyledPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
+     <enum>QFrame::Shadow::Raised</enum>
     </property>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>380</x>
        <y>20</y>
-       <width>151</width>
+       <width>161</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>View Student Grades</string>
@@ -55,7 +61,7 @@
       <string>Enter ID:</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="StudentIDTextFieldViewGrade">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -68,14 +74,14 @@
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>130</y>
+       <x>400</x>
+       <y>180</y>
        <width>63</width>
        <height>20</height>
       </rect>
      </property>
      <property name="text">
-      <string>Result:</string>
+      <string>Result :</string>
      </property>
     </widget>
     <widget class="QPushButton" name="ViewGradeSearchStudent_Btn">
@@ -91,6 +97,68 @@
       <string>Search</string>
      </property>
     </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>180</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>CouseID :</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="AdminViewGradesCoursesComboBox">
+     <property name="geometry">
+      <rect>
+       <x>149</x>
+       <y>200</y>
+       <width>101</width>
+       <height>24</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="DisplayGradelineEdit">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>200</y>
+       <width>113</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ShowGradeBtn">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>250</y>
+       <width>75</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Show Grade</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ViewStudentGradeAdminBackBtn">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>75</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Back</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -99,7 +167,7 @@
      <x>0</x>
      <y>0</y>
      <width>992</width>
-     <height>25</height>
+     <height>33</height>
     </rect>
    </property>
   </widget>
