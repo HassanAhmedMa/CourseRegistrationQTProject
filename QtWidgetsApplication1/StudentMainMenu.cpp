@@ -5,6 +5,7 @@
 #include "viewGradesStudent.h"
 #include "reportStudent.h"
 #include "StudentInformation.h"
+#include"StudentHistory.h"
 
 
 
@@ -24,6 +25,7 @@ StudentMainMenu::StudentMainMenu(QWidget* parent)
     connect(ui.ViewGradeButtonStudentMainPage, &QPushButton::clicked, this, &StudentMainMenu::openViewGradesPage);
     connect(ui.MakeReport, &QPushButton::clicked, this, &StudentMainMenu::openreport);
     connect(ui.StudentInfo, &QPushButton::clicked, this, &StudentMainMenu::openPersonalInformationPage);
+    connect(ui.historyBtn, &QPushButton::clicked, this, &StudentMainMenu::openStudentHistorypage);
 }
 
 StudentMainMenu::~StudentMainMenu()
@@ -78,3 +80,12 @@ void StudentMainMenu::openPersonalInformationPage()
     
 
 }
+
+void StudentMainMenu::openStudentHistorypage() 
+{
+    StudentHistory* history = new StudentHistory();
+    history->displayStudentHistory(Student::history);
+    history->show();
+    //this->hide();
+}
+

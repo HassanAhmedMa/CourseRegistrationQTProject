@@ -64,6 +64,9 @@
     <ClCompile Include="uploadStudentCompletedCourse.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="StudentHistory.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h">
@@ -128,6 +131,9 @@
     <QtMoc Include="uploadStudentCompletedCourse.h">
       <Filter>Headers</Filter>
     </QtMoc>
+    <QtMoc Include="StudentHistory.h">
+      <Filter>Headers</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="AdminMenu.ui">
@@ -170,6 +176,9 @@
       <Filter>Forms</Filter>
     </QtUic>
     <QtUic Include="uploadStudentCompletedCourse.ui">
+      <Filter>Forms</Filter>
+    </QtUic>
+    <QtUic Include="StudentHistory.ui">
       <Filter>Forms</Filter>
     </QtUic>
   </ItemGroup>
