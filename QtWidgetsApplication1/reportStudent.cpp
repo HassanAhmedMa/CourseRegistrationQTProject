@@ -3,7 +3,7 @@
 #include "Student.h"
 #include "course.h"
 #include "Grade.h"
-
+#include "StudentMainMenu.h"
 #include <QFile>
 #include <QTextStream>
 #include <QFileDialog>
@@ -58,6 +58,7 @@ reportStudent::reportStudent(QWidget* parent)
 
     // When the user clicks "Print", we’ll call the saveReportAsText function
     connect(ui.printButton, &QPushButton::clicked, this, &reportStudent::saveReportAsText);
+    connect(ui.backButton, &QPushButton::clicked, this, &reportStudent::on_backBtn_clicked);
 } // Mahmoud Function 
 
 reportStudent::~reportStudent()
@@ -102,16 +103,23 @@ void reportStudent::saveReportAsText()
         out << course << "\t" << semester << "\t" << grade << "\n";
     }
 
-    file.close(); // Always close the file or Windows will get mad
+    file.close(); // Always close the file or Windows donot make a problem in windwos 
     QMessageBox::information(this, "Saved", "Report saved successfully.");
 
     // Push the action to student history (el tracking beta3 el student el 3amal eh)
     Student::history.push("Report generation");
     if (Student::history.size() > 5) {
-        Student::history.pop(); // keep it at max 5 items
+        Student::history.pop(); // keep it at max 5 items// jooo function
     }
 } //Mahmoud Function (AI helped us align the report formatting )
 
+void reportStudent::on_backBtn_clicked() {
+    // Create and show the main menu
+    StudentMainMenu* mainMenu = new StudentMainMenu();
+    mainMenu->show();
 
+    // Close the current window
+    this->close();
+}
 
 

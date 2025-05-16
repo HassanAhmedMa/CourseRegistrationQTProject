@@ -3,15 +3,17 @@
 #include "Student.h"
 #include <qmessagebox.h>
 #include <QComboBox>
+#include "StudentMainMenu.h"
 #include <vector>
 #include "FilesClass.h"
 #include <queue>
+#include "reportStudent.h"
 
 CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
-
+	connect(ui.Back, &QPushButton::clicked, this, &CourseRegisterStudentPage::on_backBtn_clicked);
 	// The courses are already stored globally in FilesClass::AllCourses
 
 	// These are the dropdown menus for choosing courses
@@ -191,6 +193,11 @@ void CourseRegisterStudentPage::registerSelectedCourses() {
 	}
 } // Mahmoud Function
 
+void CourseRegisterStudentPage::on_backBtn_clicked() {
+	// Create and show the main menu
+	StudentMainMenu* mainMenu = new StudentMainMenu();
+	mainMenu->show();
 
-
-
+	// Close the current window
+	this->close();
+}

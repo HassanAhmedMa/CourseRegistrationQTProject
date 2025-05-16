@@ -13,4 +13,5 @@ public:
 	void closeEvent(QCloseEvent* event);
 private:
 	Ui::StudentInformationClass ui;
+	void on_backBtn_clicked();
 };
