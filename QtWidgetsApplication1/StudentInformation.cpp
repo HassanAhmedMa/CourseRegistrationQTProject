@@ -40,7 +40,10 @@ StudentInformation::StudentInformation(QWidget *parent)
 	{
 		ui.CompletedCourse->setText(QString::fromStdString("This Student has no completed courses yet !"));
 	}
-	
+	Student::history.push("view Student Information");
+	if (Student::history.size() > 5) {
+		Student::history.pop();
+	}
 	
 
 }

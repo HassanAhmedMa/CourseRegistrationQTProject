@@ -4,15 +4,21 @@
 #include <unordered_map>
 #include "course.h"
 #include "Grade.h"
+#include <queue>
 class Student : public Person
 
 {
+public:
+	static	queue<string> history; // queue history ll student w static ashan a3rf anadyh bl class name fl student_ui pages
+
+
 private:
 	//   ||--ATTRIBUTES--||
 	vector<string> MyCourses; // still registerd courses
 	vector<string> CompletedCourses;
 	unordered_map<string, Grade> grade; // admin al mafrod hay4of al registered courses bta3ty w ydyha grades
 	float overallGpa;
+
 
 public:
 	//   ||--FUNCTIONS--||

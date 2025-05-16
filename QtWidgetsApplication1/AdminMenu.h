@@ -22,6 +22,10 @@ private slots:
 
     void on_setPrerequisites_Btn_clicked();
 
+	void on_UploadCourseAdminMenuBtn_clicked();
+
+	void on_UploadCompletedCourseAdminMenuBtn_clicked();
+
 private:
 	Ui::AdminMenuClass ui;
 };

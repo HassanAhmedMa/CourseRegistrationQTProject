@@ -10,7 +10,8 @@ class viewGradesStudent : public QMainWindow
 public:
 	viewGradesStudent(QWidget *parent = nullptr);
 	~viewGradesStudent();
-
+	void loadCompletedCourses();
+	void on_courseSelected(QString selectedCourseName);
 
 private:
 	Ui::viewGradesStudentClass ui;

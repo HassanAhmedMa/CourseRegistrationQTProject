@@ -24,10 +24,10 @@
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::Shape::StyledPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
+     <enum>QFrame::Shadow::Raised</enum>
     </property>
     <widget class="QLabel" name="label">
      <property name="geometry">
@@ -45,7 +45,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Upload / Edit New Course:</string>
+      <string>Upload  New Course:</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_2">
@@ -222,7 +222,7 @@
      <x>0</x>
      <y>0</y>
      <width>771</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

@@ -1,17 +1,9 @@
 ==== Student Report ====
-Name: Mahmoud Bahaa
-ID: 1234
-GPA: 3.29
+Name: youssef
+ID: 12345682
+GPA: 2.90
 
 Course Name	Semester	Grade
 ------------------------------------------
-Calculus I	Fall 2023	3.30
-Physics I	Fall 2023	3.00
-General Chemistry	Fall 2023	2.70
-Intro to Programming	Spring 2024	3.80
-Data Structures	Spring 2024	3.60
-Modern History	Spring 2024	2.90
-English Composition	Fall 2024	3.20
-Statistics	Fall 2024	3.40
-Algorithms	Spring 2025	3.90
-Digital Logic	Spring 2025	3.10
+Introduction to Programming	fall	2.30
+Calculus I	fall	3.50

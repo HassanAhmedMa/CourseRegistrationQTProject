@@ -29,9 +29,9 @@ void uploadCourse::on_uploadEditCourseBtn_clicked()
 	int creditHours = ui.LineEdit_CourseCreditHours->text().toInt();
 
 	Admin* admin = QtWidgetsApplication1::currentAdmin;
-	map<string, course>& courses = admin->getAllCourses();
 	
-	admin -> uploadCourse(courses, courseId, courseTitle, desc, creditHours, instructorName);
+	
+	admin -> uploadCourse(FilesClass::AllCourses, courseId, courseTitle, desc, creditHours, instructorName);
 
 
 	QMessageBox::information(this, "Message", "Course Uploaded Sucessfully.");
