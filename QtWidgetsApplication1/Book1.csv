@@ -1,16 +1,12 @@
-CourseID,CourseName,CreditHours,Instructor,Prerequisite,Syllabus
-CS101,Introduction to Programming,3,Dr. Smith,None,"Programming basics, variables, control structures, functions"
-CS102,Data Structures,3,Dr. Johnson,CS101,"Arrays, pointers, recursion, linked lists, stacks and queues"
-CS201,Algorithms,3,Dr. Adams,CS102,"Sorting, searching, trees, graphs, algorithm complexity"
-CS301,Advanced Programming,3,Dr. Williams,CS201,"OOP principles, design patterns, file I/O, multithreading"
-MATH101,Calculus I,3,Dr. Green,None,"Limits, derivatives, integration, applications of calculus"
-MATH102,Calculus II,3,Dr. Green,MATH101,"Advanced integration, sequences, series, polar coordinates"
-MATH201,Linear Algebra,3,Dr. Brown,MATH102,"Matrices, determinants, vector spaces, eigenvalues"
-PHY101,Physics I,3,Dr. Newton,None,"Kinematics, dynamics, Newton’s laws, energy, momentum"
-PHY201,Physics II,3,Dr. Einstein,PHY101,"Electricity, magnetism, optics, modern physics"
-CHEM101,Chemistry Basics,3,Dr. Curie,None,"Atomic structure, periodic table, bonding, acids and bases"
-AI301,Introduction to AI,3,Dr. Turing,CS201,"Search algorithms, logic, ML basics, neural networks"
-SWENG101,Software Engineering,3,Dr. Brooks,CS102,"SDLC, UML, testing, agile, version control"
-DB101,Databases,3,Dr. Codd,CS102,"SQL, ER diagrams, normalization, transactions"
-COMM201,Communication Skills,2,Dr. Mayer,None,"Public speaking, group communication, listening skills"
-ENG101,English for Engineers,2,Dr. Adams,None,"Technical writing, email etiquette, reports, proposals"
+Name,Seat Number ID,Username,Password,Registered Courses,Completed Courses,Completed grades,RegisteredGrades
+amira,12345681,amira01,passAmira01,"CS101,MATH101,ENG101",none,-1,-1
+youssef,12345682,youssef22,ypass2024,"CS102,PHY101,MATH102","CS101,MATH101","2.3,3.5",-1
+laila,12345683,laila90,lpass123,"CHEM101,PHIL101",none,-1,-1
+omar,12345684,omarK,omark321,"PHY201,MATH201","PHY101,MATH102","2.8,3.4",-1
+fatma,12345685,fatma.tech,fatma@pass,"CS201,ENG101","CS102,MATH101","3.5,2.9",-1
+karim,12345686,karim_dev,devkarim,"SWENG101,DB101","CS102,CS201","3.0,3.6",-1
+salma,12345687,salma123,s@lma321,"CS301,AI301","CS201,MATH201","3.3,2.7",-1
+ahmed,12345688,ahmed.elk,pass123ahmed,"COMM201,ENG101",none,-1,-1
+mariam,12345689,mariam98,mpasspass,"CS102,CS201,DB101",CS101,2.5,-1
+tarek,12345690,tarek.m,tm123pass,"AI301,SWENG101","CS201,MATH201","3.2,3.8",-1
+hassan ahmed,20231700,terpo,okazma9975,none,none,-1,-1
