@@ -1,6 +1,6 @@
 Name,Seat Number ID,Username,Password,Registered Courses,Completed Courses,Completed grades,RegisteredGrades
 amira,12345681,amira01,passAmira01,"CS101,MATH101,ENG101",none,-1,-1
-youssef,12345682,youssef22,ypass2024,"PHY101,MATH102","CS101,MATH101,CS102,CS102,CS102,CS102","2.3,3.5,-1.0,-1.0,-1.0,-1.0",-1
+youssef,12345682,youssef22,ypass2024,"CS102,PHY101,MATH102","CS101,MATH101","2.3,3.5",-1
 laila,12345683,laila90,lpass123,"CHEM101,PHIL101",none,-1,-1
 omar,12345684,omarK,omark321,"PHY201,MATH201","PHY101,MATH102","2.8,3.4",-1
 fatma,12345685,fatma.tech,fatma@pass,"CS201,ENG101","CS102,MATH101","3.5,2.9",-1
@@ -10,5 +10,3 @@ ahmed,12345688,ahmed.elk,pass123ahmed,"COMM201,ENG101",none,-1,-1
 mariam,12345689,mariam98,mpasspass,"CS102,CS201,DB101",CS101,2.5,-1
 tarek,12345690,tarek.m,tm123pass,"AI301,SWENG101","CS201,MATH201","3.2,3.8",-1
 hassan ahmed,20231700,terpo,okazma9975,none,none,-1,-1
-ziad ehab,2022170,zizo,ziadehab123,none,none,-1,-1
-ehab ziad,1234123,hoba,123,"CS101,MATH101,CHEM101",none,-1,-1
