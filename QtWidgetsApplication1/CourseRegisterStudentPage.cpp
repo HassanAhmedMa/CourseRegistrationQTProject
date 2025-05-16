@@ -1,4 +1,3 @@
-
 #include "CourseRegisterStudentPage.h"
 #include "course.h"
 #include "Student.h"
@@ -6,18 +5,16 @@
 #include <QComboBox>
 #include <vector>
 #include "FilesClass.h"
-#include<queue>
+#include <queue>
+
 CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
 
-	// Allocate courses on heap to avoid pointer issues
-	FilesClass::AllCourses;
-	//student = new Student("user1", "pass", "Ali", 1);
+	// The courses are already stored globally in FilesClass::AllCourses
 
-	//student->addCourseCompleted("PHY201");
-	
+	// These are the dropdown menus for choosing courses
 	comboBoxes.push_back(ui.AvailableCourses1);
 	comboBoxes.push_back(ui.AvailableCourses2);
 	comboBoxes.push_back(ui.AvailableCourses3);
@@ -25,30 +22,28 @@ CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 	comboBoxes.push_back(ui.AvailableCourses5);
 	comboBoxes.push_back(ui.AvailableCourses6);
 
-
-	//FilesClass::AllStudents;
-
-
-	
-	// Connect course selectors
+	// Initialize each comboBox with a default "Select an option..." item
+	// and connect its selection to displayCourseName()
 	for (auto x : comboBoxes) {
-		x->addItem("Select an option... "); //initialize the index 0 with a "select an option" option for friendly user interface ~Hassan
+		x->addItem("Select an option...");
 		connect(x, SIGNAL(currentIndexChanged(int)), this, SLOT(displayCourseName()));
 	}
+
+	// Connect the submit button to the course registration function
 	connect(ui.SubmitButtomForCourse, &QPushButton::clicked, this, &CourseRegisterStudentPage::registerSelectedCourses);
 
-	// Populate comboboxes
+	// Fill all the comboboxes with available course IDs from the system
 	for (auto c : FilesClass::AllCourses) {
 		QString id = QString::fromStdString(c.second.getCourseID());
-		for (auto comboBox : comboBoxes) { //Put all the course Ids in all the combox boxes using a nested loop ~Hassan
+		for (auto comboBox : comboBoxes) {
 			comboBox->addItem(id);
 		}
 	}
-}
+} // Mahmoud Function
 
 CourseRegisterStudentPage::~CourseRegisterStudentPage() {
-	//for (course* c : allCourses) delete c;
-}
+	// Nothing to delete here since we didn't allocate on heap explicitly
+} // Mahmoud Function
 
 void CourseRegisterStudentPage::displayCourseName() {
 	QComboBox* senderCombo = qobject_cast<QComboBox*>(sender());
@@ -58,6 +53,7 @@ void CourseRegisterStudentPage::displayCourseName() {
 	QString courseName = "Course Not Found";
 	QString creditHours = "N/A";
 
+	// Search for the course in the global AllCourses map
 	for (auto c : FilesClass::AllCourses) {
 		if (QString::fromStdString(c.second.getCourseID()) == selectedCourseID) {
 			courseName = QString::fromStdString(c.second.getCourseTitle());
@@ -66,14 +62,7 @@ void CourseRegisterStudentPage::displayCourseName() {
 		}
 	}
 
-	//for (auto combo : comboBoxes) {
-	//	if (senderCombo == combo) {
-	//		ui.CourseName1->setText("Course Name\n" + courseName);
-	//		ui.CreditHoursOfcourse1->setText("Credit Hours : " + creditHours);
-	//	}
-	//}
-
-
+	// Update the proper labels based on which combo box was changed
 	if (senderCombo == ui.AvailableCourses1) {
 		ui.CourseName1->setText("Course Name\n" + courseName);
 		ui.CreditHoursOfcourse1->setText("Credit Hours : " + creditHours);
@@ -99,23 +88,26 @@ void CourseRegisterStudentPage::displayCourseName() {
 		ui.CreditHoursOfcourse6->setText(creditHours);
 	}
 
+	// Recalculate the total credit hours and update the progress bar
 	updateTotalCreditHours();
-}
+} // Mahmoud Function
 
 void CourseRegisterStudentPage::checkMaxCreditLimit(int total) {
 	if (total > 21) {
 		QMessageBox::warning(this, "Registration Error", "You cannot register because total credit hours exceed 21.");
 	}
-}
+} // Mahmoud Function
 
 void CourseRegisterStudentPage::updateTotalCreditHours() {
 	int total = 0;
-	
 	QStringList selectedIDs;
+
+	// Get selected course IDs from all combo boxes
 	for (auto x : comboBoxes) {
 		selectedIDs.append(x->currentText());
 	}
 
+	// Add up the credit hours for each selected course
 	for (const QString& id : selectedIDs) {
 		for (auto c : FilesClass::AllCourses) {
 			if (QString::fromStdString(c.second.getCourseID()) == id) {
@@ -125,71 +117,80 @@ void CourseRegisterStudentPage::updateTotalCreditHours() {
 		}
 	}
 
+	// Update progress bar and validate the limit
 	ui.progressBarTotalCreditHours->setValue(total);
 	checkMaxCreditLimit(total);
-}
-
-
-
-
+} // Mahmoud Function
 
 void CourseRegisterStudentPage::registerSelectedCourses() {
-	if (FilesClass::toLower(student->getCourses().at(0)) != "none") { //none flag (for files) to check if the student is not registered ~hassan
+	// Check if student has already registered (based on special "none" placeholder)
+	if (FilesClass::toLower(student->getCourses().at(0)) != "none") {
 		QMessageBox::warning(this, "Already Registered", "You have already registered courses. You cannot register again.");
 		return;
 	}
-	QStringList selectedIDs; //Add all courses id
+
+	QStringList selectedIDs;
 	for (auto x : comboBoxes) {
 		selectedIDs.append(x->currentText());
 	}
 
-	//unordered_map<string, course> allCoursesMap;
-	//for (auto c : FilesClass::AllCourses) {
-	//	allCoursesMap[c.second.getCourseID()] = c.second;
-	//}
-
 	int totalCredits = 0;
+
+	// Loop through selected courses and validate each
 	for (const QString& qid : selectedIDs) {
-		if (qid == "Select an option... ") {
-			continue;
-		}
+		if (qid == "Select an option... ") continue;
+
 		string courseID = qid.toStdString();
 		if (courseID.empty()) continue;
 
+		// Check if the course is actually offered
 		if (!student->CourseIsAvaliable(courseID, FilesClass::AllCourses)) {
 			QMessageBox::warning(this, "Course Error", QString::fromStdString("Course not available: " + courseID));
 			return;
 		}
 
+		// Check if the prerequisites are met
 		if (!student->CheckPrerequisties(courseID, student->getCoursesCompleted(), FilesClass::AllCourses)) {
 			QMessageBox::warning(this, "Prerequisite Error",
 				QString::fromStdString("You must complete the required prerequisite before registering for " + courseID));
 			return;
 		}
 
+		// Add credit hours for total calculation
 		totalCredits += FilesClass::AllCourses[courseID].getCreditHours();
 	}
 
+	// Prevent registration if total exceeds 21 credit hours
 	if (totalCredits > 21) {
 		QMessageBox::warning(this, "Credit Limit Exceeded", "You cannot register for more than 21 credit hours.");
 		return;
 	}
+
+	// Remove the placeholder "none" from the courses list
 	student->getCoursesPtr()->pop_back();
+
+	// Finally, register the selected courses
 	for (QString qid : selectedIDs) {
 		string courseID = qid.toStdString();
-		
+
 		if (!courseID.empty() && courseID != "Select an option... ") {
 			student->CourseRegisteration(courseID, FilesClass::AllCourses, student->getCoursesCompleted());
 		}
-		qDebug() << student->getCourses();
+		qDebug() << student->getCourses();  // You can comment this line in production
 	}
 
+	// Notify user of success
 	QMessageBox::information(this, "Registration Complete", "Courses registered successfully!");
+
+	// Save the action into the student’s history queue
 	Student::history.push("Courses Registeration");
+
+	// Keep history size at 5 actions max
 	if (Student::history.size() > 5) {
-		Student::history.pop(); 
+		Student::history.pop();
 	}
-}
+} // Mahmoud Function
+
 
 
 
