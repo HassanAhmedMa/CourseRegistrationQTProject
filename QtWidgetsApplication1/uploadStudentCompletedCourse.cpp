@@ -49,3 +49,7 @@ void uploadStudentCompletedCourse::on_backBtn_clicked()
 	this->close();
 }
 
+uploadStudentCompletedCourse::~uploadStudentCompletedCourse() 
+{
+
+}
