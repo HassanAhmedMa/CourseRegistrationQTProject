@@ -58,4 +58,8 @@ void viewGradesStudent::on_courseSelected(QString selectedCourseName) {
             break;
         }
     }
+    Student::history.push("view Student grade");
+    if (Student::history.size() > 5) {
+        Student::history.pop();
+    }
 }

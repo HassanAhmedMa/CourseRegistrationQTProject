@@ -6,6 +6,7 @@
 #include <QComboBox>
 #include <vector>
 #include "FilesClass.h"
+#include<queue>
 CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 	: QMainWindow(parent)
 {
@@ -127,6 +128,10 @@ void CourseRegisterStudentPage::updateTotalCreditHours() {
 	checkMaxCreditLimit(total);
 }
 
+
+
+
+
 void CourseRegisterStudentPage::registerSelectedCourses() {
 	if (!student->getCourses().empty()) {
 		QMessageBox::warning(this, "Already Registered", "You have already registered courses. You cannot register again.");
@@ -177,6 +182,10 @@ void CourseRegisterStudentPage::registerSelectedCourses() {
 	}
 
 	QMessageBox::information(this, "Registration Complete", "Courses registered successfully!");
+	Student::history.push("Courses Registeration");
+	if (Student::history.size() > 5) {
+		Student::history.pop(); 
+	}
 }
 
 

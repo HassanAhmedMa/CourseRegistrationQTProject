@@ -171,6 +171,10 @@ void reportStudent::saveReportAsText()
 
     file.close();
     QMessageBox::information(this, "Saved", "Report saved successfully.");
+    Student::history.push("Report generation");
+    if (Student::history.size() > 5) {
+        Student::history.pop();
+    }
 }
 
 

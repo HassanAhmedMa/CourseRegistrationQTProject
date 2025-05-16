@@ -68,21 +68,9 @@ void Student::setCurrentCourses(vector<string>& c)
 	MyCourses = c;
 }
 
-bool Student::CourseIsAvaliable(string searchedCourse, unordered_map<string, course> AllCourses)
-{
 
-	auto it = AllCourses.find((searchedCourse));
-	if (it == AllCourses.end()) {
-		return false;
-	}
-	return true;
 
-}
 
-void Student::SearchForAvaibleCourses()
-{
-
-}
 
 void Student::addGrade(string courseID, string courseName, string semester, double gradeValue) {
 	Grade g(courseID, courseName, semester, gradeValue);
@@ -103,7 +91,7 @@ void Student::getGrade(string courseID) {
 	}
 }
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// HELPERS FOR ADMIN
 bool Student::getGradeValue(string& courseID, float& gradeOut)
 {
 	auto it = grade.find(courseID);
@@ -124,6 +112,18 @@ bool Student::getGradeDetails(string& courseID, string& titleOut, string& semest
 		return true;
 	}
 	return false;
+}
+ 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// FUNCTIONS FOR STUDENT REGISTERATION
+bool Student::CourseIsAvaliable(string searchedCourse, unordered_map<string, course> AllCourses)
+{
+
+	auto it = AllCourses.find((searchedCourse));
+	if (it == AllCourses.end()) {
+		return false;
+	}
+	return true;
+
 }
 
 
@@ -173,7 +173,7 @@ void Student::CourseRegisteration(string searchedCourse, unordered_map<string, c
 		cout << "Course is not available at the university.\n";
 	}
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void Student::ViewGrades(string courseID)
 {
 	auto it = find(CompletedCourses.begin(), CompletedCourses.end(), courseID);
@@ -224,8 +224,11 @@ Grade* Student::getGradeObject(string courseID) {
 	auto it = grade.find(courseID);
 	if (it != grade.end())
 		return &it->second;
-	return nullptr; // return default if not found
+	return nullptr; 
 }
 
 
+
+
+queue<string> Student::history; //helper for accessing the static queue 
 
