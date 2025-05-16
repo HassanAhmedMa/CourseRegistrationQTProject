@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
     c.readCoursesData();
     c.readStudentsData();
     displayAllStudentsDataFromFile(c);
+    
     QApplication a(argc, argv);
     QtWidgetsApplication1 q;
     AdminMenu m;
@@ -30,6 +31,10 @@ int main(int argc, char *argv[])
    //p.show();
    //m.show();
     m.show();
+    QObject::connect(qApp, &QCoreApplication::aboutToQuit, [&c]() {
+        c.writeStudentData();
+        c.writeCoursesData();
+    });
    
     return a.exec();
 
@@ -39,13 +44,13 @@ int main(int argc, char *argv[])
 
 void displayAllStudentsDataFromFile(FilesClass& c) {
     for (auto& stud : c.demoStudentsMap) {
-        qDebug() << stud.second.getCourses();
-        qDebug() << stud.second.getCoursesPtr();
-        qDebug() << stud.second.getCoursesCompleted();
-        qDebug() << stud.second.getName();
-        qDebug() << stud.second.getPassword();
-        qDebug() << stud.second.getUsername();
-        qDebug() << stud.second.getId();
+        //qDebug() << stud.second.getCourses();
+        //qDebug() << stud.second.getCoursesPtr();
+        //qDebug() << stud.second.getCoursesCompleted();
+        //qDebug() << stud.second.getName();
+        //qDebug() << stud.second.getPassword();
+        //qDebug() << stud.second.getUsername();
+        //qDebug() << stud.second.getId();
         //qDebug() << c.AllCourses[stud.first].getCourseID();
         //qDebug() << c.AllCourses[stud.first].getCourseTitle();
         //qDebug() << c.AllCourses[stud.first].getInstructorName();

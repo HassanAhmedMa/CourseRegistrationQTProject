@@ -10,8 +10,8 @@ void Person::setName(string n) {
     name = n;
 }
 
-void Person::setId(int id) {
-    this->id = id;
+void Person::setId(int iid) {
+    this->id = iid;
 }
 
 void Person::setUsername(string u) {

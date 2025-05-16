@@ -5,6 +5,8 @@
 #include<iostream>
 #include <unordered_map>
 #include <string>
+#include <sstream>
+#include <iomanip> 
 using namespace std;
 
 
@@ -100,6 +102,19 @@ void Student::getGrade(string courseID) {
 	}
 	else {
 		cout << "Grade not found for course ID: " << courseID << endl;
+	}
+}
+string Student::GetGradeAsString(string courseID) {
+	
+	
+	auto it = grade.find(courseID);
+	if (it != grade.end()) {
+		std::ostringstream stream;
+		stream << std::fixed << std::setprecision(1) << it->second.getGradeValue(); //remove extra 
+		return stream.str();
+	}
+	else {
+		return "-1";
 	}
 }
 

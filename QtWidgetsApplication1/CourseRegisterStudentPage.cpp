@@ -195,9 +195,9 @@ CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 
 	// Allocate courses on heap to avoid pointer issues
 	FilesClass::AllCourses;
-	student = new Student("user1", "pass", "Ali", 1);
+	//student = new Student("user1", "pass", "Ali", 1);
 
-	student->addCourseCompleted("PHY201");
+	//student->addCourseCompleted("PHY201");
 	
 	comboBoxes.push_back(ui.AvailableCourses1);
 	comboBoxes.push_back(ui.AvailableCourses2);
@@ -311,7 +311,7 @@ void CourseRegisterStudentPage::updateTotalCreditHours() {
 }
 
 void CourseRegisterStudentPage::registerSelectedCourses() {
-	if (!student->getCourses().empty()) {
+	if (FilesClass::toLower(student->getCourses().at(0)) != "none") { //none flag (for files) to check if the student is not registered ~hassan
 		QMessageBox::warning(this, "Already Registered", "You have already registered courses. You cannot register again.");
 		return;
 	}
@@ -352,10 +352,11 @@ void CourseRegisterStudentPage::registerSelectedCourses() {
 		return;
 	}
 
-	for (const QString& qid : selectedIDs) {
+	for (QString qid : selectedIDs) {
 		string courseID = qid.toStdString();
-		if (!courseID.empty()) {
-			student->CourseRegisteration(courseID, allCoursesMap, student->getCoursesCompleted());
+		qDebug() << qid;
+		if (!courseID.empty() && courseID != "Select an option... ") {
+			student->CourseRegisteration(courseID, FilesClass::AllCourses, student->getCoursesCompleted());
 		}
 	}
 

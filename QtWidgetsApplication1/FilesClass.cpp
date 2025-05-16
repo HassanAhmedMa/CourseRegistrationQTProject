@@ -41,11 +41,11 @@ void FilesClass::readStudentsData(string studentsFile) {
 	string line;
 	
 	if (!file.is_open()) {
-		qDebug() << "Error cannot open file : " + studentsFile << '\n';
+		//qDebug() << "Error cannot open file : " + studentsFile << '\n';
 	}
 	else
 	{
-		qDebug() << "Read Successfully !";
+		//qDebug() << "Read Successfully !";
 	}
 	int i = 0;
 	while (getline(file, line)) {
@@ -96,7 +96,7 @@ void FilesClass::readStudentsData(string studentsFile) {
 		else {
 			CompletedCourses.push_back("none");
 		}
-		//qDebug() << fields.at(6);
+		////qDebug() << fields.at(6);
 
 
 
@@ -140,16 +140,16 @@ void FilesClass::readStudentsData(string studentsFile) {
 			qDebug() << "CRITICAL ERROR 1 OCCURED IN FILES"; //Number of completed courses != number of grades {Problem in files .csv}
 		}
 		
-		qDebug() << stud.getCoursesCompleted() << "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+		//qDebug() << stud.getCoursesCompleted() << "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 
 		/*for (auto x : stud.getCourses()) {
-			qDebug() << x;
+			//qDebug() << x;
 		}*/
 
 		
 		demoStudentsMap[fields.at(1)] = stud;
 
-		//qDebug() << fields.at(2) + ' ' + fields.at(3) + ' ' + fields.at(0) + ' ' + fields.at(1) + ' ' + registeredCourses.at(0) + ' ' + CompletedCourses.at(0);
+		////qDebug() << fields.at(2) + ' ' + fields.at(3) + ' ' + fields.at(0) + ' ' + fields.at(1) + ' ' + registeredCourses.at(0) + ' ' + CompletedCourses.at(0);
 
 
 
@@ -163,11 +163,11 @@ void FilesClass::readCoursesData(string location) {
 	string line;
 
 	if (!file.is_open()) {
-		qDebug() << "Error cannot open file : " + location << '\n';
+		//qDebug() << "Error cannot open file : " + location << '\n';
 	}
 	else
 	{
-		qDebug() << "Read " + location + " Successfully !";
+		//qDebug() << "Read " + location + " Successfully !";
 	}
 	int i = 0; //used to skip the headers
 
@@ -182,7 +182,7 @@ void FilesClass::readCoursesData(string location) {
 		preReq[fields.at(0)] = fields.at(4);
 		course tempCourse = course(fields.at(1), fields.at(0), fields.at(5), stoi(fields.at(2)), fields.at(3));
 		AllCourses[fields.at(0)] = tempCourse;
-		qDebug() << preReq.size();
+		//qDebug() << preReq.size();
 
 
 
@@ -208,6 +208,180 @@ string FilesClass::toLower(string s) {
 	return s;
 
 }
+
+void FilesClass::writeStudentData()
+{
+	ofstream file("Book1.csv");
+	if (!file.is_open()) {
+		qDebug() << "Couldn't open " << "Book1.csv";
+		return;
+	}
+	file << "Name,Seat Number ID,Username,Password,Registered Courses,Completed Courses,Completed grades,RegisteredGrades\n";
+
+	for (auto x : demoStudentsMap) {
+		qDebug() << x.second.getCourses();
+		qDebug() << x.second.getCoursesCompleted();
+		qDebug() << x.second.getName();
+
+
+		string registeredCoursesStr = "none";
+		string completedCoursesStr = "none";
+		string usernameStr = x.second.getUsername();
+		string passwordStr = x.second.getPassword();
+		string idStr = to_string( x.second.getId());
+		string nameStr =  x.second.getName();
+		string completedCoursesGradesStr = "-1";
+
+
+		//Reverse the parsing from the data in the static files
+		if (toLower(x.second.getCourses().at(0)) != "none") { //"none" is the identifier if there is no course registered
+			registeredCoursesStr = ""; //initialize the courseString with an empty string since it won't be none
+			if (x.second.getCourses().size() > 1) { //if there is more than one course it will start adding " to the first of the string to parse into the csv file
+				registeredCoursesStr = "\"";
+				for (auto registeredCourse : x.second.getCourses()) {
+					registeredCoursesStr.append(registeredCourse + ",");//add a comma after each addition of a course ID for the registered courses
+
+				}
+				registeredCoursesStr.pop_back(); //remove the last char which is ',' as a redundant char from the last for loop
+				registeredCoursesStr.append("\"");
+			}
+			else {
+				registeredCoursesStr = x.second.getCourses().at(0); //if there is only one field in the course (one registered course only) it will take it without the ""
+			}
+		}
+
+		if (toLower(x.second.getCoursesCompleted().at(0)) != "none") {
+			completedCoursesStr = "";
+			if (x.second.getCoursesCompleted().size() > 1) {
+				completedCoursesStr = "\"";
+				for (auto completedCourse : x.second.getCoursesCompleted()) {
+					completedCoursesStr.append(completedCourse + ",");
+
+				}
+				completedCoursesStr.pop_back();
+				completedCoursesStr.append("\"");
+			}
+			else {
+				completedCoursesStr = x.second.getCoursesCompleted().at(0);
+			}
+		}
+
+		if (toLower(x.second.getCoursesCompleted().at(0))  != "none") {
+			completedCoursesGradesStr = "";
+			if (x.second.getCoursesCompleted().size() > 1) {
+				completedCoursesGradesStr = "\"";
+				for (auto completedCourseGrade : x.second.getCoursesCompleted()) {
+					completedCoursesGradesStr.append(x.second.GetGradeAsString(completedCourseGrade) + ",");
+
+				}
+				completedCoursesGradesStr.pop_back();
+				completedCoursesGradesStr.append("\"");
+			}
+			else {
+				completedCoursesGradesStr = x.second.GetGradeAsString(x.second.getCoursesCompleted().at(0));
+			}
+		}
+
+
+
+		qDebug() << registeredCoursesStr;
+		qDebug() << completedCoursesStr;
+		qDebug() << nameStr;
+		qDebug() << passwordStr;
+		qDebug() << usernameStr;
+		qDebug() << idStr;
+		qDebug() << completedCoursesGradesStr;
+		file << nameStr << ','
+			<< idStr << ','
+			<< usernameStr << ','
+			<< passwordStr << ','
+			<< registeredCoursesStr << ','
+			<< completedCoursesStr << ','
+			<< completedCoursesGradesStr << ','
+			<< "-1" << "\n";
+
+
+
+		//ofstream file2("testingwriteData.csv");
+		//if (!file2.is_open()) {
+		//	qDebug() << "Couldn't open " << "testingwriteData.csv";
+		//	return;
+		//}
+		//file2 << "CourseID,CourseName,CreditHours,Instructor,Prerequisite,Syllabus\n";
+		//for (auto x : AllCourses) {
+		//	string CourseID = x.second.getCourseID();
+		//	string CourseName = x.second.getCourseTitle();
+		//	string CreditHours = to_string(x.second.getCreditHours());
+		//	string Instructor = x.second.getInstructorName();
+		//	string PrerequisiteCourse = x.second.getPrerequisite()->getCourseID();
+		//	string Syllabus = x.second.getSyllabus();
+		//
+		//	
+		//	
+		//	
+		//	
+		//	
+		//	
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+	}
+	
+}
+
+void FilesClass::writeCoursesData()
+{
+	
+	ofstream file("CourseData.csv");
+	if (!file.is_open()) {
+		qDebug() << "Couldn't open " << "CourseData.csv";
+		return;
+	}
+	file << "CourseID,CourseName,CreditHours,Instructor,Prerequisite,Syllabus\n";
+	
+	for (auto x : AllCourses) {
+		string CourseID = x.second.getCourseID();
+		string CourseName = x.second.getCourseTitle();
+		string CreditHours = to_string(x.second.getCreditHours());
+		string Instructor = x.second.getInstructorName();
+		string PrerequisiteCourse;
+		if (x.second.getPrerequisite() != nullptr) {
+			PrerequisiteCourse = x.second.getPrerequisite()->getCourseID();
+		}
+		else
+		{
+			PrerequisiteCourse = "None";
+		}
+
+		string Syllabus = x.second.getSyllabus();
+
+
+
+		file << CourseID << ','
+			<< CourseName << ','
+			<< CreditHours << ','
+			<< Instructor << ','
+			<< PrerequisiteCourse << ','
+			<< Syllabus << "\n";
+	}
+	
+
+}
+
+
+
+
 
 
 

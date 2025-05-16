@@ -28,7 +28,8 @@ public:
 	void readStudentsData(string studentsFile = "Book1.csv");
 	void readCoursesData(string location = "CoursesData.csv");
 	static string toLower(string s);
-	
+	void writeStudentData();
+	void writeCoursesData();
 
 	
 

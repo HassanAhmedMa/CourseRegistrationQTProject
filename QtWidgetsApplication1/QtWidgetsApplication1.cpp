@@ -135,7 +135,7 @@ QtWidgetsApplication1::~QtWidgetsApplication1()
 
 void QtWidgetsApplication1::on_registerButton_clicked() {
     RegisterPage* registerPage = new RegisterPage(this);
-    this->close();  // just hide, do NOT close
+    this->hide();  // just hide, do NOT close
     registerPage->show();
 
 }
@@ -179,6 +179,13 @@ void QtWidgetsApplication1::on_LoginButton_clicked()
         QMessageBox::warning(this, "Login Failed", "Invalid username or password.");
     }
 
+}
+
+
+void QtWidgetsApplication1::closeEvent(QCloseEvent* event)
+{
+    qDebug() << "Login window closed → exiting app.";
+    qApp->quit();  // 🔥 This will shut down the entire application
 }
 
 
