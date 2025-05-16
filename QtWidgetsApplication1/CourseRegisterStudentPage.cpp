@@ -14,8 +14,9 @@ CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 
 	// Allocate courses on heap to avoid pointer issues
 	FilesClass::AllCourses;
-	student = FilesClass::loggedInStudent;
+	//student = new Student("user1", "pass", "Ali", 1);
 
+	//student->addCourseCompleted("PHY201");
 	
 	comboBoxes.push_back(ui.AvailableCourses1);
 	comboBoxes.push_back(ui.AvailableCourses2);
@@ -133,7 +134,7 @@ void CourseRegisterStudentPage::updateTotalCreditHours() {
 
 
 void CourseRegisterStudentPage::registerSelectedCourses() {
-	if (!student->getCourses().empty()) {
+	if (FilesClass::toLower(student->getCourses().at(0)) != "none") { //none flag (for files) to check if the student is not registered ~hassan
 		QMessageBox::warning(this, "Already Registered", "You have already registered courses. You cannot register again.");
 		return;
 	}
@@ -142,10 +143,10 @@ void CourseRegisterStudentPage::registerSelectedCourses() {
 		selectedIDs.append(x->currentText());
 	}
 
-	unordered_map<string, course> allCoursesMap;
-	for (auto c : FilesClass::AllCourses) {
-		allCoursesMap[c.second.getCourseID()] = c.second;
-	}
+	//unordered_map<string, course> allCoursesMap;
+	//for (auto c : FilesClass::AllCourses) {
+	//	allCoursesMap[c.second.getCourseID()] = c.second;
+	//}
 
 	int totalCredits = 0;
 	for (const QString& qid : selectedIDs) {
@@ -155,30 +156,32 @@ void CourseRegisterStudentPage::registerSelectedCourses() {
 		string courseID = qid.toStdString();
 		if (courseID.empty()) continue;
 
-		if (!student->CourseIsAvaliable(courseID, allCoursesMap)) {
+		if (!student->CourseIsAvaliable(courseID, FilesClass::AllCourses)) {
 			QMessageBox::warning(this, "Course Error", QString::fromStdString("Course not available: " + courseID));
 			return;
 		}
 
-		if (!student->CheckPrerequisties(courseID, student->getCoursesCompleted(), allCoursesMap)) {
+		if (!student->CheckPrerequisties(courseID, student->getCoursesCompleted(), FilesClass::AllCourses)) {
 			QMessageBox::warning(this, "Prerequisite Error",
 				QString::fromStdString("You must complete the required prerequisite before registering for " + courseID));
 			return;
 		}
 
-		totalCredits += allCoursesMap[courseID].getCreditHours();
+		totalCredits += FilesClass::AllCourses[courseID].getCreditHours();
 	}
 
 	if (totalCredits > 21) {
 		QMessageBox::warning(this, "Credit Limit Exceeded", "You cannot register for more than 21 credit hours.");
 		return;
 	}
-
-	for (const QString& qid : selectedIDs) {
+	student->getCoursesPtr()->pop_back();
+	for (QString qid : selectedIDs) {
 		string courseID = qid.toStdString();
-		if (!courseID.empty()) {
-			student->CourseRegisteration(courseID, allCoursesMap, student->getCoursesCompleted());
+		
+		if (!courseID.empty() && courseID != "Select an option... ") {
+			student->CourseRegisteration(courseID, FilesClass::AllCourses, student->getCoursesCompleted());
 		}
+		qDebug() << student->getCourses();
 	}
 
 	QMessageBox::information(this, "Registration Complete", "Courses registered successfully!");

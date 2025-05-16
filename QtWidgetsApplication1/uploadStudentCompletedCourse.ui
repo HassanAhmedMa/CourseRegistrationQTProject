@@ -24,10 +24,10 @@
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::Shape::StyledPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
+     <enum>QFrame::Shadow::Raised</enum>
     </property>
     <widget class="QLabel" name="label">
      <property name="geometry">
@@ -130,6 +130,19 @@
       <string>Back</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="searchBtn">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>110</y>
+       <width>75</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Search</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -138,7 +151,7 @@
      <x>0</x>
      <y>0</y>
      <width>694</width>
-     <height>26</height>
+     <height>33</height>
     </rect>
    </property>
   </widget>

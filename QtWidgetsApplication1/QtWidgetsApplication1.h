@@ -4,7 +4,8 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_QtWidgetsApplication1.h"
-
+#include <QCloseEvent>
+#include <QApplication>  // for qApp
 class Admin;
 class Student;
 
@@ -25,5 +26,7 @@ private:
 private slots:
     void on_registerButton_clicked();
     void on_LoginButton_clicked();
+
+    void closeEvent(QCloseEvent* event);
 
 };

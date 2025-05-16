@@ -152,7 +152,15 @@ void Admin::uploadStudentCompletedCourse(string id, string courseId, unordered_m
 
     string completedCourse = it2->first;
     stud.addCourseCompleted(completedCourse);
-    cout << "Course has been added successfully to student's completed courses.";
+
+    vector <string> registeredCourses = stud.getCourses();
+
+    auto it3 = find(registeredCourses.begin(), registeredCourses.end(), courseId);
+    if (it3 != registeredCourses.end()) {
+        registeredCourses.erase(it3);
+        stud.setCurrentCourses(registeredCourses);
+    }
+    cout << "Course has been added successfully to student's completed courses.";
 }
 
 //void Admin::uploadStudentCompletedCourse(int id, string courseId, unordered_map<int, Student>& Studs, unordered_map<string, course>& allCourses)

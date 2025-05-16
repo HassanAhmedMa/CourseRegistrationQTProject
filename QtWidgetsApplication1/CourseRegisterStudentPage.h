@@ -35,7 +35,7 @@
 #include "course.h"
 #include <vector>
 #include "Student.h"
-
+#include "FilesClass.h"
 class CourseRegisterStudentPage : public QMainWindow
 {
 	Q_OBJECT
@@ -44,7 +44,7 @@ public:
 	CourseRegisterStudentPage(QWidget* parent = nullptr);
 	~CourseRegisterStudentPage();
 	vector<QComboBox*> comboBoxes;
-	Student* student;
+	Student* student = FilesClass::loggedInStudent;
 
 private:
 	Ui::CourseRegisterStudentPageClass ui;

@@ -72,7 +72,11 @@ void RegisterPage::RegisterUser_Add() // for the new user (click on REGISTER BUT
     }
     else {
         Student newStudent = Student(usernameStd, passwordStd, nameStd, id); // makes a new Student in the files 
-        FilesClass::demoStudentsMap[usernameStd] = newStudent;
+        newStudent.setId(id);
+        vector<string> emptyCoursesVector = {"none"};
+        newStudent.setCurrentCourses(emptyCoursesVector);
+        newStudent.addCourseCompleted(emptyCoursesVector);
+        FilesClass::demoStudentsMap[to_string(id)] = newStudent;
         QMessageBox::information(this, "Success", "Student registered successfully!");
         //StudentMainMenu* studentMenu = new StudentMainMenu();
         
@@ -82,5 +86,6 @@ void RegisterPage::RegisterUser_Add() // for the new user (click on REGISTER BUT
     }
     QtWidgetsApplication1* loginPage = new QtWidgetsApplication1(this);
     loginPage->show();
+    this->hide();
 
 }

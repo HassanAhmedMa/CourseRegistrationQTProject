@@ -35,6 +35,7 @@ public:
 
 	void addGrade(string courseID, string courseName, string semester, double gradeValue);
 	void getGrade(string courseID);
+	string GetGradeAsString(string courseID);
 	bool getGradeValue(string& courseID, float& gradeOut); //boolean  i used it to validate that the corse hasnot been uploaded a grade before (ziad 14-5)
 	bool getGradeDetails(string& courseID, string& titleOut, string& semesterOut, float& gradeOut);   //  i used it to show the field of semster and year if i try to edit a past uploaded grade of course (ziad 14-5)
 
@@ -43,7 +44,10 @@ public:
 
 	void setCurrentCourses(vector<string>& c);
 	static bool CourseIsAvaliable(string searchedCourse, unordered_map<string, course> AllCourses);
-	void CourseRegisteration(string searchedCourse, unordered_map<string, course> AllCourses, vector<string> CompletedCourses); //will call SearchForAvaibleCourses() then will call  CheckPrerequisties()
+	void SearchForAvaibleCourses(); //we need to use search tree
+	void CourseRegisteration(string searchedCourse, unordered_map<string, course> AllCourses, vector<string> CompletedCourses);
+	//void CourseRegisteration(string searchedCourse, unordered_map<string, course>* AllCourses, vector<string> CompletedCourses);
+	//will call SearchForAvaibleCourses() then will call  CheckPrerequisties()
 	void ViewGrades(string courseID); //only for completed courses {the user should enter the name of the course }
 	bool CheckPrerequisties(string searchedCourse, vector<string> CompletedCourses, unordered_map<string, course> AllCourses);// will take the name of the course and the list of completed courses and check if the prerequisite is completed or not
 	float getOverallGPA();

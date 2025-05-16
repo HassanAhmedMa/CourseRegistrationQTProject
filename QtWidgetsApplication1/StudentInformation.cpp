@@ -11,6 +11,7 @@ StudentInformation::StudentInformation(QWidget *parent)
 	ui.PasswordField->setText(QString::fromStdString(FilesClass::loggedInStudent->getPassword()));
 	ui.SidField->setText(QString::number(FilesClass::loggedInStudent->getId()));
 	string courses = "";
+	qDebug() << FilesClass::loggedInStudent->getId();
 	if (!FilesClass::loggedInStudent->getCourses().empty() && FilesClass::loggedInStudent->getCourses().at(0) != "none") {
 		for (auto x : FilesClass::loggedInStudent->getCourses()) {
 
@@ -19,9 +20,10 @@ StudentInformation::StudentInformation(QWidget *parent)
 		courses.pop_back();
 		courses.pop_back();
 		ui.RegisteredCourse->setText(QString::fromStdString("Currently enrolled Courses : " + courses));
+		
 	}
 	else {
-		ui.CompletedCourse->setText(QString::fromStdString("This Student has no registered courses yet !"));
+		ui.RegisteredCourse->setText(QString::fromStdString("This Student has no registered courses yet !"));
 	}
 	
 	courses = "";
