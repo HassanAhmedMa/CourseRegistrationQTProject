@@ -109,24 +109,27 @@ reportStudent::reportStudent(QWidget* parent)
     QStringList headers = { "Course Name", "Semester", "Grades" };
     ui.tableWidget->setHorizontalHeaderLabels(headers);
     ui.tableWidget->setRowCount(student->getCoursesCompleted().size());
+    if (FilesClass::toLower(student->getCoursesCompleted().at(0)) != "none") {
+        int row = 0;
+        for (string courseID : student->getCoursesCompleted()) {
+            Grade* g = student->getGradeObject(courseID);
 
-    int row = 0;
-    for (string courseID : student->getCoursesCompleted()) {
-        Grade* g = student->getGradeObject(courseID);
+            QTableWidgetItem* nameItem = new QTableWidgetItem(QString::fromStdString(g->getCourseName()));
+            QTableWidgetItem* semesterItem = new QTableWidgetItem(QString::fromStdString(g->getSemester()));
+            QTableWidgetItem* gradeItem = new QTableWidgetItem(QString::number(g->getGradeValue(), 'f', 2));
 
-        QTableWidgetItem* nameItem = new QTableWidgetItem(QString::fromStdString(g->getCourseName()));
-        QTableWidgetItem* semesterItem = new QTableWidgetItem(QString::fromStdString(g->getSemester()));
-        QTableWidgetItem* gradeItem = new QTableWidgetItem(QString::number(g->getGradeValue(), 'f', 2));
+            nameItem->setFlags(nameItem->flags() & ~Qt::ItemIsEditable);
+            semesterItem->setFlags(semesterItem->flags() & ~Qt::ItemIsEditable);
+            gradeItem->setFlags(gradeItem->flags() & ~Qt::ItemIsEditable);
 
-        nameItem->setFlags(nameItem->flags() & ~Qt::ItemIsEditable);
-        semesterItem->setFlags(semesterItem->flags() & ~Qt::ItemIsEditable);
-        gradeItem->setFlags(gradeItem->flags() & ~Qt::ItemIsEditable);
-
-        ui.tableWidget->setItem(row, 0, nameItem);
-        ui.tableWidget->setItem(row, 1, semesterItem);
-        ui.tableWidget->setItem(row, 2, gradeItem);
-        row++;
+            ui.tableWidget->setItem(row, 0, nameItem);
+            ui.tableWidget->setItem(row, 1, semesterItem);
+            ui.tableWidget->setItem(row, 2, gradeItem);
+            row++;
+        }
     }
+
+    
 
     // Connect print button
     connect(ui.printButton, &QPushButton::clicked, this, &reportStudent::saveReportAsText);
