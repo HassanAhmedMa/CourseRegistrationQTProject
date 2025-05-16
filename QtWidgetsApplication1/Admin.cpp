@@ -59,6 +59,8 @@ void Admin::uploadCourse(unordered_map<string, course>& allCourses, string cours
 
     }
 }
+
+
 void Admin::deleteCourse(unordered_map<string, course>& allCourses, string courseId) {
 
     auto it = allCourses.find(courseId);
@@ -133,7 +135,7 @@ void Admin::EditStudentGrades(int id, string courseId, int grade, string sem, un
     cout << "Grade uploaded successfully.";
 }
 
-void Admin::uploadStudentCompletedCourse(int id, string courseId, unordered_map<int, Student>& Studs, unordered_map<string, course>& allCourses)
+void Admin::uploadStudentCompletedCourse(string id, string courseId, unordered_map<string, Student>& Studs, unordered_map<string, course>& allCourses)
 {
     auto it = Studs.find(id);
     if (it == Studs.end()) {
@@ -152,6 +154,26 @@ void Admin::uploadStudentCompletedCourse(int id, string courseId, unordered_map<
     stud.addCourseCompleted(completedCourse);
     cout << "Course has been added successfully to student's completed courses.";
 }
+
+//void Admin::uploadStudentCompletedCourse(int id, string courseId, unordered_map<int, Student>& Studs, unordered_map<string, course>& allCourses)
+//{
+//    auto it = Studs.find(id);
+//    if (it == Studs.end()) {
+//        cout << "Student Not Found.";
+//        return;
+//    }
+//
+//    Student& stud = it->second;
+//    auto it2 = allCourses.find(courseId);
+//    if (it2 == allCourses.end()) {
+//        cout << "Course not found and therefore cannot be added.";
+//        return;
+//    }
+//
+//    string completedCourse = it2->first;
+//    stud.addCourseCompleted(completedCourse);
+//    cout << "Course has been added successfully to student's completed courses.";
+//}
 
 
 void Admin::displayStudentGrades(int id, unordered_map<int, Student>& Studs) {
@@ -225,7 +247,7 @@ unordered_map<int, Student>& Admin::getStudents() {
 }
 
 unordered_map<string, course>& Admin::getAllCourses() {
-    return *allCourses;
+    return FilesClass::AllCourses;
 }
 
 void Admin::setStudents(unordered_map<int, Student>& students) {

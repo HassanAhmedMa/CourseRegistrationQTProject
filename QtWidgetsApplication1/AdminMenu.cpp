@@ -3,6 +3,9 @@
 #include "ViewStudentGradeAdminPage.h"
 #include "setPrerequisitesPage.h"
 #include "UploadEditStudentGradesPage.h"
+#include "uploadCourse.h"
+#include <uploadStudentCompletedCourse.h>
+
 
 AdminMenu::AdminMenu(QWidget *parent)
 	: QMainWindow(parent)
@@ -39,5 +42,21 @@ void AdminMenu::on_setPrerequisites_Btn_clicked()
 {
 	setPrerequisitesPage* form = new setPrerequisitesPage();
 	form->show();
+}
+
+void AdminMenu::on_UploadCourseAdminMenuBtn_clicked()
+{
+
+	
+	uploadCourse* form = new uploadCourse();
+	form->show();
+
+}
+
+void AdminMenu::on_UploadCompletedCourseAdminMenuBtn_clicked()
+{
+	uploadStudentCompletedCourse* form = new uploadStudentCompletedCourse();
+	form->show();
+
 }
 
