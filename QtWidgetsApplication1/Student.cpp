@@ -149,7 +149,8 @@ bool Student::CheckPrerequisties(string searchedCourse, vector<string> Completed
 	if (it != AllCourses.end()) {
 		course* prereq = it->second.getPrerequisite(); // Get pointer to prerequisite course
 
-		if (prereq == nullptr) {
+		if (prereq == nullptr) 
+		{
 			// No prerequisite ll course da
 			return true;
 		}
@@ -176,15 +177,18 @@ bool Student::CheckPrerequisties(string searchedCourse, vector<string> Completed
 void Student::CourseRegisteration(string searchedCourse, unordered_map<string, course> AllCourses, vector<string> CompletedCourses)
 {
 	if (CourseIsAvaliable(searchedCourse, AllCourses)) {
-		if (CheckPrerequisties(searchedCourse, CompletedCourses, AllCourses)) {
+		if (CheckPrerequisties(searchedCourse, CompletedCourses, AllCourses)) 
+		{
 			addCourse(searchedCourse);
 			cout << "Course registered successfully!\n";
 		}
-		else {
+		else 
+		{
 			cout << "You cannot register. Prerequisite not completed.\n";
 		}
 	}
-	else {
+	else 
+	{
 		cout << "Course is not available at the university.\n";
 	}
 }

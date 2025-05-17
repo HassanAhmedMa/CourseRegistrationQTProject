@@ -46,8 +46,7 @@ void StudentHistory::displayStudentHistory(queue<string>historyqueue)
 }
 void StudentHistory::backbtnclicked()
 {
-    StudentMainMenu* s = new StudentMainMenu(this);
-    s->show();
+   
     this->hide();
 }
 
