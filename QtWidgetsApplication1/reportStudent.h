@@ -14,4 +14,5 @@ public:
 private:
 	Ui::reportStudentClass ui;
 	void saveReportAsText();
+	void on_backBtn_clicked();
 };
