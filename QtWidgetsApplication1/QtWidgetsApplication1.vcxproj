@@ -104,6 +104,7 @@
     <ClCompile Include="reportStudent.cpp" />
     <ClCompile Include="setPrerequisitesPage.cpp" />
     <ClCompile Include="Student.cpp" />
+    <ClCompile Include="StudentHistory.cpp" />
     <ClCompile Include="StudentInformation.cpp" />
     <ClCompile Include="StudentMainMenu.cpp" />
     <ClCompile Include="uploadCourse.cpp" />
@@ -122,6 +123,7 @@
     <QtUic Include="RegisterPage.ui" />
     <QtUic Include="reportStudent.ui" />
     <QtUic Include="setPrerequisitesPage.ui" />
+    <QtUic Include="StudentHistory.ui" />
     <QtUic Include="StudentInformation.ui" />
     <QtUic Include="StudentMainMenu.ui" />
     <QtUic Include="uploadCourse.ui" />
@@ -167,6 +169,7 @@
     <ClInclude Include="Grade.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Student.h" />
+    <QtMoc Include="StudentHistory.h" />
     <QtMoc Include="uploadStudentCompletedCourse.h" />
     <QtMoc Include="uploadCourse.h" />
     <QtMoc Include="StudentInformation.h" />

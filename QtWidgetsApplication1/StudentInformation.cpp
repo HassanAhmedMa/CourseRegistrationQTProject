@@ -1,11 +1,14 @@
 #include "StudentInformation.h"
 #include "FilesClass.h"
 #include <string>
+#include "reportStudent.h"
+#include "StudentMainMenu.h"
 #include "StudentMainMenu.h"
 StudentInformation::StudentInformation(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+	connect(ui.Back, &QPushButton::clicked, this, &StudentInformation::on_backBtn_clicked);
 	ui.NameField->setText(QString::fromStdString(FilesClass::loggedInStudent->getName()));
 	ui.UserField->setText(QString::fromStdString(FilesClass::loggedInStudent->getUsername()));
 	ui.PasswordField->setText(QString::fromStdString(FilesClass::loggedInStudent->getPassword()));
@@ -62,4 +65,12 @@ void StudentInformation::closeEvent(QCloseEvent* event)
 		parentWidget()->show();  // Show the parent again
 	}
 	QMainWindow::closeEvent(event); // Call base class to close window
+}
+void StudentInformation::on_backBtn_clicked() {
+	// Create and show the main menu
+	StudentMainMenu* mainMenu = new StudentMainMenu();
+	mainMenu->show();
+
+	// Close the current window
+	this->close();
 }

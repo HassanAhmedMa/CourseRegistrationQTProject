@@ -150,9 +150,12 @@ void QtWidgetsApplication1::loginClicked()
     bool found = false;
 
     // Admin Login
-    if (username.contains("@admin", Qt::CaseInsensitive)) {
-        for (Admin admin : allAdmins) {
-            if (admin.getUsername() == usernameStd && admin.getPassword() == passwordStd) {
+    if (username.contains("@admin", Qt::CaseInsensitive)) 
+    {
+        for (Admin admin : allAdmins) 
+        {
+            if (admin.getUsername() == usernameStd && admin.getPassword() == passwordStd) 
+            {
                 currentAdmin = &admin;
                 AdminMenu* adminMenu = new AdminMenu(this);
                 adminMenu->show();
@@ -163,10 +166,12 @@ void QtWidgetsApplication1::loginClicked()
     }
     else {
         // Student Login
-        for (auto it : FilesClass::demoStudentsMap) {
-            if (it.second.getUsername() == usernameStd && it.second.getPassword() == passwordStd) {
+        for (auto it : FilesClass::demoStudentsMap) 
+        {
+            if (it.second.getUsername() == usernameStd && it.second.getPassword() == passwordStd) 
+            {
                 StudentMainMenu* studentMenu = new StudentMainMenu(this);
-                this->hide(); //~Hassan
+                this->hide(); 
                 FilesClass::loggedInStudent = &FilesClass::demoStudentsMap[to_string( it.second.getId())];
                 studentMenu->show();
                 found = true;

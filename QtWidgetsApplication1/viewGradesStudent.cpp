@@ -3,13 +3,18 @@
 #include "FilesClass.h"
 #include <QString>
 #include <QComboBox>
+#include "reportStudent.h"
+#include "StudentMainMenu.h"
 
 viewGradesStudent::viewGradesStudent(QWidget* parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
+    connect(ui.Back, &QPushButton::clicked, this, &viewGradesStudent::on_backBtn_clicked);
     loadCompletedCourses();
     connect(ui.courseNames, &QComboBox::currentTextChanged, this, &viewGradesStudent::on_courseSelected);
+    
+    
 
 }
 
@@ -62,4 +67,12 @@ void viewGradesStudent::on_courseSelected(QString selectedCourseName) {
     if (Student::history.size() > 5) {
         Student::history.pop();
     }
+}
+void  viewGradesStudent::on_backBtn_clicked() {
+    // Create and show the main menu
+    StudentMainMenu* mainMenu = new StudentMainMenu();
+    mainMenu->show();
+
+    // Close the current window
+    this->close();
 }

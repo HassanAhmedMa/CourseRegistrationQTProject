@@ -1,116 +1,41 @@
-//#include "reportStudent.h"
-//#include "ui_reportStudent.h"
-//#include "Student.h"
-//#include "course.h"
-//#include "Grade.h"
-//
-//reportStudent::reportStudent(QWidget* parent)
-//    : QMainWindow(parent)
-//{
-//    ui.setupUi(this);
-//
-//
-//    Student student("user1", "pass", "Mahmoud Bahaa", 1234);
-//
-//
-//    student.addCourseCompleted("MATH101");
-//    student.addGrade("MATH101", "Calculus I", "Fall 2023", 3.3);
-//
-//    student.addCourseCompleted("PHYS101");
-//    student.addGrade("PHYS101", "Physics I", "Fall 2023", 3.0);
-//
-//    student.addCourseCompleted("CHEM101");
-//    student.addGrade("CHEM101", "General Chemistry", "Fall 2023", 2.7);
-//
-//    student.addCourseCompleted("CS101");
-//    student.addGrade("CS101", "Intro to Programming", "Spring 2024", 3.8);
-//
-//    student.addCourseCompleted("CS102");
-//    student.addGrade("CS102", "Data Structures", "Spring 2024", 3.6);
-//
-//    student.addCourseCompleted("HIST201");
-//    student.addGrade("HIST201", "Modern History", "Spring 2024", 2.9);
-//
-//    student.addCourseCompleted("ENG101");
-//    student.addGrade("ENG101", "English Composition", "Fall 2024", 3.2);
-//
-//    student.addCourseCompleted("STAT202");
-//    student.addGrade("STAT202", "Statistics", "Fall 2024", 3.4);
-//
-//    student.addCourseCompleted("CS201");
-//    student.addGrade("CS201", "Algorithms", "Spring 2025", 3.9);
-//
-//    student.addCourseCompleted("ELEC220");
-//    student.addGrade("ELEC220", "Digital Logic", "Spring 2025", 3.1);
-//
-//
-//
-//    ui.lineEdit_2->setText(QString::fromStdString(student.getName()));
-//    ui.lineEdit_3->setText(QString::number(student.getId()));
-//    ui.lineEdit->setText(QString::number(student.getOverallGPA(), 'f', 2));
-//
-//
-//    ui.tableWidget->setColumnCount(3);
-//    QStringList headers = { "Course Name", "Semester", "Grades" };
-//    ui.tableWidget->setHorizontalHeaderLabels(headers);
-//    ui.tableWidget->setRowCount(student.getCoursesCompleted().size());
-//
-//    // Fill rows with grades
-//    int row = 0;
-//    for (string courseID : student.getCoursesCompleted()) {
-//        Grade g = student.getGradeObject(courseID);
-//
-//        QTableWidgetItem* nameItem = new QTableWidgetItem(QString::fromStdString(g.getCourseName()));
-//        QTableWidgetItem* semesterItem = new QTableWidgetItem(QString::fromStdString(g.getSemester()));
-//        QTableWidgetItem* gradeItem = new QTableWidgetItem(QString::number(g.getGradeValue(), 'f', 2));
-//
-//        ui.tableWidget->setItem(row, 0, nameItem);
-//        ui.tableWidget->setItem(row, 1, semesterItem);
-//        ui.tableWidget->setItem(row, 2, gradeItem);
-//        row++;
-//    }
-//}
-//
-//reportStudent::~reportStudent()
-//{
-//
-//}
 #include "reportStudent.h"
 #include "ui_reportStudent.h"
 #include "Student.h"
 #include "course.h"
 #include "Grade.h"
-
+#include "StudentMainMenu.h"
 #include <QFile>
 #include <QTextStream>
 #include <QFileDialog>
 #include <QMessageBox>
 #include "FilesClass.h"
 
-
-
 reportStudent::reportStudent(QWidget* parent)
-    : QMainWindow(parent) 
+    : QMainWindow(parent)
 {
     ui.setupUi(this);
 
-    // Dummy student
+    // Grab the currently logged-in student (ya3ni el user el da5al w 3ayez yshof el report)
     Student* student = FilesClass::loggedInStudent;
 
-
-    // Display in UI
+    // Fill in the top fields with name, ID, and GPA — super basic info
     ui.lineEdit_2->setText(QString::fromStdString(student->getName()));
     ui.lineEdit_3->setText(QString::number(student->getId()));
     ui.lineEdit->setText(QString::number(student->getOverallGPA(), 'f', 2));
-    
 
-    // Table setup
+    // Set up the table to show course name, semester, and grade
     ui.tableWidget->setColumnCount(3);
     QStringList headers = { "Course Name", "Semester", "Grades" };
     ui.tableWidget->setHorizontalHeaderLabels(headers);
+
+    // We set the number of rows depending on how many completed courses the student has
     ui.tableWidget->setRowCount(student->getCoursesCompleted().size());
+
+    // Make sure they’ve actually completed courses (none howa ano ma3ndoosh coursat completed 3shan kda bnshouf hwa kda wla la2 )
     if (FilesClass::toLower(student->getCoursesCompleted().at(0)) != "none") {
         int row = 0;
+
+        // Loop over each completed course and drop it into the table
         for (string courseID : student->getCoursesCompleted()) {
             Grade* g = student->getGradeObject(courseID);
 
@@ -118,10 +43,12 @@ reportStudent::reportStudent(QWidget* parent)
             QTableWidgetItem* semesterItem = new QTableWidgetItem(QString::fromStdString(g->getSemester()));
             QTableWidgetItem* gradeItem = new QTableWidgetItem(QString::number(g->getGradeValue(), 'f', 2));
 
+            // Lock the cells so the user can’t change stuff manually in the table
             nameItem->setFlags(nameItem->flags() & ~Qt::ItemIsEditable);
             semesterItem->setFlags(semesterItem->flags() & ~Qt::ItemIsEditable);
             gradeItem->setFlags(gradeItem->flags() & ~Qt::ItemIsEditable);
 
+            // Stuff the items into the table
             ui.tableWidget->setItem(row, 0, nameItem);
             ui.tableWidget->setItem(row, 1, semesterItem);
             ui.tableWidget->setItem(row, 2, gradeItem);
@@ -129,24 +56,29 @@ reportStudent::reportStudent(QWidget* parent)
         }
     }
 
-    
-
-    // Connect print button
+    // When the user clicks "Print", we’ll call the saveReportAsText function
     connect(ui.printButton, &QPushButton::clicked, this, &reportStudent::saveReportAsText);
-}
+    connect(ui.backButton, &QPushButton::clicked, this, &reportStudent::on_backBtn_clicked);
+} // Mahmoud Function 
 
 reportStudent::~reportStudent()
 {
     
-}
+} 
+
+// This function handles exporting the report to a .txt file that the user chooses
 void reportStudent::saveReportAsText()
 {
+    // Pop up the file dialog and ask user where they wanna save the file
     QString filePath = QFileDialog::getSaveFileName(this, "Save Report", "", "Text Files (*.txt)");
 
     if (filePath.isEmpty())
-        return;
+        return; // user changed their mind and cancelled
 
-    QFile file("C:\project ds final isa\QtWidgetsApplication1\printableReport.txt");
+    // You had a hardcoded path here! Warning: this won’t work properly unless that folder exists!
+    // QFile file(filePath); // use this instead if you want to respect the user's chosen location
+    QFile file("C:\\project ds final isa\\QtWidgetsApplication1\\printableReport.txt");
+
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QMessageBox::warning(this, "Error", "Could not open file to write.");
         return;
@@ -154,13 +86,12 @@ void reportStudent::saveReportAsText()
 
     QTextStream out(&file);
 
-    // Header
+    // 
     out << "==== Student Report ====\n";
     out << "Name: " << ui.lineEdit_2->text() << "\n";
     out << "ID: " << ui.lineEdit_3->text() << "\n";
     out << "GPA: " << ui.lineEdit->text() << "\n\n";
 
-    // Table header
     out << "Course Name\tSemester\tGrade\n";
     out << "------------------------------------------\n";
 
@@ -172,43 +103,23 @@ void reportStudent::saveReportAsText()
         out << course << "\t" << semester << "\t" << grade << "\n";
     }
 
-    file.close();
+    file.close(); // Always close the file or Windows donot make a problem in windwos 
     QMessageBox::information(this, "Saved", "Report saved successfully.");
+
+    // Push the action to student history (el tracking beta3 el student el 3amal eh)
     Student::history.push("Report generation");
     if (Student::history.size() > 5) {
-        Student::history.pop();
+        Student::history.pop(); // keep it at max 5 items// jooo function
     }
+} //Mahmoud Function (AI helped us align the report formatting )
+
+void reportStudent::on_backBtn_clicked() {
+    // Create and show the main menu
+    StudentMainMenu* mainMenu = new StudentMainMenu();
+    mainMenu->show();
+
+    // Close the current window
+    this->close();
 }
 
 
-// Printing function
-//void reportStudent::printReport()
-//{
-//    QTextDocument doc;
-//    QString html;
-//
-//    html += "<h2>Student Report</h2>";
-//    html += "<p><b>Name:</b> " + ui.lineEdit_2->text() + "</p>";
-//    html += "<p><b>ID:</b> " + ui.lineEdit_3->text() + "</p>";
-//    html += "<p><b>GPA:</b> " + ui.lineEdit->text() + "</p>";
-//    html += "<br><table border='1' cellspacing='0' cellpadding='4'>";
-//    html += "<tr><th>Course Name</th><th>Semester</th><th>Grade</th></tr>";
-//
-//    int rowCount = ui.tableWidget->rowCount();
-//    for (int i = 0; i < rowCount; ++i) {
-//        QString course = ui.tableWidget->item(i, 0)->text();
-//        QString semester = ui.tableWidget->item(i, 1)->text();
-//        QString grade = ui.tableWidget->item(i, 2)->text();
-//        html += "<tr><td>" + course + "</td><td>" + semester + "</td><td>" + grade + "</td></tr>";
-//    }
-//
-//    html += "</table>";
-//
-//    doc.setHtml(html);
-//
-//    QPrinter printer;
-//    QPrintDialog dialog(&printer, this);
-//    if (dialog.exec() == QDialog::Accepted) {
-//        doc.print(&printer);
-//    }
-//}

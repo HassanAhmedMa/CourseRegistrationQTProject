@@ -1038,6 +1038,19 @@ QProgressBar::chunk {
        <string> %v Credit Hours</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="Back">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>230</y>
+        <width>75</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Back </string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
