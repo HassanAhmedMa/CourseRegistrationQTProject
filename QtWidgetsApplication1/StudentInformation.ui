@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
+    <width>1285</width>
     <height>720</height>
    </rect>
   </property>
@@ -14,9 +14,7 @@
    <string>StudentInformation</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget {
-    background-color: #2E3440;
-}</string>
+   <string notr="true">background-color: rgb(39, 101, 120);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="layoutWidget">
@@ -298,11 +296,38 @@
    <widget class="QPushButton" name="Back">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>0</y>
+      <x>618</x>
+      <y>571</y>
       <width>75</width>
-      <height>24</height>
+      <height>35</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #2C2C2C;       /* Dark grey background */
+    color: white;                    /* Clean white text */
+    border: 1px solid #444;          /* Slight edge for separation */
+    border-radius: 15px;              /* Rounded corners */
+    padding: 8px 16px;               /* Internal spacing */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+QPushButton:hover {
+    background-color: #3A3A3A;       /* Slightly lighter on hover */
+}
+
+QPushButton:pressed {
+    background-color: #1F1F1F;       /* Slightly darker on press */
+}
+
+QPushButton:disabled {
+    background-color: #555555;
+    color: #AAAAAA;
+    border: 1px solid #666;
+}
+</string>
     </property>
     <property name="text">
      <string>Back </string>
@@ -314,8 +339,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1280</width>
-     <height>33</height>
+     <width>1285</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>

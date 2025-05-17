@@ -35,114 +35,274 @@
       <height>720</height>
      </size>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(39, 101, 120);
+</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::Shape::StyledPanel</enum>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Shadow::Raised</enum>
     </property>
-    <widget class="QPushButton" name="CourseRegisterationButton">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>110</y>
-       <width>121</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Course Registration</string>
-     </property>
-     <property name="checkable">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="MakeReport">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>290</y>
-       <width>121</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Make Report </string>
-     </property>
-     <property name="checkable">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="ViewGradeButtonStudentMainPage">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>200</y>
-       <width>121</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>View Grades </string>
-     </property>
-     <property name="checkable">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="StudentInfo">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>390</y>
-       <width>121</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string> student Information</string>
-     </property>
-     <property name="checkable">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="LogoutInStudentMenu">
-     <property name="geometry">
-      <rect>
-       <x>550</x>
-       <y>50</y>
-       <width>75</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>logout</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>70</y>
-       <width>81</width>
-       <height>20</height>
+       <x>220</x>
+       <y>57</y>
+       <width>242</width>
+       <height>41</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Aquire</family>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Main Menu&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="historyBtn">
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>204</x>
+       <y>112</y>
+       <width>279</width>
+       <height>283</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="CourseRegisterationButton">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2C2C2C;       /* Dark grey background */
+    color: white;                    /* Clean white text */
+    border: 1px solid #444;          /* Slight edge for separation */
+    border-radius: 15px;              /* Rounded corners */
+    padding: 8px 16px;               /* Internal spacing */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+QPushButton:hover {
+    background-color: #3A3A3A;       /* Slightly lighter on hover */
+}
+
+QPushButton:pressed {
+    background-color: #1F1F1F;       /* Slightly darker on press */
+}
+
+QPushButton:disabled {
+    background-color: #555555;
+    color: #AAAAAA;
+    border: 1px solid #666;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Course Registration</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ViewGradeButtonStudentMainPage">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2C2C2C;       /* Dark grey background */
+    color: white;                    /* Clean white text */
+    border: 1px solid #444;          /* Slight edge for separation */
+    border-radius: 15px;              /* Rounded corners */
+    padding: 8px 16px;               /* Internal spacing */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+QPushButton:hover {
+    background-color: #3A3A3A;       /* Slightly lighter on hover */
+}
+
+QPushButton:pressed {
+    background-color: #1F1F1F;       /* Slightly darker on press */
+}
+
+QPushButton:disabled {
+    background-color: #555555;
+    color: #AAAAAA;
+    border: 1px solid #666;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>View Grades </string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="MakeReport">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2C2C2C;       /* Dark grey background */
+    color: white;                    /* Clean white text */
+    border: 1px solid #444;          /* Slight edge for separation */
+    border-radius: 15px;              /* Rounded corners */
+    padding: 8px 16px;               /* Internal spacing */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+QPushButton:hover {
+    background-color: #3A3A3A;       /* Slightly lighter on hover */
+}
+
+QPushButton:pressed {
+    background-color: #1F1F1F;       /* Slightly darker on press */
+}
+
+QPushButton:disabled {
+    background-color: #555555;
+    color: #AAAAAA;
+    border: 1px solid #666;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Make Report </string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="StudentInfo">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2C2C2C;       /* Dark grey background */
+    color: white;                    /* Clean white text */
+    border: 1px solid #444;          /* Slight edge for separation */
+    border-radius: 15px;              /* Rounded corners */
+    padding: 8px 16px;               /* Internal spacing */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+QPushButton:hover {
+    background-color: #3A3A3A;       /* Slightly lighter on hover */
+}
+
+QPushButton:pressed {
+    background-color: #1F1F1F;       /* Slightly darker on press */
+}
+
+QPushButton:disabled {
+    background-color: #555555;
+    color: #AAAAAA;
+    border: 1px solid #666;
+}
+</string>
+        </property>
+        <property name="text">
+         <string> student Information</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
        <x>550</x>
-       <y>100</y>
-       <width>75</width>
-       <height>24</height>
+       <y>50</y>
+       <width>80</width>
+       <height>84</height>
       </rect>
      </property>
-     <property name="text">
-      <string>Histroy</string>
-     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QPushButton" name="LogoutInStudentMenu">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2C2C2C;       /* Dark grey background */
+    color: white;                    /* Clean white text */
+    border: 1px solid #444;          /* Slight edge for separation */
+    border-radius: 15px;              /* Rounded corners */
+    padding: 8px 16px;               /* Internal spacing */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+QPushButton:hover {
+    background-color: #3A3A3A;       /* Slightly lighter on hover */
+}
+
+QPushButton:pressed {
+    background-color: #1F1F1F;       /* Slightly darker on press */
+}
+
+QPushButton:disabled {
+    background-color: #555555;
+    color: #AAAAAA;
+    border: 1px solid #666;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>logout</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="historyBtn">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2C2C2C;       /* Dark grey background */
+    color: white;                    /* Clean white text */
+    border: 1px solid #444;          /* Slight edge for separation */
+    border-radius: 15px;              /* Rounded corners */
+    padding: 8px 16px;               /* Internal spacing */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+QPushButton:hover {
+    background-color: #3A3A3A;       /* Slightly lighter on hover */
+}
+
+QPushButton:pressed {
+    background-color: #1F1F1F;       /* Slightly darker on press */
+}
+
+QPushButton:disabled {
+    background-color: #555555;
+    color: #AAAAAA;
+    border: 1px solid #666;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Histroy</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
   </widget>

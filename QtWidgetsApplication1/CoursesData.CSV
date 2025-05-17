@@ -2,7 +2,7 @@ CourseID,CourseName,CreditHours,Instructor,Prerequisite,Syllabus
 CS101,Introduction to Programming,3,Dr. Smith,None,Programming basics
 CS102,Data Structures,3,Dr. Johnson,CS101,Arrays
 CS201,Algorithms,3,Dr. Adams,CS102,Sorting
-CS301,Advanced Programming,3,Dr. Williams,CS101,OOP principles
+CS301,Advanced Programming,3,Dr. Williams,CS201,OOP principles
 MATH101,Calculus I,3,Dr. Green,None,Limits
 MATH102,Calculus II,3,Dr. Green,MATH101,Advanced integration
 CHEM101,Chemistry Basics,3,Dr. Curie,None,Atomic structure
@@ -14,3 +14,4 @@ AI301,Introduction to AI,3,Dr. Turing,CS201,Search algorithms
 SWENG101,Software Engineering,3,Dr. Brooks,CS102,SDLC
 DB101,Databases,3,Dr. Codd,CS102,SQL
 COMM201,Communication Skills,2,Dr. Mayer,None,Public speaking
+AI-900,Azure,4,Mahmoud Bahaa,CS301,Introduction to Azure Ai fundementals

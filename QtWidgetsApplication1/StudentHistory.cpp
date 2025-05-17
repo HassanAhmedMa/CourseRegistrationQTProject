@@ -47,7 +47,7 @@ void StudentHistory::displayStudentHistory(queue<string>historyqueue)
 void StudentHistory::backbtnclicked()
 {
    
-    this->hide();
+    this->close();
 }
 
 StudentHistory::~StudentHistory()

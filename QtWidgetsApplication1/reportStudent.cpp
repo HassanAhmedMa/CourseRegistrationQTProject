@@ -115,8 +115,7 @@ void reportStudent::saveReportAsText()
 
 void reportStudent::on_backBtn_clicked() {
     // Create and show the main menu
-    StudentMainMenu* mainMenu = new StudentMainMenu();
-    mainMenu->show();
+
 
     // Close the current window
     this->close();

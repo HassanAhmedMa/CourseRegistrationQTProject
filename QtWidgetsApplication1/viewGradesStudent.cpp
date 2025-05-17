@@ -70,8 +70,6 @@ void viewGradesStudent::on_courseSelected(QString selectedCourseName) {
 }
 void  viewGradesStudent::on_backBtn_clicked() {
     // Create and show the main menu
-    StudentMainMenu* mainMenu = new StudentMainMenu();
-    mainMenu->show();
 
     // Close the current window
     this->close();

@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     
     QApplication a(argc, argv);
     QtWidgetsApplication1 q;
-    AdminMenu m;
+    //AdminMenu m;
    //StudentMainMenu n;
     q.show();
    //n.show();
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
    //CourseRegisterStudentPage p;
    //p.show();
    //m.show();
-    m.show();
+    //m.show();
     QObject::connect(qApp, &QCoreApplication::aboutToQuit, [&c]() {
         c.writeStudentData();
         c.writeCoursesData();

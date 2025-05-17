@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>AdminMenu</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(39, 101, 120);</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QFrame" name="frame">
     <property name="geometry">
@@ -32,115 +35,243 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>380</x>
-       <y>40</y>
-       <width>63</width>
-       <height>20</height>
+       <x>324</x>
+       <y>52</y>
+       <width>167</width>
+       <height>30</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Aquire</family>
+       <pointsize>15</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>Menu</string>
      </property>
-    </widget>
-    <widget class="QPushButton" name="viewProfile_Btn">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>80</y>
-       <width>241</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>View Profile Info</string>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="viewStudentGrades_Btn">
+    <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
-       <x>290</x>
-       <y>140</y>
-       <width>241</width>
-       <height>51</height>
+       <x>262</x>
+       <y>93</y>
+       <width>294</width>
+       <height>408</height>
       </rect>
      </property>
-     <property name="text">
-      <string>View Student Grades</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="uploadGrades_Btn">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>200</y>
-       <width>241</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Upload / Edit Student Grades</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="setPrerequisites_Btn">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>270</y>
-       <width>241</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Set Prerequisites</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="UploadCourseAdminMenuBtn">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>350</y>
-       <width>241</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Upload Course</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="UploadCompletedCourseAdminMenuBtn">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>413</y>
-       <width>241</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Uplaod Completed Course</string>
-     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="viewProfile_Btn">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2C2C2C;       /* Dark grey background */
+    color: white;                    /* Clean white text */
+    border: 1px solid #444;          /* Slight edge for separation */
+    border-radius: 15px;              /* Rounded corners */
+    padding: 8px 16px;               /* Internal spacing */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+QPushButton:hover {
+    background-color: #3A3A3A;       /* Slightly lighter on hover */
+}
+
+QPushButton:pressed {
+    background-color: #1F1F1F;       /* Slightly darker on press */
+}
+
+QPushButton:disabled {
+    background-color: #555555;
+    color: #AAAAAA;
+    border: 1px solid #666;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>View Profile Info</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="viewStudentGrades_Btn">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2C2C2C;       /* Dark grey background */
+    color: white;                    /* Clean white text */
+    border: 1px solid #444;          /* Slight edge for separation */
+    border-radius: 15px;              /* Rounded corners */
+    padding: 8px 16px;               /* Internal spacing */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+QPushButton:hover {
+    background-color: #3A3A3A;       /* Slightly lighter on hover */
+}
+
+QPushButton:pressed {
+    background-color: #1F1F1F;       /* Slightly darker on press */
+}
+
+QPushButton:disabled {
+    background-color: #555555;
+    color: #AAAAAA;
+    border: 1px solid #666;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>View Student Grades</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="uploadGrades_Btn">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2C2C2C;       /* Dark grey background */
+    color: white;                    /* Clean white text */
+    border: 1px solid #444;          /* Slight edge for separation */
+    border-radius: 15px;              /* Rounded corners */
+    padding: 8px 16px;               /* Internal spacing */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+QPushButton:hover {
+    background-color: #3A3A3A;       /* Slightly lighter on hover */
+}
+
+QPushButton:pressed {
+    background-color: #1F1F1F;       /* Slightly darker on press */
+}
+
+QPushButton:disabled {
+    background-color: #555555;
+    color: #AAAAAA;
+    border: 1px solid #666;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Upload / Edit Student Grades</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="setPrerequisites_Btn">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2C2C2C;       /* Dark grey background */
+    color: white;                    /* Clean white text */
+    border: 1px solid #444;          /* Slight edge for separation */
+    border-radius: 15px;              /* Rounded corners */
+    padding: 8px 16px;               /* Internal spacing */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+QPushButton:hover {
+    background-color: #3A3A3A;       /* Slightly lighter on hover */
+}
+
+QPushButton:pressed {
+    background-color: #1F1F1F;       /* Slightly darker on press */
+}
+
+QPushButton:disabled {
+    background-color: #555555;
+    color: #AAAAAA;
+    border: 1px solid #666;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Set Prerequisites</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="UploadCourseAdminMenuBtn">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2C2C2C;       /* Dark grey background */
+    color: white;                    /* Clean white text */
+    border: 1px solid #444;          /* Slight edge for separation */
+    border-radius: 15px;              /* Rounded corners */
+    padding: 8px 16px;               /* Internal spacing */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+QPushButton:hover {
+    background-color: #3A3A3A;       /* Slightly lighter on hover */
+}
+
+QPushButton:pressed {
+    background-color: #1F1F1F;       /* Slightly darker on press */
+}
+
+QPushButton:disabled {
+    background-color: #555555;
+    color: #AAAAAA;
+    border: 1px solid #666;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Upload Course</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="UploadCompletedCourseAdminMenuBtn">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #2C2C2C;       /* Dark grey background */
+    color: white;                    /* Clean white text */
+    border: 1px solid #444;          /* Slight edge for separation */
+    border-radius: 15px;              /* Rounded corners */
+    padding: 8px 16px;               /* Internal spacing */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+QPushButton:hover {
+    background-color: #3A3A3A;       /* Slightly lighter on hover */
+}
+
+QPushButton:pressed {
+    background-color: #1F1F1F;       /* Slightly darker on press */
+}
+
+QPushButton:disabled {
+    background-color: #555555;
+    color: #AAAAAA;
+    border: 1px solid #666;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Uplaod Completed Course</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>871</width>
-     <height>33</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
