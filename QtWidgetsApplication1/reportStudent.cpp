@@ -18,7 +18,7 @@ reportStudent::reportStudent(QWidget* parent)
     // Grab the currently logged-in student (ya3ni el user el da5al w 3ayez yshof el report)
     Student* student = FilesClass::loggedInStudent;
 
-    // Fill in the top fields with name, ID, and GPA — super basic info
+    // Fill in the top fields with name, ID, and GPA — basic info
     ui.lineEdit_2->setText(QString::fromStdString(student->getName()));
     ui.lineEdit_3->setText(QString::number(student->getId()));
     ui.lineEdit->setText(QString::number(student->getOverallGPA(), 'f', 2));
@@ -43,7 +43,7 @@ reportStudent::reportStudent(QWidget* parent)
             QTableWidgetItem* semesterItem = new QTableWidgetItem(QString::fromStdString(g->getSemester()));
             QTableWidgetItem* gradeItem = new QTableWidgetItem(QString::number(g->getGradeValue(), 'f', 2));
 
-            // Lock the cells so the user can’t change stuff manually in the table
+            // by5ele user  me3dlesh fe gadwal 
             nameItem->setFlags(nameItem->flags() & ~Qt::ItemIsEditable);
             semesterItem->setFlags(semesterItem->flags() & ~Qt::ItemIsEditable);
             gradeItem->setFlags(gradeItem->flags() & ~Qt::ItemIsEditable);
@@ -58,7 +58,7 @@ reportStudent::reportStudent(QWidget* parent)
 
     // When the user clicks "Print", we’ll call the saveReportAsText function
     connect(ui.printButton, &QPushButton::clicked, this, &reportStudent::saveReportAsText);
-    connect(ui.backButton, &QPushButton::clicked, this, &reportStudent::on_backBtn_clicked);
+    connect(ui.backButton, &QPushButton::clicked, this, &reportStudent::on_backBtn_clicked);// Back Buttom Funtion
 } // Mahmoud Function 
 
 reportStudent::~reportStudent()
@@ -69,15 +69,14 @@ reportStudent::~reportStudent()
 // This function handles exporting the report to a .txt file that the user chooses
 void reportStudent::saveReportAsText()
 {
-    // Pop up the file dialog and ask user where they wanna save the file
+    // ask usser where would yo like to save 
     QString filePath = QFileDialog::getSaveFileName(this, "Save Report", "", "Text Files (*.txt)");
 
     if (filePath.isEmpty())
-        return; // user changed their mind and cancelled
+        return; // user changed their mind and cancelled 
 
-    // You had a hardcoded path here! Warning: this won’t work properly unless that folder exists!
-    // QFile file(filePath); // use this instead if you want to respect the user's chosen location
-    QFile file("C:\\project ds final isa\\QtWidgetsApplication1\\printableReport.txt");
+   
+    QFile file(filePath);
 
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QMessageBox::warning(this, "Error", "Could not open file to write.");
@@ -86,7 +85,7 @@ void reportStudent::saveReportAsText()
 
     QTextStream out(&file);
 
-    // 
+    // allingment of Report 
     out << "==== Student Report ====\n";
     out << "Name: " << ui.lineEdit_2->text() << "\n";
     out << "ID: " << ui.lineEdit_3->text() << "\n";
