@@ -24,11 +24,11 @@ CourseRegisterStudentPage::CourseRegisterStudentPage(QWidget* parent)
 	comboBoxes.push_back(ui.AvailableCourses5);
 	comboBoxes.push_back(ui.AvailableCourses6);
 
-	// Initialize each comboBox with a default "Select an option..." item
-	// and connect its selection to displayCourseName()
+	
 	for (auto x : comboBoxes) {
-		x->addItem("Select an option...");
-		connect(x, SIGNAL(currentIndexChanged(int)), this, SLOT(displayCourseName()));
+		x->addItem("Select an option...");// Initialize each comboBox with a default "Select an option..." item
+
+		connect(x, SIGNAL(currentIndexChanged(int)), this, SLOT(displayCourseName()));// and connect its selection to displayCourseName() 
 	}
 
 	// Connect the submit button to the course registration function
@@ -125,27 +125,28 @@ void CourseRegisterStudentPage::updateTotalCreditHours() {
 } // Mahmoud Function
 
 void CourseRegisterStudentPage::registerSelectedCourses() {
-	// Check if student has already registered (based on special "none" placeholder)
+	// Check if student has already registered (based on special "none" if it  is non so he has no reg courses)
 	if (FilesClass::toLower(student->getCourses().at(0)) != "none") {
 		QMessageBox::warning(this, "Already Registered", "You have already registered courses. You cannot register again.");
 		return;
 	}
+	// Loop through all the course selection combo boxes,
 
 	QStringList selectedIDs;
 	for (auto x : comboBoxes) {
-		selectedIDs.append(x->currentText());
+		selectedIDs.append(x->currentText()); // and collect the currently selected course IDs into a QStringList
 	}
 
 	int totalCredits = 0;
 
 	// Loop through selected courses and validate each
 	for (const QString& qid : selectedIDs) {
-		if (qid == "Select an option... ") continue;
+		if (qid == "Select an option... ") continue;// Because start of combo box is Select an option some one clould register only one course so it donot but it in list 
 
 		string courseID = qid.toStdString();
 		if (courseID.empty()) continue;
 
-		// Check if the course is actually offered
+		// Check if the course is actually Available 
 		if (!student->CourseIsAvaliable(courseID, FilesClass::AllCourses)) {
 			QMessageBox::warning(this, "Course Error", QString::fromStdString("Course not available: " + courseID));
 			return;
@@ -169,7 +170,7 @@ void CourseRegisterStudentPage::registerSelectedCourses() {
 	}
 
 	// Remove the placeholder "none" from the courses list
-	student->getCoursesPtr()->pop_back();
+	student->getCoursesPtr()->pop_back();// hassan file hand when he gets non 
 
 	// Finally, register the selected courses
 	for (QString qid : selectedIDs) {
@@ -178,10 +179,10 @@ void CourseRegisterStudentPage::registerSelectedCourses() {
 		if (!courseID.empty() && courseID != "Select an option... ") {
 			student->CourseRegisteration(courseID, FilesClass::AllCourses, student->getCoursesCompleted());
 		}
-		qDebug() << student->getCourses();  // You can comment this line in production
+		
 	}
 
-	// Notify user of success
+	// message that course reg done 
 	QMessageBox::information(this, "Registration Complete", "Courses registered successfully!");
 
 	// Save the action into the student’s history queue
@@ -189,7 +190,7 @@ void CourseRegisterStudentPage::registerSelectedCourses() {
 
 	// Keep history size at 5 actions max
 	if (Student::history.size() > 5) {
-		Student::history.pop();
+		Student::history.pop();// jo function 
 	}
 } // Mahmoud Function
 
