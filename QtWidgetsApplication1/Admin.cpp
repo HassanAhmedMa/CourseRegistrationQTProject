@@ -15,19 +15,23 @@ Admin::Admin(int id, string name, string username, string password)
 
 void Admin::setPreRequisites(unordered_map<string, course>& allcourses, string selectedCourseID, string preRequisiteCourseID) {
 
-    auto it = allcourses.find(selectedCourseID);
+    auto it = FilesClass::AllCourses.find(selectedCourseID);
 
-    if (it != allcourses.end()) {
-        auto preReqIt = allcourses.find(preRequisiteCourseID);
-        if (preReqIt != allcourses.end()) {
-            it->second.setPreRequisite(&(preReqIt->second));
+    if (it != FilesClass::AllCourses.end()) {
+        auto preReqIt = FilesClass::AllCourses.find(preRequisiteCourseID);
+        if (preReqIt != FilesClass::AllCourses.end()) {
+            qDebug() << "ADDING COURSE PREREQUISUTE";
+            /*it->second.setPreRequisite(FilesClass::AllCourses.find(preRequisiteCourseID)->second);*/
+            FilesClass::AllCourses[selectedCourseID].setPreRequisite(&FilesClass::AllCourses[preRequisiteCourseID]);
+            qDebug() << FilesClass::AllCourses[selectedCourseID].getPrerequisite()->getCourseID();
+
         }
         else {
-            cout << "Prerequisite course not found!" << endl;
+            qDebug() << "Prerequisite course not found!";
         }
     }
     else {
-        cout << "Selected course not found!" << endl;
+        qDebug() << "Selected course not found!";
     }
 }
 
@@ -135,32 +139,85 @@ void Admin::EditStudentGrades(int id, string courseId, int grade, string sem, un
     cout << "Grade uploaded successfully.";
 }
 
-void Admin::uploadStudentCompletedCourse(string id, string courseId, unordered_map<string, Student>& Studs, unordered_map<string, course>& allCourses)
+void Admin::uploadStudentCompletedCourse(string id, string courseId, unordered_map<string, Student> Studs, unordered_map<string, course> allCourses)
 {
-    auto it = Studs.find(id);
-    if (it == Studs.end()) {
-        cout << "Student Not Found.";
+    Student* studentToUpdate = nullptr;
+    bool studentFound = false;
+    for (auto x : Studs) {
+        if (x.first == id) {
+            studentToUpdate = &FilesClass::demoStudentsMap[id];
+            studentFound = true;
+            qDebug() << "Found Student !";
+        }
+    }
+    if (!studentFound) {
         return;
     }
-
-    Student& stud = it->second;
-    auto it2 = allCourses.find(courseId);
-    if (it2 == allCourses.end()) {
-        cout << "Course not found and therefore cannot be added.";
+    bool courseFound = false;
+    for (auto x : allCourses) {
+        if (x.first == courseId) {
+            courseFound = true;
+            qDebug() << "Found Course !";
+        }
+    }
+    if (!courseFound) {
         return;
     }
+    if (FilesClass::toLower(studentToUpdate->getCoursesCompleted().at(0)) == "none") {
+        qDebug() << studentToUpdate->getCoursesCompleted();
+        studentToUpdate->getCoursesCompletedPtr().clear();
+        qDebug() << studentToUpdate->getCoursesCompleted();
+        qDebug() << studentToUpdate->getCoursesCompleted().size();
 
-    string completedCourse = it2->first;
-    stud.addCourseCompleted(completedCourse);
+    }
 
-    vector <string> registeredCourses = stud.getCourses();
-
+    studentToUpdate->addCourseCompleted(courseId);
+    vector<string> registeredCourses = studentToUpdate->getCourses();
+    qDebug() << registeredCourses;
     auto it3 = find(registeredCourses.begin(), registeredCourses.end(), courseId);
     if (it3 != registeredCourses.end()) {
         registeredCourses.erase(it3);
-        stud.setCurrentCourses(registeredCourses);
+        studentToUpdate->setCurrentCourses(registeredCourses);
+        qDebug() << "Course Removed Succecsfully !";
     }
-    cout << "Course has been added successfully to student's completed courses.";
+    if (studentToUpdate->getCourses().size() == 0) {
+        studentToUpdate->addCourse("none");
+    }
+    qDebug() << studentToUpdate->getCoursesCompleted();
+
+
+
+
+    //vector<string>* courses = studentToUpdate->getCoursesPtr();  // Get the vector by reference
+
+
+
+
+
+
+
+
+
+   /* auto it = Studs.find(id);
+    if (it == Studs.end()) {
+        qDebug() << "Student Not Found.";
+        return;
+    }
+
+    Student* stud = &it->second;
+    auto it2 = allCourses.find(courseId);
+    if (it2 == allCourses.end()) {
+        qDebug() << "Course not found and therefore cannot be added.";
+        return;
+    }
+
+    course* completedCourse = &it2->second;
+    if () {
+        stud->getCoursesCompleted().pop_back();
+        stud->addCourseCompleted(completedCourse->getCourseID());
+    }*/
+
+    
 }
 
 //void Admin::uploadStudentCompletedCourse(int id, string courseId, unordered_map<int, Student>& Studs, unordered_map<string, course>& allCourses)

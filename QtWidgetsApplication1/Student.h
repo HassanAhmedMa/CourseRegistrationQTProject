@@ -32,6 +32,7 @@ public:
 	void addCourseCompleted(vector<string> coursesToAdd); // setter for the list of completed courses of the student
 	void addCourseCompleted(string courseName); // setter for the list of completed courses of the student
 	vector<string> getCoursesCompleted();	// getter for the list of completed courses of the student
+	vector<string>& getCoursesCompletedPtr();	// getter for the list of completed courses of the student
 
 	void addGrade(string courseID, string courseName, string semester, double gradeValue);
 	void getGrade(string courseID);
@@ -41,7 +42,7 @@ public:
 
 
 
-
+	vector<string>& getCourseRef();
 	void setCurrentCourses(vector<string>& c);
 	static bool CourseIsAvaliable(string searchedCourse, unordered_map<string, course> AllCourses);
 	void SearchForAvaibleCourses(); //we need to use search tree

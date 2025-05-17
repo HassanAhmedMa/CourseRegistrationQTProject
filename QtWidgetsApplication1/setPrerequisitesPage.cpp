@@ -41,7 +41,7 @@ setPrerequisitesPage::setPrerequisitesPage(QWidget *parent)
 		}*/
 	//}
 
-	Admin* admin = QtWidgetsApplication1::currentAdmin;
+	Admin* admin = new Admin(1231, "System Admin", "Admin", "Admin123");
 	/*for (const auto& pair : courses) {
 		std::string courseID = pair.first;
 		ui.comboBoxSelectCoursePrereq->addItem(QString::fromStdString(courseID));
@@ -93,7 +93,7 @@ void setPrerequisitesPage::onCourseChanged()
 void setPrerequisitesPage::onPrereqChanged()
 {
 	QString selected = ui.comboBoxAddCourseprereq->currentText();
-	qDebug() << "Selected prerequisite:" << selected;
+
 }
 
 void setPrerequisitesPage::onSubmitClicked()
@@ -107,8 +107,8 @@ void setPrerequisitesPage::onSubmitClicked()
 		return;
 	}
 
-	
-	Admin* admin = QtWidgetsApplication1::currentAdmin;
+	qDebug() << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+	Admin* admin = new Admin(1231, "System Admin", "Admin", "Admin123");
 	admin->setPreRequisites(FilesClass::AllCourses, selectedID.toStdString(), prerequisiteID.toStdString());
 	ui.CurrentCourseLabel->setText("prerequisite Course : " + QString::fromStdString(FilesClass::AllCourses[ui.comboBoxSelectCoursePrereq->currentText().toStdString()].getPrerequisite()->getCourseID()));
 	QMessageBox::information(this, "Success", "Prerequisite set successfully.");

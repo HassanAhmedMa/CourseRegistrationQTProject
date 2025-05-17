@@ -107,13 +107,13 @@ void QtWidgetsApplication1::on_LoginButton_clicked()// when presses the login bu
 #include <unordered_map>
 #include <string>
 vector<Admin> allAdmins;
-Admin* QtWidgetsApplication1::currentAdmin = nullptr;
+Admin* QtWidgetsApplication1::currentAdmin = new Admin(1231, "System Admin" , "Admin" , "Admin123");
 QtWidgetsApplication1::QtWidgetsApplication1(QWidget* parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
     connect(ui.RegisterButton, &QPushButton::clicked, this, &QtWidgetsApplication1::on_registerButton_clicked);
-    connect(ui.LoginButton, &QPushButton::clicked, this, &QtWidgetsApplication1::on_LoginButton_clicked);
+    connect(ui.LoginButton, &QPushButton::clicked, this, &QtWidgetsApplication1::loginClicked);
 
     //3 dummies
 
@@ -139,7 +139,7 @@ void QtWidgetsApplication1::on_registerButton_clicked() {
     registerPage->show();
 
 }
-void QtWidgetsApplication1::on_LoginButton_clicked()
+void QtWidgetsApplication1::loginClicked()
 {
     QString username = ui.UserNamelogin->text();
     QString password = ui.PasswordLogin->text();

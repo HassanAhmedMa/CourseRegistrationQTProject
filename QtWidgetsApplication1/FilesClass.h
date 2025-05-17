@@ -24,6 +24,7 @@ public:
 	unordered_map<string, string> preReq;
 	static Student* loggedInStudent;
 
+
 	vector<string> parseCSVLine(string& line);
 	void readStudentsData(string studentsFile = "Book1.csv");
 	void readCoursesData(string location = "CoursesData.csv");

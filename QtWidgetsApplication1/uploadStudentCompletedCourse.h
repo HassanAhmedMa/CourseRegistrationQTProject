@@ -18,7 +18,7 @@ public:
 private slots:
 
 
-	void on_uploadStudentCompletedCourseBtn_clicked();
+	void uploadStudentCompletedCourseBtnDone();
 
 	void on_backBtn_clicked();
 

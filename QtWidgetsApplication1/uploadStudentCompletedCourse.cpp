@@ -17,7 +17,7 @@ uploadStudentCompletedCourse::uploadStudentCompletedCourse(QWidget* parent)
 	Admin* admin = QtWidgetsApplication1::currentAdmin;
 
 	connect(ui.searchBtn, &QPushButton::clicked, this, &uploadStudentCompletedCourse::on_searchBtn_clicked);
-	connect(ui.uploadStudentCompletedCourseBtn, &QPushButton::clicked, this, &uploadStudentCompletedCourse::on_uploadStudentCompletedCourseBtn_clicked);
+	connect(ui.uploadStudentCompletedCourseBtn, &QPushButton::clicked, this, &uploadStudentCompletedCourse::uploadStudentCompletedCourseBtnDone);
 	connect(ui.backBtn, &QPushButton::clicked, this, &uploadStudentCompletedCourse::on_backBtn_clicked);
 
 
@@ -26,7 +26,7 @@ uploadStudentCompletedCourse::uploadStudentCompletedCourse(QWidget* parent)
 
 
 
-void uploadStudentCompletedCourse::on_uploadStudentCompletedCourseBtn_clicked()
+void uploadStudentCompletedCourse::uploadStudentCompletedCourseBtnDone()
 {
 	Admin* admin = QtWidgetsApplication1::currentAdmin;
 	string studentId = ui.StudentIdLineEdit->text().toStdString();

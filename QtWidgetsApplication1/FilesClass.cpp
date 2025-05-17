@@ -3,6 +3,7 @@
 unordered_map<string, Student> FilesClass::demoStudentsMap;
 unordered_map<string, course> FilesClass::AllCourses;
 Student* FilesClass::loggedInStudent;
+//Admin* FilesClass::currentAdmin;
 
 //-------------------------/CSV Parser/--------------------------------------------------------------------------------
 
@@ -105,17 +106,29 @@ void FilesClass::readStudentsData(string studentsFile) {
 		}
 		if (toLower(gradesBeforeCleanUp) != "none") {
 			stringstream gradesStream(gradesBeforeCleanUp);
-			string tempCourse;
-			while (getline(gradesStream, tempCourse, ',')) {
-				grades.push_back(stof(tempCourse));
+			string completedGrades;
+			while (getline(gradesStream, completedGrades, ',')) {
+				grades.push_back(stof(completedGrades));
 			}
 		}
 		else {
 			grades.push_back(-1.0); //To check if the student has no grades at all
 		}
 
-
-		
+		if (!registeredGradesBeforeCleanUp.empty() && registeredGradesBeforeCleanUp.front() == '"' && registeredGradesBeforeCleanUp.back() == '"') {
+			registeredGradesBeforeCleanUp = registeredGradesBeforeCleanUp.substr(1, registeredGradesBeforeCleanUp.length() - 2); // -2 because it we don't want the "
+		}
+		if (toLower(registeredGradesBeforeCleanUp) != "none") {
+			stringstream registeredGradesStream(registeredGradesBeforeCleanUp);
+			string registeredGrades;
+			while (getline(registeredGradesStream, registeredGrades, ',')) {
+				grades.push_back(stof(registeredGrades));
+			}
+		}
+		else {
+			grades.push_back(-1.0); //To check if the student has no grades at all
+		}
+		qDebug() << grades;
 
 
 
@@ -125,14 +138,34 @@ void FilesClass::readStudentsData(string studentsFile) {
 		stud.addCourseCompleted(CompletedCourses);
 		
 
-		if (CompletedCourses.size() == grades.size() && grades.at(0) != -1) { //if the student has grades and at the same time the number of grades = the number of completed courses
+		if (CompletedCourses.size() + registeredCourses.size() == grades.size()) { //if the student has grades and at the same time the number of grades = the number of completed courses
 			int k = 0;
-			for (auto grade : grades) {
+			/*for (auto grade : grades) {
 				stud.addGrade(CompletedCourses.at(k), AllCourses[CompletedCourses.at(k)].getCourseTitle(), "fall", grade);
 				k++;
+			}*/
+			for (auto x : CompletedCourses) {
+				if (grades.at(k) != 5) {
+					stud.addGrade(x, AllCourses[x].getCourseTitle(), "fall", grades.at(k));
+					k++;
+				}
+				else {
+					k++;
+					continue;
+				}
 				
+			}
+			for (auto x : registeredCourses) {
+				if (grades.at(k) != 5 ) {
+					stud.addGrade(x, AllCourses[x].getCourseTitle(), "fall", grades.at(k));
+					k++;
+				}
+				else
+				{
+					k++;
+					continue;
+				}
 				
-
 			}
 		}
 		else
@@ -230,8 +263,8 @@ void FilesClass::writeStudentData()
 		string passwordStr = x.second.getPassword();
 		string idStr = to_string( x.second.getId());
 		string nameStr =  x.second.getName();
-		string completedCoursesGradesStr = "-1";
-
+		string completedCoursesGradesStr = "5";
+		string RegisteredCoursesGradesStr = "5";
 
 		//Reverse the parsing from the data in the static files
 		if (toLower(x.second.getCourses().at(0)) != "none") { //"none" is the identifier if there is no course registered
@@ -265,7 +298,7 @@ void FilesClass::writeStudentData()
 				completedCoursesStr = x.second.getCoursesCompleted().at(0);
 			}
 		}
-
+		
 		if (toLower(x.second.getCoursesCompleted().at(0))  != "none") {
 			completedCoursesGradesStr = "";
 			if (x.second.getCoursesCompleted().size() > 1) {
@@ -281,6 +314,23 @@ void FilesClass::writeStudentData()
 				completedCoursesGradesStr = x.second.GetGradeAsString(x.second.getCoursesCompleted().at(0));
 			}
 		}
+		if (toLower(x.second.getCourses().at(0)) != "none") {
+			RegisteredCoursesGradesStr = "";
+			if (x.second.getCourses().size() > 1) {
+				RegisteredCoursesGradesStr = "\"";
+				for (auto registeredCourse : x.second.getCourses()) {
+					RegisteredCoursesGradesStr.append(x.second.GetGradeAsString(registeredCourse) + ",");
+
+				}
+				RegisteredCoursesGradesStr.pop_back();
+				RegisteredCoursesGradesStr.append("\"");
+			}
+			else {
+				RegisteredCoursesGradesStr = x.second.GetGradeAsString(x.second.getCourses().at(0));
+			}
+		}
+
+		
 
 
 
@@ -298,7 +348,7 @@ void FilesClass::writeStudentData()
 			<< registeredCoursesStr << ','
 			<< completedCoursesStr << ','
 			<< completedCoursesGradesStr << ','
-			<< "-1" << "\n";
+			<< RegisteredCoursesGradesStr << "\n";
 
 
 
@@ -343,9 +393,9 @@ void FilesClass::writeStudentData()
 void FilesClass::writeCoursesData()
 {
 	
-	ofstream file("CourseData.csv");
+	ofstream file("CoursesData.csv");
 	if (!file.is_open()) {
-		qDebug() << "Couldn't open " << "CourseData.csv";
+		qDebug() << "Couldn't open " << "CoursesData.csv";
 		return;
 	}
 	file << "CourseID,CourseName,CreditHours,Instructor,Prerequisite,Syllabus\n";

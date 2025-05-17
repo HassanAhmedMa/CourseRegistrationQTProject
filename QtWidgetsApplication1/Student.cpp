@@ -64,6 +64,17 @@ vector<string> Student::getCoursesCompleted()
 	return CompletedCourses;
 }
 
+vector<string>& Student::getCoursesCompletedPtr()
+{
+	return CompletedCourses;
+}
+
+
+vector<string>& Student::getCourseRef()
+{
+	// TODO: insert return statement here
+	return MyCourses;
+}
 
 void Student::setCurrentCourses(vector<string>& c)
 {
@@ -102,7 +113,7 @@ string Student::GetGradeAsString(string courseID) {
 		return stream.str();
 	}
 	else {
-		return "-1";
+		return "5";
 	}
 }
 

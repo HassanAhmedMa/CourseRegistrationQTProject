@@ -81,8 +81,7 @@ void ViewStudentGradeAdminPage::onShowGradeClicked()
 
 void ViewStudentGradeAdminPage::onBackToAdminMenuClicked()
 {
-	AdminMenu* adminMenu = new AdminMenu(this);
-	adminMenu->show();
+
 	this->close();
 }
 

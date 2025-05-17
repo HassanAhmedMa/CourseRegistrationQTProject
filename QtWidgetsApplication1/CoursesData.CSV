@@ -1,16 +1,16 @@
 CourseID,CourseName,CreditHours,Instructor,Prerequisite,Syllabus
-CS101,Introduction to Programming,3,Dr. Smith,None,"Programming basics, variables, control structures, functions"
-CS102,Data Structures,3,Dr. Johnson,CS101,"Arrays, pointers, recursion, linked lists, stacks and queues"
-CS201,Algorithms,3,Dr. Adams,CS102,"Sorting, searching, trees, graphs, algorithm complexity"
-CS301,Advanced Programming,3,Dr. Williams,CS201,"OOP principles, design patterns, file I/O, multithreading"
-MATH101,Calculus I,3,Dr. Green,None,"Limits, derivatives, integration, applications of calculus"
-MATH102,Calculus II,3,Dr. Green,MATH101,"Advanced integration, sequences, series, polar coordinates"
-MATH201,Linear Algebra,3,Dr. Brown,MATH102,"Matrices, determinants, vector spaces, eigenvalues"
-PHY101,Physics I,3,Dr. Newton,None,"Kinematics, dynamics, Newton’s laws, energy, momentum"
-PHY201,Physics II,3,Dr. Einstein,PHY101,"Electricity, magnetism, optics, modern physics"
-CHEM101,Chemistry Basics,3,Dr. Curie,None,"Atomic structure, periodic table, bonding, acids and bases"
-AI301,Introduction to AI,3,Dr. Turing,CS201,"Search algorithms, logic, ML basics, neural networks"
-SWENG101,Software Engineering,3,Dr. Brooks,CS102,"SDLC, UML, testing, agile, version control"
-DB101,Databases,3,Dr. Codd,CS102,"SQL, ER diagrams, normalization, transactions"
-COMM201,Communication Skills,2,Dr. Mayer,None,"Public speaking, group communication, listening skills"
-ENG101,English for Engineers,2,Dr. Adams,None,"Technical writing, email etiquette, reports, proposals"
+CS101,Introduction to Programming,3,Dr. Smith,None,Programming basics
+CS102,Data Structures,3,Dr. Johnson,CS101,Arrays
+CS201,Algorithms,3,Dr. Adams,CS102,Sorting
+CS301,Advanced Programming,3,Dr. Williams,CS101,OOP principles
+MATH101,Calculus I,3,Dr. Green,None,Limits
+MATH102,Calculus II,3,Dr. Green,MATH101,Advanced integration
+CHEM101,Chemistry Basics,3,Dr. Curie,None,Atomic structure
+MATH201,Linear Algebra,3,Dr. Brown,MATH102,Matrices
+PHY101,Physics I,3,Dr. Newton,None,Kinematics
+PHY201,Physics II,3,Dr. Einstein,PHY101,Electricity
+ENG101,English for Engineers,2,Dr. Adams,None,Technical writing
+AI301,Introduction to AI,3,Dr. Turing,CS201,Search algorithms
+SWENG101,Software Engineering,3,Dr. Brooks,CS102,SDLC
+DB101,Databases,3,Dr. Codd,CS102,SQL
+COMM201,Communication Skills,2,Dr. Mayer,None,Public speaking

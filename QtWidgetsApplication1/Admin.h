@@ -27,7 +27,7 @@ public:
     void deleteCourse(unordered_map<string, course>& allCourses, string courseId);
     void uploadStudentGrades(int id, string courseId, int grade, string sem, unordered_map<int, Student>& Studs, unordered_map<string, course>& allCourses);
     void EditStudentGrades(int id, string courseId, int grade, string sem, unordered_map<int, Student>& Studs, unordered_map<string, course>& allCourses);
-    void uploadStudentCompletedCourse(string id, string courseId, unordered_map<string, Student>& Studs, unordered_map<string, course>& allCourses);
+    void uploadStudentCompletedCourse(string id, string courseId, unordered_map<string, Student> Studs, unordered_map<string, course> allCourses);
     void displayStudentGrades(int id, unordered_map<int, Student>& Studs);
     void assignInstructorToCourse(string courseId, string instructorName, unordered_map<string, course>& allcourses);
     void removeStudentFromCourse(int studentId, string courseId, unordered_map<int, Student>& Studs);
